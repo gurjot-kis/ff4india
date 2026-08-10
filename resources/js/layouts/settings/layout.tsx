@@ -17,15 +17,11 @@ const sidebarNavItems: NavItem[] = [
         icon: null,
     },
     {
-        title: 'Security',
+        title: 'Confirm password',
         href: editSecurity(),
         icon: null,
     },
-    {
-        title: 'Appearance',
-        href: editAppearance(),
-        icon: null,
-    },
+   
 ];
 
 export default function SettingsLayout({ children }: PropsWithChildren) {
