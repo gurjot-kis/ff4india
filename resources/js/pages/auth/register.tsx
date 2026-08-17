@@ -25,7 +25,7 @@ export default function Register({ passwordRules }: Props) {
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-6">
+                        {/* <div className="grid gap-6">
                             <div className="grid gap-2">
                                 <Label htmlFor="name">Name</Label>
                                 <Input
@@ -99,7 +99,7 @@ export default function Register({ passwordRules }: Props) {
                                 {processing && <Spinner />}
                                 Create account
                             </Button>
-                        </div>
+                        </div> */}
 
                         <div className="text-center text-sm text-muted-foreground">
                             Already have an account?{' '}
@@ -114,7 +114,7 @@ export default function Register({ passwordRules }: Props) {
     );
 }
 
-Register.layout = {
-    title: 'Create an account',
-    description: 'Enter your details below to create your account',
-};
+// Register.layout = {
+//     title: 'Create an account',
+//     description: 'Enter your details below to create your account',
+// };

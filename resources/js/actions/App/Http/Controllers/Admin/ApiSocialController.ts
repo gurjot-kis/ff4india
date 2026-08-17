@@ -1,15 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
-import notices from './notices'
-import visaBulletins from './visa-bulletins'
-import emergencyBroadcasts from './emergency-broadcasts'
-import visaPreferences from './visa-preferences'
-import visaApplications from './visa-applications'
-import recentApprovals from './recent-approvals'
-import contactForms from './contact-forms'
-import categories from './categories'
-import blogs from './blogs'
-import familyImages from './family-images'
-import homePage from './home-page'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_uscis_status
 * @see app/Http/Controllers/Admin/ApiSocialController.php:19
@@ -334,22 +323,6 @@ check_instagram_videoForm.head = (options?: RouteQueryOptions): RouteFormDefinit
 
 check_instagram_video.form = check_instagram_videoForm
 
-const dashboard = {
-    notices: Object.assign(notices, notices),
-    visaBulletins: Object.assign(visaBulletins, visaBulletins),
-    emergencyBroadcasts: Object.assign(emergencyBroadcasts, emergencyBroadcasts),
-    visaPreferences: Object.assign(visaPreferences, visaPreferences),
-    visaApplications: Object.assign(visaApplications, visaApplications),
-    recentApprovals: Object.assign(recentApprovals, recentApprovals),
-    contactForms: Object.assign(contactForms, contactForms),
-    categories: Object.assign(categories, categories),
-    blogs: Object.assign(blogs, blogs),
-    familyImages: Object.assign(familyImages, familyImages),
-    homePage: Object.assign(homePage, homePage),
-    check_uscis_status: Object.assign(check_uscis_status, check_uscis_status),
-    check_youtube_video: Object.assign(check_youtube_video, check_youtube_video),
-    check_facebook_video: Object.assign(check_facebook_video, check_facebook_video),
-    check_instagram_video: Object.assign(check_instagram_video, check_instagram_video),
-}
+const ApiSocialController = { check_uscis_status, check_youtube_video, check_facebook_video, check_instagram_video }
 
-export default dashboard
+export default ApiSocialController

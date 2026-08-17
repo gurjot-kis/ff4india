@@ -2,10 +2,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Exports\RecentApprovalExport;
 use App\Models\Admin\RecentApproval;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel as ExcelFormat;
 
 class RecentApprovalController extends Controller
 {
@@ -117,5 +122,44 @@ class RecentApprovalController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Recent Approval deleted successfully.');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(
+            new RecentApprovalExport(),
+            'recent_approvals.xlsx'
+        );
+    }
+
+    public function exportCsv()
+    {
+        return Excel::download(
+            new RecentApprovalExport(),
+            'recent_approvals.csv',
+            ExcelFormat::CSV
+        );
+    }
+
+    public function exportPdf()
+    {
+        $preferences = RecentApproval::orderBy('approval_date', 'desc')->get();
+
+        $pdf = Pdf::loadView(
+            'exports.recent_approval_pdf',
+            compact('preferences')
+        )->setPaper('a3', 'landscape');
+
+        return $pdf->download('recent_approvals.pdf');
+    }
+    
+    public function print()
+    {
+        $preferences = RecentApproval::orderBy('approval_date', 'desc')->get();
+
+        return view(
+            'exports.recent_approval_print',
+            compact('preferences')
+        );
     }
 }

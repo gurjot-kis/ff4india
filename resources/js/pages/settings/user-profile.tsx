@@ -62,7 +62,7 @@ export default function Profile({
             
          
          <a
-    href="#"
+    href=""
     id="profile-link"
     onClick={(e) => {
         e.preventDefault();
@@ -73,7 +73,7 @@ export default function Profile({
 </a>
 <br />
 <a
-    href="#"
+    href=""
     id="confirm-password-link"
     onClick={(e) => {
         e.preventDefault();
@@ -122,6 +122,24 @@ export default function Profile({
                                     message={errors.name}
                                 />
                             </div>
+
+
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="profileImage">Image</Label>
+
+                                <img
+                                    id="profileImage" alt="image"
+                                    className="mt-1 block w-full profile_image"
+                                    src={`${import.meta.env.VITE_IMAGE_URL}${auth.user.image}`}
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.email}
+                                />
+                            </div>
+
 
                             <div className="grid gap-2">
                                 <Label htmlFor="email">Email address</Label>

@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 export const edit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(options),
@@ -11,13 +11,13 @@ export const edit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 edit.definition = {
     methods: ["get","head"],
-    url: '/settings/profile',
+    url: '/dashboard/settings/profile',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 edit.url = (options?: RouteQueryOptions) => {
     return edit.definition.url + queryParams(options)
@@ -26,7 +26,7 @@ edit.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(options),
@@ -36,7 +36,7 @@ edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(options),
@@ -46,7 +46,7 @@ edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(options),
@@ -56,7 +56,7 @@ const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(options),
@@ -66,7 +66,7 @@ editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
 * @see app/Http/Controllers/Settings/ProfileController.php:20
-* @route '/settings/profile'
+* @route '/dashboard/settings/profile'
 */
 editForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url({

@@ -35,4 +35,18 @@ return [
         ],
     ],
 
+    'youtube' => [
+        'api_key' => env('YOUTUBE_API_KEY'),
+        'channel_id' => env('YOUTUBE_CHANNEL_ID'),
+        'api_url' => env(
+            'YOUTUBE_API_URL',
+            'https://www.googleapis.com/youtube/v3/search'
+        ),
+    ],
+
+    'facebook' => [
+        'page_id' => env('FB_PAGE_ID'),
+        'page_access_token' => env('FB_PAGE_ACCESS_TOKEN'),
+    ],
+
 ];

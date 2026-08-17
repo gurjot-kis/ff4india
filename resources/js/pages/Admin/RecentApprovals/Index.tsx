@@ -52,9 +52,11 @@ export default function Index({
         }
     };
 
+    
+
     return (
         <>
-            <Head title="Recent Approvals" />
+            <Head title="Recent Approvals" /> 
 
             <div className="p-6">
 
@@ -73,36 +75,77 @@ export default function Index({
 
                 </div>
 
-                {/* Search */}
 
-                <form
-                    onSubmit={handleSearch}
-                    className="flex gap-2 mb-5"
-                >
+            <div className="col-12">
 
-                    <input
-                        type="text"
-                        className="border rounded px-3 py-2 w-80"
-                        placeholder="Search Name / Visa Category..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
+                <div className="flex gap-2 mb-4">
 
-                    <button
-                        type="submit"
-                        className="bg-blue-600 text-white px-4 rounded"
+                    <a
+                        href="/dashboard/recent-approvals/export/excel"
+                        className="bg-green-600 text-white px-4 py-2 rounded"
                     >
-                        Search
-                    </button>
+                        Excel
+                    </a>
 
-                    <Link
-                        href="/dashboard/recent-approvals"
+                    <a
+                        href="/dashboard/recent-approvals/export/pdf"
+                        className="bg-red-600 text-white px-4 py-2 rounded"
+                    >
+                        PDF
+                    </a>
+
+                    <a
+                        href="/dashboard/recent-approvals/export/csv"
+                        className="bg-blue-600 text-white px-4 py-2 rounded"
+                    >
+                        CSV
+                    </a>
+
+                    <a
+                        href="/dashboard/recent-approvals/print"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
-                        Reset
-                    </Link>
+                        Print
+                    </a>
 
-                </form>
+                </div>
+
+
+                {/* Search */}
+                <div className="flex gap-2 mb-4"> 
+                    <form
+                        onSubmit={handleSearch}
+                        className="flex gap-2 mb-5"
+                    >
+
+                        <input
+                            type="text"
+                            className="border rounded px-3 py-2 w-80"
+                            placeholder="Search Name / Visa Category..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+
+                        <button
+                            type="submit"
+                            className="bg-blue-600 text-white px-4 rounded"
+                        >
+                            Search
+                        </button>
+
+                        <Link
+                            href="/dashboard/recent-approvals"
+                            className="bg-gray-700 text-white px-4 py-2 rounded"
+                        >
+                            Reset
+                        </Link>
+
+                    </form>
+                </div>
+
+            </div>
 
                 {/* Table */}
 
