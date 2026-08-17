@@ -9,6 +9,7 @@ import CategoryController from './CategoryController'
 import BlogController from './BlogController'
 import FamilyImageController from './FamilyImageController'
 import HomePageEditableController from './HomePageEditableController'
+import ApiSocialController from './ApiSocialController'
 
 const Admin = {
     NoticeController: Object.assign(NoticeController, NoticeController),
@@ -22,6 +23,7 @@ const Admin = {
     BlogController: Object.assign(BlogController, BlogController),
     FamilyImageController: Object.assign(FamilyImageController, FamilyImageController),
     HomePageEditableController: Object.assign(HomePageEditableController, HomePageEditableController),
+    ApiSocialController: Object.assign(ApiSocialController, ApiSocialController),
 }
 
 export default Admin

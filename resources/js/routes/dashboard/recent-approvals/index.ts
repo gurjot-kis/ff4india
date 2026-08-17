@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::index
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:12
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:17
 * @route '/dashboard/recent-approvals'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::create
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:36
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
 * @route '/dashboard/recent-approvals/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -163,7 +163,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::store
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:46
 * @route '/dashboard/recent-approvals'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -178,7 +178,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::store
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:46
 * @route '/dashboard/recent-approvals'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -187,7 +187,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::store
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:46
 * @route '/dashboard/recent-approvals'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -197,7 +197,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::store
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:46
 * @route '/dashboard/recent-approvals'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -207,7 +207,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::store
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:41
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:46
 * @route '/dashboard/recent-approvals'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -219,7 +219,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 export const edit = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -234,7 +234,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 edit.url = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -267,7 +267,7 @@ edit.url = (args: { recent_approval: number | { id: number } } | [recent_approva
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 edit.get = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -277,7 +277,7 @@ edit.get = (args: { recent_approval: number | { id: number } } | [recent_approva
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 edit.head = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -287,7 +287,7 @@ edit.head = (args: { recent_approval: number | { id: number } } | [recent_approv
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 const editForm = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -297,7 +297,7 @@ const editForm = (args: { recent_approval: number | { id: number } } | [recent_a
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 editForm.get = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -307,7 +307,7 @@ editForm.get = (args: { recent_approval: number | { id: number } } | [recent_app
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::edit
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:65
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:70
 * @route '/dashboard/recent-approvals/{recent_approval}/edit'
 */
 editForm.head = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -324,7 +324,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 export const update = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -339,7 +339,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 update.url = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -372,7 +372,7 @@ update.url = (args: { recent_approval: number | { id: number } } | [recent_appro
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 update.put = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -382,7 +382,7 @@ update.put = (args: { recent_approval: number | { id: number } } | [recent_appro
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 update.patch = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -392,7 +392,7 @@ update.patch = (args: { recent_approval: number | { id: number } } | [recent_app
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 const updateForm = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -407,7 +407,7 @@ const updateForm = (args: { recent_approval: number | { id: number } } | [recent
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 updateForm.put = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -422,7 +422,7 @@ updateForm.put = (args: { recent_approval: number | { id: number } } | [recent_a
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::update
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:75
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:80
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 updateForm.patch = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -439,7 +439,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::destroy
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:106
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:111
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 export const destroy = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -454,7 +454,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::destroy
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:106
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:111
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 destroy.url = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -487,7 +487,7 @@ destroy.url = (args: { recent_approval: number | { id: number } } | [recent_appr
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::destroy
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:106
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:111
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 destroy.delete = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -497,7 +497,7 @@ destroy.delete = (args: { recent_approval: number | { id: number } } | [recent_a
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::destroy
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:106
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:111
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 const destroyForm = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -512,7 +512,7 @@ const destroyForm = (args: { recent_approval: number | { id: number } } | [recen
 
 /**
 * @see \App\Http\Controllers\Admin\RecentApprovalController::destroy
-* @see app/Http/Controllers/Admin/RecentApprovalController.php:106
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:111
 * @route '/dashboard/recent-approvals/{recent_approval}'
 */
 destroyForm.delete = (args: { recent_approval: number | { id: number } } | [recent_approval: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -527,6 +527,330 @@ destroyForm.delete = (args: { recent_approval: number | { id: number } } | [rece
 
 destroy.form = destroyForm
 
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+export const excel = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: excel.url(options),
+    method: 'get',
+})
+
+excel.definition = {
+    methods: ["get","head"],
+    url: '/dashboard/recent-approvals/export/excel',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+excel.url = (options?: RouteQueryOptions) => {
+    return excel.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+excel.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: excel.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+excel.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: excel.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+const excelForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: excel.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+excelForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: excel.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::excel
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:127
+* @route '/dashboard/recent-approvals/export/excel'
+*/
+excelForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: excel.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+excel.form = excelForm
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+export const csv = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: csv.url(options),
+    method: 'get',
+})
+
+csv.definition = {
+    methods: ["get","head"],
+    url: '/dashboard/recent-approvals/export/csv',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+csv.url = (options?: RouteQueryOptions) => {
+    return csv.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+csv.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: csv.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+csv.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: csv.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+const csvForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: csv.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+csvForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: csv.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::csv
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:135
+* @route '/dashboard/recent-approvals/export/csv'
+*/
+csvForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: csv.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+csv.form = csvForm
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+export const pdf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: pdf.url(options),
+    method: 'get',
+})
+
+pdf.definition = {
+    methods: ["get","head"],
+    url: '/dashboard/recent-approvals/export/pdf',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+pdf.url = (options?: RouteQueryOptions) => {
+    return pdf.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+pdf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: pdf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+pdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: pdf.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+const pdfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pdf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+pdfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pdf.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::pdf
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:144
+* @route '/dashboard/recent-approvals/export/pdf'
+*/
+pdfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: pdf.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+pdf.form = pdfForm
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+export const print = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: print.url(options),
+    method: 'get',
+})
+
+print.definition = {
+    methods: ["get","head"],
+    url: '/dashboard/recent-approvals/print',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+print.url = (options?: RouteQueryOptions) => {
+    return print.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+print.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: print.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+print.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: print.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+const printForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: print.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+printForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: print.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\RecentApprovalController::print
+* @see app/Http/Controllers/Admin/RecentApprovalController.php:156
+* @route '/dashboard/recent-approvals/print'
+*/
+printForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: print.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+print.form = printForm
+
 const recentApprovals = {
     index: Object.assign(index, index),
     create: Object.assign(create, create),
@@ -534,6 +858,10 @@ const recentApprovals = {
     edit: Object.assign(edit, edit),
     update: Object.assign(update, update),
     destroy: Object.assign(destroy, destroy),
+    excel: Object.assign(excel, excel),
+    csv: Object.assign(csv, csv),
+    pdf: Object.assign(pdf, pdf),
+    print: Object.assign(print, print),
 }
 
 export default recentApprovals

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\FamilyImageController;
 use App\Http\Controllers\Admin\HomePageEditableController;
+use App\Http\Controllers\Admin\ApiSocialController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::resource('home-page', HomePageEditableController::class)->except('show')->parameters(['home-page' => 'homePageEditable',]);
 
+        Route::get('social/check_uscis_status', [ApiSocialController::class, 'check_uscis_status'])->name('check_uscis_status');
+
+        Route::get('social/check_youtube_video', [ApiSocialController::class, 'check_youtube_video'])->name('check_youtube_video');
+        Route::get('social/check_facebook_video', [ApiSocialController::class, 'check_facebook_video'])->name('check_facebook_video');
+        Route::get('social/check_instagram_video', [ApiSocialController::class, 'check_instagram_video'])->name('check_instagram_video');
+        
+
+    });
+
+    Route::prefix('dashboard/recent-approvals')->name('dashboard.recent-approvals.')->group(function () {
+        Route::get('/export/excel', [RecentApprovalController::class, 'exportExcel'])->name('excel');
+        Route::get('/export/csv', [RecentApprovalController::class, 'exportCsv'])->name('csv');
+        Route::get('/export/pdf', [RecentApprovalController::class, 'exportPdf'])->name('pdf');
+        Route::get('/print', [RecentApprovalController::class, 'print'])->name('print');
     });
 
     Route::prefix('dashboard/visa-preferences')->name('dashboard.visa-preferences.')->group(function () {
