@@ -65,7 +65,7 @@ class VisaBulletin extends Controller
                 $query->whereYear('approval_date', $year);
             })
             ->latest()
-            ->paginate(10)
+            ->paginate(9)
             ->withQueryString();
 
         return Inertia::render(

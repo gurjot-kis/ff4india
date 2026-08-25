@@ -2,6 +2,7 @@ import FrontendLayout from '@/layouts/FrontendLayout';
 import config from '@/config';
 import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
+import React from 'react';
 
 interface RecentApproval {
     id: number;
@@ -98,7 +99,8 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
 
                     <div className="row g-xxl-5 g-4">
 
-                        {recentApprovals && recentApprovals.data.map((item) => (
+                    {recentApprovals?.data?.length > 0 ? (
+                        recentApprovals && recentApprovals.data.map((item) => (
 
                             <div className="col-lg-4 col-md-6" key={item.id}>
                                 <a className="case-card" href="javascript:void(0)">
@@ -124,11 +126,126 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
                                 </a>
                             </div>
 
-                        ))}
+                        ))
+                        ) : (
+                            <div className="col-12">
+                                <div className="text-center py-5">
+                                    <h3>No records found</h3>
+                                    <p>
+                                        No immigration case approvals were found for the selected year.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
 
                     </div>
 
-                    <div className="case-pagination">
+
+                    {recentApprovals && recentApprovals.last_page > 1 && (
+    <div className="case-pagination">
+        <nav className="unique-pagination-wrapper" aria-label="Page navigation">
+            <ul className="pagination unique-pagination mb-0">
+
+                {/* First */}
+                <li className={`page-item ${recentApprovals.current_page === 1 ? 'disabled' : ''}`}>
+                    <a
+                        className="page-link unique-page-link"
+                        href={`${recentApprovals.path}?page=1${filters.year ? `&year=${filters.year}` : ''}`}
+                        aria-label="First"
+                    >
+                        <i className="fa-solid fa-angles-left"></i>
+                    </a>
+                </li>
+
+                {/* Previous */}
+                <li className={`page-item ${!recentApprovals.prev_page_url ? 'disabled' : ''}`}>
+                    <a
+                        className="page-link unique-page-link"
+                        href={recentApprovals.prev_page_url ?? '#'}
+                        aria-label="Previous"
+                    >
+                        <i className="fa-solid fa-angle-left"></i>
+                    </a>
+                </li>
+
+                {/* Page numbers */}
+                {Array.from(
+                    { length: recentApprovals.last_page },
+                    (_, index) => index + 1
+                )
+                    .filter((page) => {
+                        const current = recentApprovals.current_page;
+                        const last = recentApprovals.last_page;
+
+                        return (
+                            page === 1 ||
+                            page === last ||
+                            Math.abs(page - current) <= 1
+                        );
+                    })
+                    .map((page, index, pages) => {
+                        const previousPage = pages[index - 1];
+
+                        return (
+                            <React.Fragment key={page}>
+                                {previousPage && page - previousPage > 1 && (
+                                    <li className="page-item">
+                                        <span className="page-link unique-page-link unique-page-dots">
+                                            ...
+                                        </span>
+                                    </li>
+                                )}
+
+                                <li
+                                    className={`page-item ${
+                                        recentApprovals.current_page === page
+                                            ? 'active'
+                                            : ''
+                                    }`}
+                                >
+                                    <a
+                                        className="page-link unique-page-link"
+                                        href={`${recentApprovals.path}?page=${page}${filters.year ? `&year=${filters.year}` : ''}`}
+                                    >
+                                        {page}
+                                    </a>
+                                </li>
+                            </React.Fragment>
+                        );
+                    })}
+
+                {/* Next */}
+                <li className={`page-item ${!recentApprovals.next_page_url ? 'disabled' : ''}`}>
+                    <a
+                        className="page-link unique-page-link"
+                        href={recentApprovals.next_page_url ?? '#'}
+                        aria-label="Next"
+                    >
+                        <i className="fa-solid fa-angle-right"></i>
+                    </a>
+                </li>
+
+                {/* Last */}
+                <li className={`page-item ${
+                    recentApprovals.current_page === recentApprovals.last_page
+                        ? 'disabled'
+                        : ''
+                }`}>
+                    <a
+                        className="page-link unique-page-link"
+                        href={`${recentApprovals.path}?page=${recentApprovals.last_page}${filters.year ? `&year=${filters.year}` : ''}`}
+                        aria-label="Last"
+                    >
+                        <i className="fa-solid fa-angles-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+)}
+
+                    {/* <div className="case-pagination">
                         <nav className="unique-pagination-wrapper" aria-label="Page navigation">
                             <ul className="pagination unique-pagination mb-0">
 
@@ -175,7 +292,7 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
 
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
 
                 </div>
             </section>
