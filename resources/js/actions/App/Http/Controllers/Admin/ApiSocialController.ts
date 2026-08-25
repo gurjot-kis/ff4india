@@ -83,7 +83,7 @@ check_uscis_status.form = check_uscis_statusForm
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 export const check_youtube_video = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_youtube_video.url(options),
@@ -92,13 +92,13 @@ export const check_youtube_video = (options?: RouteQueryOptions): RouteDefinitio
 
 check_youtube_video.definition = {
     methods: ["get","head"],
-    url: '/dashboard/social/check_youtube_video',
+    url: '/social/check_youtube_video',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 check_youtube_video.url = (options?: RouteQueryOptions) => {
     return check_youtube_video.definition.url + queryParams(options)
@@ -107,7 +107,7 @@ check_youtube_video.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 check_youtube_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_youtube_video.url(options),
@@ -117,7 +117,7 @@ check_youtube_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'> 
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 check_youtube_video.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: check_youtube_video.url(options),
@@ -127,7 +127,7 @@ check_youtube_video.head = (options?: RouteQueryOptions): RouteDefinition<'head'
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 const check_youtube_videoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_youtube_video.url(options),
@@ -137,7 +137,7 @@ const check_youtube_videoForm = (options?: RouteQueryOptions): RouteFormDefiniti
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 check_youtube_videoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_youtube_video.url(options),
@@ -147,7 +147,7 @@ check_youtube_videoForm.get = (options?: RouteQueryOptions): RouteFormDefinition
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_youtube_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:165
-* @route '/dashboard/social/check_youtube_video'
+* @route '/social/check_youtube_video'
 */
 check_youtube_videoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_youtube_video.url({
@@ -164,7 +164,7 @@ check_youtube_video.form = check_youtube_videoForm
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 export const check_facebook_video = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_facebook_video.url(options),
@@ -173,13 +173,13 @@ export const check_facebook_video = (options?: RouteQueryOptions): RouteDefiniti
 
 check_facebook_video.definition = {
     methods: ["get","head"],
-    url: '/dashboard/social/check_facebook_video',
+    url: '/social/check_facebook_video',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 check_facebook_video.url = (options?: RouteQueryOptions) => {
     return check_facebook_video.definition.url + queryParams(options)
@@ -188,7 +188,7 @@ check_facebook_video.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 check_facebook_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_facebook_video.url(options),
@@ -198,7 +198,7 @@ check_facebook_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'>
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 check_facebook_video.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: check_facebook_video.url(options),
@@ -208,7 +208,7 @@ check_facebook_video.head = (options?: RouteQueryOptions): RouteDefinition<'head
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 const check_facebook_videoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_facebook_video.url(options),
@@ -218,7 +218,7 @@ const check_facebook_videoForm = (options?: RouteQueryOptions): RouteFormDefinit
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 check_facebook_videoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_facebook_video.url(options),
@@ -228,7 +228,7 @@ check_facebook_videoForm.get = (options?: RouteQueryOptions): RouteFormDefinitio
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_facebook_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:172
-* @route '/dashboard/social/check_facebook_video'
+* @route '/social/check_facebook_video'
 */
 check_facebook_videoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_facebook_video.url({
@@ -245,7 +245,7 @@ check_facebook_video.form = check_facebook_videoForm
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 export const check_instagram_video = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_instagram_video.url(options),
@@ -254,13 +254,13 @@ export const check_instagram_video = (options?: RouteQueryOptions): RouteDefinit
 
 check_instagram_video.definition = {
     methods: ["get","head"],
-    url: '/dashboard/social/check_instagram_video',
+    url: '/social/check_instagram_video',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 check_instagram_video.url = (options?: RouteQueryOptions) => {
     return check_instagram_video.definition.url + queryParams(options)
@@ -269,7 +269,7 @@ check_instagram_video.url = (options?: RouteQueryOptions) => {
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 check_instagram_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: check_instagram_video.url(options),
@@ -279,7 +279,7 @@ check_instagram_video.get = (options?: RouteQueryOptions): RouteDefinition<'get'
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 check_instagram_video.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: check_instagram_video.url(options),
@@ -289,7 +289,7 @@ check_instagram_video.head = (options?: RouteQueryOptions): RouteDefinition<'hea
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 const check_instagram_videoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_instagram_video.url(options),
@@ -299,7 +299,7 @@ const check_instagram_videoForm = (options?: RouteQueryOptions): RouteFormDefini
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 check_instagram_videoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_instagram_video.url(options),
@@ -309,7 +309,7 @@ check_instagram_videoForm.get = (options?: RouteQueryOptions): RouteFormDefiniti
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_instagram_video
 * @see app/Http/Controllers/Admin/ApiSocialController.php:191
-* @route '/dashboard/social/check_instagram_video'
+* @route '/social/check_instagram_video'
 */
 check_instagram_videoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: check_instagram_video.url({

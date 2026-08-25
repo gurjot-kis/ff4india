@@ -13,9 +13,23 @@ use App\Http\Controllers\Admin\FamilyImageController;
 use App\Http\Controllers\Admin\HomePageEditableController;
 use App\Http\Controllers\Admin\ApiSocialController;
 
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\VisaBulletin;
+
 use Illuminate\Support\Facades\Route;
 
-Route::inertia('/', 'welcome')->name('home');
+//Route::inertia('/', 'welcome')->name('home');
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/visa-bulletin', [VisaBulletin::class, 'index'])->name('VisaBulletin');
+
+Route::get('/visa-bulletin-detail/{session}', [VisaBulletin::class, 'VisaBulletinDetail'])->name('VisaBulletinDetail');
+
+Route::get('/recent-approval', [VisaBulletin::class, 'RecentApprovals'])->name('RecentApprovals');
+
+
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'dashboard')->name('dashboard');
@@ -42,12 +56,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('social/check_uscis_status', [ApiSocialController::class, 'check_uscis_status'])->name('check_uscis_status');
 
-        Route::get('social/check_youtube_video', [ApiSocialController::class, 'check_youtube_video'])->name('check_youtube_video');
-        Route::get('social/check_facebook_video', [ApiSocialController::class, 'check_facebook_video'])->name('check_facebook_video');
-        Route::get('social/check_instagram_video', [ApiSocialController::class, 'check_instagram_video'])->name('check_instagram_video');
+        
         
 
     });
+
+    Route::get('social/check_youtube_video', [ApiSocialController::class, 'check_youtube_video'])->name('check_youtube_video');
+        Route::get('social/check_facebook_video', [ApiSocialController::class, 'check_facebook_video'])->name('check_facebook_video');
+        Route::get('social/check_instagram_video', [ApiSocialController::class, 'check_instagram_video'])->name('check_instagram_video');
 
     Route::prefix('dashboard/recent-approvals')->name('dashboard.recent-approvals.')->group(function () {
         Route::get('/export/excel', [RecentApprovalController::class, 'exportExcel'])->name('excel');

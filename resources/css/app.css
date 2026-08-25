@@ -1,6 +1,10 @@
+@import './frontend/style.css';
+
 @import 'tailwindcss';
 
 @import 'tw-animate-css';
+
+
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -141,8 +145,8 @@
         @apply bg-background text-foreground;
     }
 }
-
+/* 
 .profile_image {
     width: 100px;
     height: auto;
-}
+} */

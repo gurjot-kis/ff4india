@@ -2,9 +2,21 @@ import { createInertiaApp } from '@inertiajs/react';
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { initializeTheme } from '@/hooks/use-appearance';
+
 import AppLayout from '@/layouts/app-layout';
 import AuthLayout from '@/layouts/auth-layout';
 import SettingsLayout from '@/layouts/settings/layout';
+import FrontendLayout from '@/layouts/FrontendLayout';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+ 
+if (typeof window !== 'undefined') {
+    import('bootstrap/dist/js/bootstrap.bundle.min.js');
+}
+ 
+import '../css/app.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -14,6 +26,8 @@ createInertiaApp({
         switch (true) {
             case name === 'welcome':
                 return null;
+            case name.startsWith('Frontend/'):
+                return FrontendLayout;      
             case name.startsWith('auth/'):
                 return AuthLayout;
             case name === 'settings/user-profile':

@@ -2,11 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Admin\EmergencyBroadcast;
+
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Inertia\Inertia;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+
+        Inertia::share([
+            'emergencyBroadcasts' => fn () => EmergencyBroadcast::where('status', 1)->orderBy('id', 'desc')->first(),
+        ]);
     }
 
     /**
