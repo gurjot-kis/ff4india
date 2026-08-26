@@ -1,5 +1,5 @@
 import React from 'react';
-
+import config from '@/config';
 // import '../../../../../resources/css/frontend/style.css'; 
 
 export default function HeroSection() {
@@ -45,14 +45,14 @@ export default function HeroSection() {
 
                             <div className="card-details-list">
                                 <div className="detail-item">
-                                    <img src="/storage/images/email.svg" alt="email" className="item-icon" />
+                                    <img src={`${config.storageUrl}/images/email.svg`} alt="email" className="item-icon" />
                                     <a href="mailto:info@f4india.com" className="detail-text">
                                         info@f4india.com
                                     </a>
                                 </div>
 
                                 <div className="detail-item">
-                                    <img src="/storage/images/address.svg" alt="address" className="item-icon" />
+                                    <img src={`${config.storageUrl}/images/address.svg`} alt="address" className="item-icon" />
                                     <div className="detail-text">
                                         <a
                                             href="https://www.google.com/maps/search/?api=1&query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062"
@@ -66,7 +66,7 @@ export default function HeroSection() {
                                 </div>
 
                                 <div className="detail-item">
-                                    <img src="/storage/images/info.svg" alt="hours" className="item-icon" />
+                                    <img src={`${config.storageUrl}/images/info.svg`} alt="hours" className="item-icon" />
                                     <div className="detail-text">
                                         Mon – Sat | 10:00 AM – 6:00 PM (IST)
                                     </div>

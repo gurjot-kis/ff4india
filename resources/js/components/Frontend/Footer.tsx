@@ -91,20 +91,20 @@ export default function Footer() {
                                     <div className="accordion-body">
                                         <ul className="footer-contact">
                                             <li>
-                                                <img src="storage/images/phone.svg" alt="phone" />
+                                                <img src={`${config.storageUrl}/images/phone.svg`} alt="phone" />
                                                     <a href="tel:+916283507748">+91 62835 07748</a>
                                             </li>
                                             <li>
-                                                <img src="storage/images/email.svg" alt="email" />
+                                                <img src={`${config.storageUrl}/images/email.svg`} alt="email" />
                                                     <a href="mailto:info@f4india.com">info@f4india.com</a>
                                             </li>
                                             <li>
-                                                <img src="storage/images/address.svg" alt="address" />
+                                                <img src={`${config.storageUrl}/images/address.svg`} alt="address" />
                                                     <a href="https://www.google.com/maps/search/?api=1&amp;query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062"
                                                         target="_blank">727, 7th Floor, CP67, Unity Mall, Sector 67, Imperial Tower, Mohali, PB 160062</a>
                                             </li>
                                             <li>
-                                                <img src="storage/images/info.svg" alt="alert" />
+                                                <img src={`${config.storageUrl}/images/info.svg`} alt="alert" />
                                                 <a href="https://www.google.com/maps/search/?api=1&amp;query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062"
                                                     target="_blank"> Mon – Sat | 10:00 AM – 6:00 PM (IST)</a>
 

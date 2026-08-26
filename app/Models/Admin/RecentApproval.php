@@ -14,6 +14,7 @@ class RecentApproval extends Model
         'approval_date',
         'visa_category',
         'status',
+        'description',
     ];
 
     protected $casts = [

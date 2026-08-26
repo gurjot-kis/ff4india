@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\FamilyImageController;
 use App\Http\Controllers\Admin\HomePageEditableController;
 use App\Http\Controllers\Admin\ApiSocialController;
 
+
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\VisaBulletin;
 
@@ -28,6 +29,19 @@ Route::get('/visa-bulletin-detail/{session}', [VisaBulletin::class, 'VisaBulleti
 
 Route::get('/recent-approval', [VisaBulletin::class, 'RecentApprovals'])->name('RecentApprovals');
 
+Route::get('/contact', [VisaBulletin::class, 'contactus'])->name('contactus');
+
+Route::post('/contact-us', [VisaBulletin::class, 'contactStore'])->name('contactStore');
+
+Route::post('/contact-us/send-otp', [VisaBulletin::class, 'sendOtp'])->name('send-otp');
+
+Route::post('/contact-us/verify-otp', [VisaBulletin::class, 'verifyOtp'])->name('verify-otp');
+
+Route::post('/contact-us/send-otp-slider', [VisaBulletin::class, 'sendOtpSlider'])->name('send-otp-slider');
+
+Route::post('/contact-us/verify-otp-slider', [VisaBulletin::class, 'verifyOtpSlider'])->name('verify-otp-slider');
+
+Route::get('/cspa-age-calculator', [VisaBulletin::class, 'cspaAgeCalculator'])->name('cspaAgeCalculator');
 
 
 

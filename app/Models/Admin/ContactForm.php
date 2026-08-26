@@ -14,11 +14,15 @@ class ContactForm extends Model
         'email_otp',
         'phone',
         'message',
+        'category',
+        'otp',
+        'otp_expires_at',
+        'verified_at',
+        'attempts',
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
+        'verified_at' => 'datetime',
     ];
-    
-
 }

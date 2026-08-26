@@ -147,7 +147,7 @@ export default function Header() {
                                 <a href="" className="single-nav-link">Blogs</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href="" className="single-nav-link">Contact Us</a>
+                                <a href={`${config.appUrl}/contact`} className="single-nav-link">Contact Us</a>
                             </li>
                         </ul>
                         <h3 className="d-lg-none">Stay Connected</h3>

@@ -10,6 +10,7 @@ interface RecentApproval {
     image: string | null;
     approval_date: string;
     visa_category: string;
+    description: string;
     status: boolean;
 }
 
@@ -121,7 +122,7 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
                                             </span>
                                         </div>
                                         <h3>{item.name}</h3>
-                                        <p>U.S. Immigrant Visa (Green Card)</p>
+                                        <p>{item.description}</p>
                                     </div>
                                 </a>
                             </div>

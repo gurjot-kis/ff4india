@@ -2,6 +2,7 @@ import FrontendLayout from '@/layouts/FrontendLayout';
 import config from '@/config';
 import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
+import ContactUs from '@/components/Frontend/Home/ContactUs';
 
 interface VisaBulletinApplication {
     id: number;
@@ -67,38 +68,9 @@ export default function VisaBulletin({visaBulletinApplication, currentSession, n
                                     </span>
                                 </a>
 
-                                <div className="contact-card updates-card">
-                                    <div className="updates-header">
-                                        <i className="fa-regular fa-message"></i>
-                                        <span>CONTACT US</span>
-                                    </div>
+                                <ContactUs />
 
-                                    <div className="contact-body">
-                                        <form>
-                                            <div className="from-group">
-                                                <input type="text" className="form-control" placeholder="Your Name" />
-                                            </div>
-
-                                            <div className="from-group">
-                                                <input type="email" className="form-control" placeholder="Email Address" />
-                                            </div>
-
-                                            <div className="from-group">
-                                                <input type="tel" className="form-control" placeholder="Phone Number (optional)" />
-                                            </div>
-
-                                            <div className="from-group">
-                                                <textarea className="form-control" rows={3} placeholder="Your immigration question..."></textarea>
-                                            </div>
-
-                                            <button type="submit" className="common-btn contact-btn">
-                                                <span>Contact Us Now</span>
-                                                <i className="fa-solid fa-arrow-right"></i>
-                                            </button>
-
-                                        </form>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
 
