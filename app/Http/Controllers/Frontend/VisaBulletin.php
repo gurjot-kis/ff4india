@@ -10,25 +10,59 @@ use App\Models\Admin\VisaBulletinPreferences;
 use App\Models\Admin\RecentApproval;
 use App\Models\Admin\ContactForm;
 
+use App\Models\Admin\Blog;
+
 use App\Mail\ContactOtpMail;
 use App\Mail\ContactDetailsMail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 
-
-use Carbon\Carbon;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class VisaBulletin extends Controller
 {
-
-    public function blog()
+   
+    public function services()
     {
         return Inertia::render(
-            'Frontend/blog',
+            'Frontend/services',
             [ ]
+        );
+    }
+ 
+
+    public function blogDetail($slug) {
+
+        if(!$slug)
+        {
+            
+        }
+        else{
+            
+            return Inertia::render(
+                'Frontend/blogDetail',
+                [
+                    "slug" => $slug,
+                ]
+            );
+        }
+    }
+
+    
+
+    public function blog(Request $request): Response
+    {
+      $blogs = Blog::latest('id')->paginate(10)->withQueryString();
+
+
+                 
+        return Inertia::render(
+            'Frontend/blog',
+            [ 
+                "blogs" => $blogs 
+            ]
         );
     }
 

@@ -107,7 +107,7 @@ export default function cspaAgeCalculator() {
                         <div className="col-12 col-lg-5 col-xl-5 order-lg-2 order-1">
                             <div className="cspa-section_calculator-card">
                                 <div className="cspa-section_calculator-header">
-                                    <img src="./assets/images/cal.svg" alt="icon" />
+                                    <img src={`${config.storageUrl}/images/cal.svg`} alt="icon" />
                                     <h2 className="cspa-section_calculator-title">CSPA CALCULATOR</h2>
                                 </div>
 
@@ -156,7 +156,7 @@ export default function cspaAgeCalculator() {
                                     </div>
 
                                     <div className="f4-form-group cspa-date-field">
-                                        <label forHtml="currentDate" className="f4-form-group-label">
+                                        <label htmlFor="currentDate" className="f4-form-group-label">
                                             Date Petition Became Current <span className="required-field">*</span>
                                         </label>
                                         <div className="date-field">
@@ -170,13 +170,13 @@ export default function cspaAgeCalculator() {
 
                                     <div className="cspa-section_actions">
                                         <button type="reset" className="cspa-section_btn cspa-section_btn-reset">
-                                            <img src="./assets/images/reset.svg" alt="icon" />
+                                            <img src={`${config.storageUrl}/images/reset.svg`} alt="icon" />
                                             <span>Reset</span>
                                         </button>
 
                                         <button type="submit" className="cspa-section_btn cspa-section_btn-calculate" data-bs-toggle="modal"
                                             data-bs-target="#cspaResultModal">
-                                            <img src="./assets/images/cal-2.svg" alt="icon" />
+                                            <img src={`${config.storageUrl}/images/cal-2.svg`} alt="icon" />
                                             <span>Calculate CSPA Age</span>
                                         </button>
                                     </div>
@@ -290,7 +290,7 @@ export default function cspaAgeCalculator() {
 
                             <button type="button" id="calculateAgainBtn" className="cspa-section_btn cspa-section_btn-calculate"
                                 data-bs-dismiss="modal">
-                                <img src="./assets/images/cal-2.svg" alt="icon" />
+                                <img src={`${config.storageUrl}/images/cal-2.svg`} alt="icon" />
                                     <span>Calculate Again</span>
                             </button>
                         </div>

@@ -47,6 +47,11 @@ Route::get('/about', [VisaBulletin::class, 'about'])->name('about');
 
 Route::get('/blog', [VisaBulletin::class, 'blog'])->name('blog');
 
+Route::get('/blog/{session}', [VisaBulletin::class, 'blogDetail'])->name('blogDetail');
+
+Route::get('/services', [VisaBulletin::class, 'services'])->name('services');
+
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -21,7 +21,7 @@ export default function about() {
                 <div className="container">
                     <div className="breadcrumb__inner">
 
-                        <a href={`${config.appUrl}/home.html`} className="breadcrumb__item">
+                        <a href={`${config.appUrl}`} className="breadcrumb__item">
                             <span className="breadcrumb__label text-nowrap">F4india</span>
                             <i className="fa-solid fa-chevron-right"></i>
                         </a>

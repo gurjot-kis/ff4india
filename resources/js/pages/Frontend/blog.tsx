@@ -1,120 +1,168 @@
 import config from "@/config";
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 
-export default function about() {
+interface Blog {
+    category_id: string;
+    title: string;
+    slug: string;
+    featured_image: string;
+    description: string;
+    meta_title: string;
+    meta_description: string;
+    meta_keywords: string;
+    status: number;
+    publish_date: string;
+}
+
+interface Pagination<T> {
+    current_page: number;
+    data: T[];
+    first_page_url: string;
+    from: number | null;
+    last_page: number;
+    last_page_url: string;
+    next_page_url: string | null;
+    path: string;
+    per_page: number;
+    prev_page_url: string | null;
+    to: number | null;
+    total: number;
+}
+
+interface BlogProps {
+    blogs: Pagination<Blog> | null;
+}
+
+
+export default function Blog({ blogs,}: BlogProps) {
+
+    console.log(blogs);
+    
     return (
         <>
-            <section className="common-hero-sec text-center visa-bulletin-hero">
+            <section className="common-hero-sec text-center blogs-hero-sec">
                 <div className="container position-relative z-2">
                     <div className="hero-content">
-                        <h1 className="hero-title hero-common-title">About Us</h1>
-                        <p className="hero-des hero-common-des m-auto">
-                            Established in 2008, F4 INDIA has grown from a domestic U.S. immigration law practice to a truly word wide
-                            Company. Our expansion has been a direct result of our calculated and wise decisions to establish our offices
-                            in India, Canada, and the U.S
+                        <h1 className="hero-title hero-common-title">Our Latest Immigration Success Stories</h1>
+                        <p className="hero-des hero-common-des m-auto ">
+                            Explore inspiring client success stories, recent case approvals, and real immigration journeys that reflect
+                            our commitment to achieving successful outcomes.
                         </p>
+                        <div className="blog-search-container">
+                            <div className="blog-search-input-wrap">
+                                <i className="fa-solid fa-magnifying-glass blog-search-icon d-sm-inline-block d-none"></i>
+                                <input type="text" className="blog-search-input" placeholder="Search blogs by title, keyword or topic..." />
+                            </div>
+                            <button type="button" className="blog-search-btn"><i
+                                className="fa-solid fa-magnifying-glass blog-search-icon d-sm-none text-white"></i><span
+                                    className="d-sm-inline-block d-none">Search</span></button>
+                        </div>
                     </div>
                 </div>
             </section>
-
             <nav className="breadcrumb" aria-label="Breadcrumb">
                 <div className="container">
                     <div className="breadcrumb__inner">
 
-                        <a href={`${config.appUrl}/home.html`} className="breadcrumb__item">
+                        <a href={`${config.appUrl}`} className="breadcrumb__item">
                             <span className="breadcrumb__label text-nowrap">F4india</span>
                             <i className="fa-solid fa-chevron-right"></i>
                         </a>
-                        <span className="breadcrumb__current">About us</span>
+                        <span className="breadcrumb__current">Immigration Blogs</span>
                     </div>
                 </div>
             </nav>
 
-            <section className="immigration-about common-padding">
+            <div className="blogs-list common-padding">
                 <div className="container">
                     <div className="row g-4">
-                        <div className="col-lg-6">
-                            <div className="aboutpage-content">
-                                <div className="common-heading">
-                                    <h2 className="about-title">F4 India Overview</h2>
-                                </div>
 
-                                <p>At <a href={`${config.appUrl}/home.html`}>F4 India Immigration</a>, we help individuals and families navigate the U.S.
-                                    immigration process with
-                                    clear guidance, careful preparation, and personal attention. We understand that immigration is not simply
-                                    about completing forms or submitting documents. For our clients, it often means being reunited with a
-                                    spouse, parents, children, siblings, or other loved ones and building a future together in the United
-                                    States. </p>
-
-                                <p>Our work is primarily focused on <a href={`${config.appUrl}/services.html`}>family-based U.S. immigration.</a> We assist
-                                    clients through
-                                    different
-                                    stages of the immigration process, from filing petitions with USCIS to National Visa Center processing and
-                                    immigrant visa interviews. We also handle matters involving DS-260 applications, Affidavit of Support
-                                    requirements, CSPA, humanitarian reinstatement, waivers, 221(g) responses, consular processing, and other
-                                    related immigration matters. </p>
-
-
-
-                            </div>
-                        </div>
-
-                        <div className="col-lg-6">
-                            <div className="about-image-wrapper">
-
-                                <img src={`${config.storageUrl}/images/about-2.png`} alt="U.S. Immigration Passport" className="img-fluid about-image" />
-
-                                    <div className="experience-badge">
-                                        <strong>18+</strong>
-                                        <span>Years of Experience</span>
+                        <div className="col-12 col-md-6 col-lg-4">
+                            <article className="blog-card">
+                                <a className="blog-card-image-wrap" href={`${config.appUrl}/blog`}>
+                                    <img className="blog-card-image" src={`${config.storageUrl}/images/blog-1.png`}
+                                        alt="Reinstatement of revoked family-based petition" />
+                                </a>
+                                <a className="blog-card-body" href={`${config.appUrl}/blog`}>
+                                    <div className="blog-card-date">
+                                        <i className="fa-regular fa-calendar me-1 me-1"></i>
+                                        <span>July 15, 2026</span>
                                     </div>
-
-                            </div>
+                                    <h3 className="blog-card-title">Reinstatement of revoked family-based Petition to the approval of Immigrant
+                                        Visa
+                                    </h3>
+                                    <p className="blog-card-excerpt">Today's success story revolves around the reinstatement of a revoked
+                                        family-based petition, leading to the approval of an immigrant visa</p>
+                                    <div className="blog-card-footer">
+                                        <button type="submit" className="contact-butn common-btn blog-btn">
+                                            <span>Read More</span>
+                                            <i className="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </a>
+                            </article>
                         </div>
-                        <div className="col-lg-12">
-                            <div className="aboutpage-content ">
-
-                                <p>Over the years, we have handled cases with many different circumstances. Some are straightforward, while
-                                    others involve complicated family histories, previous refusals, missing documents, financial concerns, or
-                                    other issues that require additional attention. This experience has taught us that every case is
-                                    different, and understanding the individual circumstances is an important part of preparing it properly.
-                                </p>
-                                <p>We believe in keeping our communication with clients simple and honest. Immigration procedures can be
-                                    complicated, so we take the time to explain what is required, identify potential concerns, and keep our
-                                    clients informed about the important steps in their case. We do not believe in making unrealistic
-                                    promises. Instead, we focus on doing the work carefully and helping our clients understand their options.
-                                </p>
-
-                                <p>We believe in keeping our communication with clients simple and honest. Immigration procedures can be
-                                    complicated, so we take the time to explain what is required, identify potential concerns, and keep our
-                                    clients informed about the important steps in their case. We do not believe in making unrealistic
-                                    promises. Instead, we focus on doing the work carefully and helping our clients understand their options.
-                                </p>
-
-                                <p>At the end of the day, every case represents more than a receipt number or a file. It represents people
-                                    who are waiting to be together. <b>That is why we take our work seriously, and that is why we are proud to
-                                        help families through their U.S. immigration journey</b></p>
-
-                                <p>If you would like to know more about us and the work we do, we invite you to explore our website and
-                                    learn more about the <a href={`${config.appUrl}/services.html`}> immigration services we provide.</a>
-                                    You can also visit our <a href={`${config.appUrl}/recent-approvals.html`}>Approvals</a> page to see some of our achievements
-                                    and cases we have
-                                    successfully helped with. And if you would like to hear directly from the people we have worked with,
-                                    visit our <a href={`${config.appUrl}/home.html`}>YouTube channel </a>to see what our clients have to say about their
-                                    experience with us. </p>
-
-                                <p><b>Welcome to F4 India Immigration. We are here to help you take the next step. </b></p>
 
 
-                            </div>
-                        </div>
+
 
                     </div>
+                    <div className="case-pagination">
+                        <nav className="unique-pagination-wrapper" aria-label="Page navigation">
+                            <ul className="pagination unique-pagination mb-0">
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#" aria-label="First">
+                                        <i className="fa-solid fa-angles-left"></i>
+                                    </a>
+                                </li>
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#" aria-label="Previous">
+                                        <i className="fa-solid fa-angle-left"></i>
+                                    </a>
+                                </li>
+
+                                <li className="page-item active">
+                                    <a className="page-link unique-page-link" href="#">1</a>
+                                </li>
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#">2</a>
+                                </li>
+
+
+
+                                <li className="page-item">
+                                    <span className="page-link unique-page-link unique-page-dots">...</span>
+                                </li>
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#">10</a>
+                                </li>
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#" aria-label="Next">
+                                        <i className="fa-solid fa-angle-right"></i>
+                                    </a>
+                                </li>
+
+                                <li className="page-item">
+                                    <a className="page-link unique-page-link" href="#" aria-label="Last">
+                                        <i className="fa-solid fa-angles-right"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
                 </div>
-            </section>
+            </div>
+
 
             <ConsultationCTA />
- 
+
         </>
     )
 }
