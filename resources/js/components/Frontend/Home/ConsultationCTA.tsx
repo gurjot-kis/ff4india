@@ -1,4 +1,5 @@
 import React from 'react';
+import config from "@/config";
 
 export default function ConsultationCTA() {
     return (
@@ -6,7 +7,7 @@ export default function ConsultationCTA() {
             <div className="container">
                 <div className="cta-inner">
                     <div className="cta-badge">
-                        <img src="/storage/images/call-icon.svg" alt="Call" />
+                        <img src={`${config.storageUrl}/images/call-icon.svg`} alt="Call" />
                         <span>Free 30-Minute Consultation</span>
                     </div>
 
@@ -21,7 +22,7 @@ export default function ConsultationCTA() {
                         </a>
 
                         <a href="tel:+916283507748" className="common-secondary-btn">
-                            <img src="/storage/images/call-icon.svg" alt="Call" />
+                            <img src={`${config.storageUrl}/images/call-icon.svg`} alt="Call" />
                             <span>Call +91-6283507748</span>
                         </a>
                     </div>

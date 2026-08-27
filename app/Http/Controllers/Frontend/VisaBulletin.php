@@ -24,6 +24,22 @@ use Inertia\Response;
 class VisaBulletin extends Controller
 {
 
+    public function blog()
+    {
+        return Inertia::render(
+            'Frontend/blog',
+            [ ]
+        );
+    }
+
+    public function about()
+    {
+        return Inertia::render(
+            'Frontend/about',
+            [ ]
+        );
+    }
+
     public function cspaAgeCalculator()
     {
         return Inertia::render(

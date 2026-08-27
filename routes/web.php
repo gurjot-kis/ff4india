@@ -43,6 +43,10 @@ Route::post('/contact-us/verify-otp-slider', [VisaBulletin::class, 'verifyOtpSli
 
 Route::get('/cspa-age-calculator', [VisaBulletin::class, 'cspaAgeCalculator'])->name('cspaAgeCalculator');
 
+Route::get('/about', [VisaBulletin::class, 'about'])->name('about');
+
+Route::get('/blog', [VisaBulletin::class, 'blog'])->name('blog');
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

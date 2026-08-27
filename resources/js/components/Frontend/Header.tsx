@@ -102,7 +102,7 @@ export default function Header() {
                                 <a href={config.appUrl} className="single-nav-link active">Home</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href="" className="single-nav-link">About US</a>
+                                <a href={`${config.appUrl}/about`}  className="single-nav-link">About US</a>
                             </li>
                             {/* <li className="single-nav-item">
                         <a href="" className="single-nav-link">Services</a>
@@ -138,13 +138,13 @@ export default function Header() {
                             </li>
 
                             <li className="single-nav-item">
-                                <a href="" className="single-nav-link">CSPA Calculator</a>
+                                <a href={`${config.appUrl}/cspa-age-calculator`}  className="single-nav-link">CSPA Calculator</a>
                             </li>
                             <li className="single-nav-item">
                                 <a href={`${config.appUrl}/recent-approval`} className="single-nav-link">Recent Approvals</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href="" className="single-nav-link">Blogs</a>
+                                <a href={`${config.appUrl}/blog`}  className="single-nav-link">Blogs</a>
                             </li>
                             <li className="single-nav-item">
                                 <a href={`${config.appUrl}/contact`} className="single-nav-link">Contact Us</a>

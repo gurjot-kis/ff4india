@@ -56,10 +56,6 @@ img {
     height: auto;
 }
 
-section {
-    overflow: hidden;
-}
-
 div,
 h1,
 h2,
@@ -88,23 +84,49 @@ p {
 }
 
 /* Commom Start */
+#scrollTopBtn {
+    background: var(--primary-main);
+    color: #fff;
+    width: 46px;
+    height: 46px;
+    box-shadow: 0 16px 40px #0b3b6929;
+    z-index: 1000;
+    border: 1px solid #304669;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    display: flex;
+    position: fixed;
+    bottom: 24px;
+    right: 27px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .breadcrumb {
     align-self: stretch;
-    background: var(--card-gray);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 0;
+    padding: 10px 0;
     margin-bottom: 0;
+    background: var(--light-gray);
 }
 
 .breadcrumb__inner {
-    width: 100%;
-    max-width: 1410px;
-    padding: 7.5px 24px;
+    padding: 0;
     display: flex;
     gap: 6px;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -116,11 +138,11 @@ p {
 }
 
 .breadcrumb__item .fa-solid {
-    font-size: 10px;
+    font-size: 8px;
 }
 
 .breadcrumb__label {
-    color: var(--primary-main);
+    color: var(--primary-oceanblue);
     font-size: 14px;
     font-weight: 400;
     line-height: 15px;
@@ -135,7 +157,7 @@ p {
 }
 
 .breadcrumb__current {
-    color: var(--primary-main);
+    color: #000;
     font-size: 14px;
     font-weight: 400;
     line-height: 15px;
@@ -196,7 +218,7 @@ p {
 }
 
 .service-card {
-    padding: 25px;
+    padding: 20px;
     background: var(--card-gray);
     display: flex;
     flex-direction: column;
@@ -271,13 +293,13 @@ p {
     background: linear-gradient(270deg, #2A65AA 30.77%, #05132D 64.83%, #05132D 100%, #05132D 100%, #05132D 100%, #05132D 100%);
 }
 
-.common-hero-sec::after {
+/* .common-hero-sec::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(../../../storage/app/public/images/global-bg.png) center/cover no-repeat;
+    background: url(../images/global-bg.png) center/cover no-repeat;
     opacity: 0.15;
-}
+} */
 
 .f4-form-group {
     display: flex;
@@ -329,14 +351,14 @@ p {
     position: relative;
 }
 
-.common-primary-btn::before {
+/* .common-primary-btn::before {
     content: "";
     position: absolute;
     width: 38px;
     height: 38px;
     left: -2px;
     top: -1px;
-    background: url("../../../storage/app/public/images/right-icon.png") center center / 100% 100% no-repeat;
+    background: url("../images/right-icon.png") center center / 100% 100% no-repeat;
 
 }
 
@@ -347,8 +369,8 @@ p {
     height: 38px;
     right: -2px;
     bottom: -2px;
-    background: url("../../../storage/app/public/images/left-icon.png") center center / 100% 100% no-repeat;
-}
+    background: url("../images/left-icon.png") center center / 100% 100% no-repeat;
+} */
 
 .common-secondary-btn {
     color: var(--primary-orange);
@@ -361,14 +383,14 @@ p {
     border-color: var(--primary-orange);
 }
 
-.common-secondary-btn:hover::before {
+/* .common-secondary-btn:hover::before {
     content: "";
     position: absolute;
     width: 38px;
     height: 38px;
     left: -2px;
     top: -1px;
-    background: url("../../../storage/app/public/images/right-icon.png") center center / 100% 100% no-repeat;
+    background: url("../images/right-icon.png") center center / 100% 100% no-repeat;
 }
 
 .common-secondary-btn:hover::after {
@@ -378,8 +400,8 @@ p {
     height: 38px;
     right: -2px;
     bottom: -2px;
-    background: url("../../../storage/app/public/images/left-icon.png") center center / 100% 100% no-repeat;
-}
+    background: url("../images/left-icon.png") center center / 100% 100% no-repeat;
+} */
 
 .common-primary-btn:hover {
     color: var(--primary-orange);
@@ -795,6 +817,24 @@ p {
     font-size: 14px;
 }
 
+.submenu-toggle-btn {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.submenu-toggle-btn .fa-solid {
+    color: var(--primary-light);
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.single-nav-link:hover .submenu-toggle-btn .fa-solid {
+    color: var(--primary-red);
+}
+
 .single-nav-list {
     gap: 40px;
 }
@@ -890,13 +930,13 @@ p {
     padding-bottom: 120px;
 }
 
-.hero-section::after {
+/* .hero-section::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: url(../../../storage/app/public/images/global-bg.png) center/cover no-repeat;
+    background: url(../images/global-bg.png) center/cover no-repeat;
     opacity: 0.15;
-}
+} */
 
 .featured-btn {
     background-color: var(--card-gray);
@@ -995,7 +1035,7 @@ p {
 }
 
 .services-inner-sec {
-    padding: 50px;
+    padding: 46px;
     border-radius: 4px;
     background: #FFF;
     box-shadow: 0 -350px 80px 0 rgba(0, 0, 0, 0.10);
@@ -1264,6 +1304,7 @@ p {
 
 .cspa-section {
     background-color: #f8f9fa;
+    padding-top: 60px;
 }
 
 .cspa-section_info-wrapper {
@@ -1798,6 +1839,7 @@ p {
 
 .recent-cases {
     background: #F9FAFB;
+    padding-top: 50px;
 }
 
 .recent-cases-header,
@@ -2487,8 +2529,8 @@ p {
 
 .whatsapp-fab {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
+    bottom: 120px;
+    right: 24px;
     padding: 15px;
     background: #00C950;
     border-radius: 50px;
@@ -2702,7 +2744,6 @@ p {
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
-    letter-spacing: 0.563px;
     text-transform: uppercase;
 }
 
@@ -2721,10 +2762,10 @@ p {
 .updates-list li {
     display: flex;
     align-items: flex-start;
-    padding: 10px 10px 10px 20px;
+    padding: 7px 10px 7px 30px;
     border-bottom: 1px solid #F1F5F9;
     color: #1A2233;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -2734,15 +2775,15 @@ p {
 .updates-list li::before {
     content: "›";
     position: absolute;
-    left: 10px;
-    top: 5px;
+    left: 16px;
+    top: -3px;
     color: var(--primary-main);
-    ;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .updates-list li:last-child {
     border-bottom: 0;
+    padding-bottom: 15px;
 }
 
 
@@ -3073,7 +3114,8 @@ p {
 
 /* visa bulletin detail page */
 .visa-bulletin-section,
-.blog-detail-section {
+.blog-detail-section,
+.services-detail-section {
     padding: 40px 0;
 }
 
@@ -3527,6 +3569,10 @@ p {
     color: #fff;
 }
 
+.blogs-list {
+    padding-top: 40px;
+}
+
 /* Recent Approval */
 
 .visa-filter-section {
@@ -3588,7 +3634,7 @@ p {
 }
 
 .visa-filter-year {
-    width: 126px;
+    width: 120px;
 }
 
 .visa-filter-category {
@@ -3767,9 +3813,10 @@ p {
     margin: auto;
 }
 
-.story-content h3 {
+.story-content h3,
+.services-detail-content h3 {
     margin: 30px 0 12px;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 600;
     line-height: 30px;
 }
@@ -3780,7 +3827,8 @@ p {
     font-weight: 600;
 }
 
-.story-content p {
+.story-content p,
+.services-detail-content p {
     margin: 0 0 20px;
     font-size: 16px;
     line-height: 28px;
@@ -3908,9 +3956,10 @@ p {
 
 .immigration-about {
     background: #fff;
+    padding-top: 40px;
 }
 
-.about-content {
+.aboutpage-content {
     padding-right: 10px;
 }
 
@@ -3918,12 +3967,25 @@ p {
     color: #06284C;
 }
 
-.about-content p {
-    color: #1B1B1B;
-    font-size: 16px;
+.aboutpage-content p {
     font-style: normal;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 1.7;
+    padding-bottom: 17px;
+}
+
+.aboutpage-content p b {
+    font-weight: 700;
+}
+
+.aboutpage-content p a:hover {
+    text-decoration: underline;
+}
+
+.aboutpage-content p a {
+    color: #1B1B1B;
+    font-weight: 700;
 }
 
 .about_btn {
@@ -3932,8 +3994,14 @@ p {
     color: #fff;
 }
 
+.about_btn:hover {
+    background: var(--primary-main);
+    color: #fff;
+}
+
 .about-image-wrapper {
     position: relative;
+    margin-bottom: 40px;
 }
 
 .about-image {
@@ -3949,8 +4017,8 @@ p {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 132px;
-    height: 93px;
+    min-width: 160px;
+    min-height: 93px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -3963,9 +4031,9 @@ p {
 
 .experience-badge strong {
     color: #FFF;
-    font-size: 34px;
+    font-size: 30px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 40px;
 }
 
@@ -4057,7 +4125,7 @@ p {
 
 .team-image {
     width: 100%;
-    height: 340px;
+    height: 320px;
     background: #ddd;
     border-radius: 12px;
 }
@@ -4076,7 +4144,7 @@ p {
 .team-info {
     position: relative;
     bottom: 43px;
-    min-height: 73px;
+    min-height: 70px;
     padding: 10px 10px;
     color: #fff;
     text-align: center;
@@ -4108,6 +4176,112 @@ p {
     text-transform: capitalize;
 }
 
+/* Service Page */
+.service-filter {
+    margin-bottom: 40px;
+}
+
+.custom-tabs {
+    gap: 12px;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-tabs .nav-link {
+    border: 0;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    background: #F3F4F6;
+    display: flex;
+    height: 40px;
+    padding: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-main);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.custom-tabs .nav-link:hover,
+.custom-tabs .nav-link.active {
+    color: #fff;
+    background: var(--primary-main);
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-main);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.services-wrapper {
+    padding-top: 60px;
+}
+
+.services-wrapper .service-card {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/*---------- service-detail-page ---------*/
+.services-process li {
+    position: relative;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+.services-process li::before {
+    content: "\f138";
+    position: absolute;
+    left: 0;
+    color: var(--primary-main);
+    font-family: 'FontAwesome';
+}
+
+.service-sidebar .sidebar-icon i {
+    font-size: 45px;
+}
+
+.service-sidebar a:hover .sidebar-icon i {
+    color: #fff;
+}
+
+#familybased-services,
+#visa-refusals-services,
+#petitions-applications-services,
+#consular-processing-services,
+#citizenship-services,
+#waivers-services {
+    scroll-margin-top: 170px;
+}
+
+.service-sidebar-btn {
+    margin: 30px 10px;
+    padding: 10px 10px;
+    font-size: 14px;
+}
+
+.services-detail-image img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sticky_card {
+    position: sticky;
+    z-index: 49;
+    top: 180px;
+}
 
 /* Mobile Breakpoints */
 
@@ -4170,13 +4344,17 @@ p {
         border-bottom-color: var(--primary-red);
     }
 
+    .single-nav-link.active .submenu-toggle-btn .fa-solid {
+        color: var(--primary-red);
+    }
+
     .single-submenu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         background-color: var(--light-gray);
-        min-width: 260px;
+        min-width: 300px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         padding: 8px 0;
         border-radius: 0 0 4px 4px;
@@ -4444,6 +4622,10 @@ p {
 
     .team-info p {
         font-size: 14px;
+    }
+
+    .aboutpage-content p {
+        font-size: 16px;
     }
 }
 
@@ -4777,12 +4959,12 @@ p {
         font-size: 14px;
     }
 
-    .visa-filter-year {
-        width: 85px;
+    .visa-filter-month {
+        width: 123px;
     }
 
     .visa-filter-category {
-        width: calc(100% - 261px);
+        width: calc(100% - 282px);
     }
 
     .visa-filter-select {
@@ -4806,20 +4988,67 @@ p {
         height: auto;
     }
 
-    .info-card-about {
-        padding: 16px;
-    }
-
     .info-card-title {
-        font-size: 17px;
+        font-size: 24px;
     }
 
     .info-card p {
         font-size: 11px;
     }
+
+    .about-image {
+        height: 430px;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .experience-badge {
+        left: -15px;
+        bottom: -15px;
+        border-radius: 12px;
+    }
+
+    .team-image {
+        height: 240px;
+    }
+
+    .team-info {
+        min-height: 60px;
+    }
+
+    .submenu-toggle-btn .fa-solid {
+        color: #fff;
+    }
+
+    .single-nav-link:hover .submenu-toggle-btn .fa-solid {
+        color: #fff;
+    }
+
+    .aboutpage-content p {
+        font-size: 16px;
+    }
+
+    .about-image-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .story-content h3,
+    .services-detail-content h3 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+
+    .sticky_card {
+        position: relative;
+        z-index: 1;
+        top: 0;
+    }
 }
 
 @media (max-width: 767.98px) {
+    .visa-filter-year {
+        width: 100%;
+    }
 
     .common-hero-sec,
     .common-padding {
@@ -5044,7 +5273,7 @@ p {
     }
 
     .service-card {
-        padding: 20px;
+        padding: 18px;
     }
 
     .common-heading {
@@ -5264,7 +5493,7 @@ p {
     }
 
     .visa-filter-category {
-        width: calc(100% - 201px);
+        width: calc(100% - 222px);
     }
 
     .story-meta {
@@ -5285,7 +5514,8 @@ p {
         padding-top: 20px;
     }
 
-    .story-content p {
+    .story-content p,
+    .services-detail-content p {
         font-size: 14px;
         line-height: 24px;
         margin-bottom: 15px;
@@ -5302,19 +5532,60 @@ p {
     }
 
     .experience-badge {
-        width: 110px;
-        height: 80px;
+        min-width: 140px;
+        min-height: 80px;
         border-radius: 10px;
+        left: 4px;
     }
 
     .experience-badge span {
         font-size: 12px;
-        line-height: 10px;
+        line-height: normal;
         margin-top: 0;
     }
 
     .experience-badge strong {
         font-size: 24px;
+        line-height: normal;
+        margin-bottom: 5px;
+    }
+
+    .info-card-about p {
+        font-size: 14px;
+    }
+
+    .breadcrumb {
+        background: #d0eaf9;
+        padding: 10px 0;
+    }
+
+    .breadcrumb__label {
+        font-size: 14px;
+    }
+
+    .breadcrumb__current {
+        color: var(--primary-main);
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    .breadcrumb__item .fa-solid {
+        color: var(--primary-main);
+    }
+
+    .custom-tabs .nav-link {
+        height: 30px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .services-detail-image img {
+        margin-bottom: 10px;
     }
 }
 
@@ -5376,7 +5647,8 @@ p {
     }
 
     .visa-bulletin-section,
-    .blog-detail-section {
+    .blog-detail-section,
+    .services-detail-section {
         padding: 15px 0;
     }
 
@@ -5493,7 +5765,8 @@ p {
         flex-basis: 65px;
     }
 
-    .story-content h3 {
+    .story-content h3,
+    .services-detail-content h3 {
         font-size: 20px;
         line-height: 24px;
     }
@@ -5512,7 +5785,7 @@ p {
     }
 
     .info-card-title {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .team-title {
@@ -5521,79 +5794,37 @@ p {
         line-height: 30px;
         margin-bottom: 20px;
     }
-}
 
+    .icon-box {
+        width: 40px;
+        height: 40px;
+    }
 
+    .info-card-about {
+        padding: 20px;
+    }
 
+    .values-card .icon-box i {
+        font-size: 18px;
+    }
 
+    .cta-badge {
+        padding: 9px 13px;
+    }
 
+    .aboutpage-content p {
+        font-size: 14px;
+    }
 
+    .visa-filter-month {
+        width: 94px;
+    }
 
+    /* .visa-filter-year {
+        width: 80px;
+    } */
 
-
-.otp-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.65);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-}
-
-.otp-popup {
-    position: relative;
-
-    width: 100%;
-    max-width: 450px;
-
-    padding: 40px;
-
-    background: #fff;
-    border-radius: 12px;
-
-    text-align: center;
-
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-}
-
-.otp-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-
-    border: 0;
-    background: transparent;
-
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.otp-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.otp-popup h2 {
-    margin-bottom: 10px;
-}
-
-.otp-popup strong {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.otp-popup input {
-    font-size: 22px;
-    letter-spacing: 8px;
-    text-align: center;
-}
-
-.otp-expire {
-    margin-top: 15px !important;
-    font-size: 13px;
-    opacity: 0.7;
+    .visa-filter-category {
+        width: calc(100% - 190px);
+    }
 }
