@@ -16,13 +16,25 @@ use App\Mail\ContactOtpMail;
 use App\Mail\ContactDetailsMail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Admin\YoutubeVideo;
 
-
+use Carbon\Carbon;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class VisaBulletin extends Controller
 {
+
+
+
+
+    public function servicesDetail()
+    {
+        return Inertia::render(
+            'Frontend/servicesDetail',
+            [ ]
+        );
+    }
    
     public function services()
     {
@@ -34,17 +46,25 @@ class VisaBulletin extends Controller
  
 
     public function blogDetail($slug) {
-
+        $blogs = Blog::where('slug', '!=', $slug)->orderBy('id', 'desc')->paginate(10)->withQueryString();
+        $youtubeList = YoutubeVideo::orderBy('id', 'desc')->paginate(6);
         if(!$slug)
         {
             
         }
         else{
+
+            $blog = Blog::where(['slug' => $slug])->first();
+
+            //echo "<pre>"; print_r($blog); echo "</pre>"; die;
             
             return Inertia::render(
                 'Frontend/blogDetail',
                 [
                     "slug" => $slug,
+                    "blog" => $blog,
+                    "blogs" => $blogs,
+                    "videos" => $youtubeList,
                 ]
             );
         }

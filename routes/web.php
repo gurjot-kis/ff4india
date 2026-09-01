@@ -51,6 +51,8 @@ Route::get('/blog/{session}', [VisaBulletin::class, 'blogDetail'])->name('blogDe
 
 Route::get('/services', [VisaBulletin::class, 'services'])->name('services');
 
+Route::get('/services-detail', [VisaBulletin::class, 'servicesDetail'])->name('servicesDetail');
+
 
 
 

@@ -1,17 +1,44 @@
 import config from "@/config";
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
+import VideoSlider from '@/components/Frontend/Home/VideoSlider';
 
-export default function blogDetail() {
+interface Blog {
+    category_id: string;
+    title: string;
+    slug: string;
+    featured_image: string;
+    description: string;
+    meta_title: string;
+    meta_description: string;
+    meta_keywords: string;
+    status: number;
+    publish_date: string;
+    created_at: string;
+}
+
+interface BlogProps {
+    blog: Blog | null;
+    blogs: Pagination<Blog> | null;
+    videos: any;
+}
+
+export default function blogDetail({ videos = [], blog, blogs }: BlogProps) {
+
+
     return (
         <>
+
+
+
+
 
 
             <section className="common-hero-sec text-center blog-hero">
                 <div className="container position-relative z-2">
                     <div className="hero-content">
-                        <h1 className="hero-title hero-common-title">Reinstatement of revoked family-based Petition to the approval of Immigrant Visa</h1>
-                      
+                        <h1 className="hero-title hero-common-title">{blog?.title}</h1>
+
                     </div>
                 </div>
             </section>
@@ -19,7 +46,7 @@ export default function blogDetail() {
             <nav className="breadcrumb" aria-label="Breadcrumb">
                 <div className="container">
                     <div className="breadcrumb__inner">
-                       
+
                         <a href={`${config.appUrl}`} className="breadcrumb__item">
                             <span className="breadcrumb__label text-nowrap">F4india</span>
                             <i className="fa-solid fa-chevron-right"></i>
@@ -28,8 +55,7 @@ export default function blogDetail() {
                             <span className="breadcrumb__label text-nowrap">Immigration Blogs</span>
                             <i className="fa-solid fa-chevron-right"></i>
                         </a>
-                        <span className="breadcrumb__current">Success Story: Reinstatement of revoked family-based Petition to the approval
-                            of Immigrant Visa</span>
+                        <span className="breadcrumb__current">{blog?.title}</span>
                     </div>
                 </div>
             </nav>
@@ -43,25 +69,29 @@ export default function blogDetail() {
                         <div className="col-lg-8">
                             <div className="success-story">
                                 <div className="success-image">
-                                    <img src={`${config.storageUrl}/images/blog-img.png`} alt="blog-img" />
+                                    <img src={`${config.storageUrl}/${blog?.featured_image}`} alt="blog-img" />
                                 </div>
 
                                 <div className="story-meta">
                                     <div className="story-meta-left">
                                         <span>
                                             <i className="fa-regular fa-calendar"></i>
-                                            July 15, 2026
+                                            {new Date(blog?.created_at).toLocaleDateString('en-US', {
+                                                month: 'long',
+                                                day: 'numeric',
+                                                year: 'numeric',
+                                            })}
                                         </span>
 
-                                        <span>
+                                        {/* <span>
                                             <i className="fa-regular fa-clock"></i>
                                             6 min read
-                                        </span>
+                                        </span> */}
 
                                     </div>
 
                                     <div className="story-actions">
-                                        
+
                                         <div className="share-page">
                                             <span>Share this page:</span>
 
@@ -85,8 +115,13 @@ export default function blogDetail() {
                                     </div>
                                 </div>
 
-
-                                <article className="story-content">
+                                <article
+                                    className="story-content"
+                                    dangerouslySetInnerHTML={{
+                                        __html: blog?.description,
+                                    }}
+                                />
+                                {/* <article className="story-content">
                                     <p className="story-intro">
                                         The case involves Karuna Dogra, a resident of Punjab, India, whose U.S. Citizen father filed a Family
                                         Petition (F3 category) in 2008 for her and her family’s immigration to the United States. Karuna’s
@@ -183,7 +218,7 @@ export default function blogDetail() {
                                     </p>
 
 
-                                </article>
+                                </article> */}
 
                             </div>
 
@@ -202,78 +237,57 @@ export default function blogDetail() {
 
                                     <div className="recent-article-list">
 
-                                        <a href="#" className="recent-article">
 
-                                            <div className="recent-article-image">
-                                                <img src={`${config.storageUrl}/images/01-blog.png`} alt="Lost I-130 Petition" />
-                                            </div>
+                                        {blogs?.data?.length > 0 ? (
 
-                                            <div className="recent-article-content">
+                                            blogs && blogs.data.map((item) => (
 
-                                                <h4>
-                                                    Lost I-130 Petition in Category F4, Resolved
-                                                    Under Consular Processing
-                                                </h4>
+                                                <a href={`${config.appUrl}/blog/${item.slug}`} className="recent-article">
 
-                                                <div className="recent-article-date">
-                                                    <i className="fa-regular fa-calendar"></i>
-                                                    <span>July 15, 2026</span>
+                                                    <div className="recent-article-image">
+                                                        <img src={`${config.storageUrl}/${item.featured_image}`} alt="Lost I-130 Petition" />
+                                                    </div>
+
+                                                    <div className="recent-article-content">
+
+                                                        <h4>{item.title}</h4>
+
+                                                        <div className="recent-article-date">
+                                                            <i className="fa-regular fa-calendar"></i>
+                                                            <span>{new Date(item.created_at).toLocaleDateString('en-US', {
+                                                                month: 'long',
+                                                                day: 'numeric',
+                                                                year: 'numeric',
+                                                            })}</span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </a>
+
+
+                                            ))
+                                        ) : (
+                                            <div className="col-12">
+                                                <div className="text-center py-5">
+                                                    <h3>No blog found</h3>
                                                 </div>
-
                                             </div>
 
-                                        </a>
+                                        )}
 
 
-                                        <a href="#" className="recent-article">
-
-                                            <div className="recent-article-image">
-                                                <img src={`${config.storageUrl}/images/02-blog.png`} alt="Reinstatement of Revoked Family-Based Petition" />
-                                            </div>
-
-                                            <div className="recent-article-content">
-
-                                                <h4>
-                                                    Reinstatement of Revoked Family-Based Petition
-                                                    to the Approval of Immigrant Visa
-                                                </h4>
-
-                                                <div className="recent-article-date">
-                                                    <i className="fa-regular fa-calendar"></i>
-                                                    <span>July 15, 2026</span>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
 
 
-                                         <a href="#" className="recent-article">
 
-                                            <div className="recent-article-image">
-                                                <img src={`${config.storageUrl}/images/03-blog.png`} alt="Humanitarian Parole for Reuniting a Family" />
-                                            </div>
 
-                                            <div className="recent-article-content">
 
-                                                <h4>
-                                                    Humanitarian Parole for Reuniting a Family
-                                                </h4>
-
-                                                <div className="recent-article-date">
-                                                    <i className="fa-regular fa-calendar"></i>
-                                                    <span>July 15, 2026</span>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
 
                                     </div>
 
                                 </div>
 
-                                <div className="updates-card">
+                                {/* <div className="updates-card">
 
                                     <div className="updates-header">
                                         <i className="fa-regular fa-bell"></i>
@@ -314,10 +328,10 @@ export default function blogDetail() {
 
                                     </ul>
 
-                                </div>
+                                </div> */}
 
-                               
-                               
+
+
                                 <ContactUs />
 
 
@@ -328,6 +342,8 @@ export default function blogDetail() {
 
                 </div>
             </section>
+
+            <VideoSlider videos={videos.data} />
 
             <ConsultationCTA />
         </>

@@ -8,7 +8,7 @@ export default function ConsultationCTA() {
                 <div className="cta-inner">
                     <div className="cta-badge">
                         <img src={`${config.storageUrl}/images/call-icon.svg`} alt="Call" />
-                        <span>Free 30-Minute Consultation</span>
+                        <span>Book Your Consultation Today</span>
                     </div>
 
                     <div className="cta-heading common-heading">
@@ -16,7 +16,7 @@ export default function ConsultationCTA() {
                     </div>
 
                     <div className="cta-actions">
-                        <a href="#" className="common-primary-btn">
+                        <a href="https://greencardpetitions.com/about-us/appointment" className="common-primary-btn" target="_blank">
                             <span>Schedule a Consultation</span>
                             <i className="fa-solid fa-arrow-right" />
                         </a>

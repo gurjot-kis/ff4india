@@ -36,15 +36,29 @@ export default function VisaBulletin({ visaBulletinApplication, currentSession, 
 
             <section className="common-hero-sec text-center visa-bulletin-hero">
                 <div className="container position-relative z-2">
-                    <div className="hero-content">
-                        <h1 className="hero-title hero-common-title">Visa-Bulletin</h1>
-                        <p className="hero-des hero-common-des m-auto">
-                            The U.S. Department of Immigration has no higher priority than the safety and security of Americans. Our
-                            Bureau of Consular Affairs provides information, referrals, and public awareness about U.S
-                        </p>
-                    </div>
+                <div className="hero-content">
+                    <h1 className="hero-title hero-common-title">Visa-Bulletin</h1>
+                    <p className="hero-des hero-common-des m-auto">
+                    The U.S. Department of Immigration has no higher priority than the safety and security of Americans. Our
+                    Bureau of Consular Affairs provides information, referrals, and public awareness about U.S
+                    </p>
+                </div>
                 </div>
             </section>
+
+
+            <nav className="breadcrumb cspa-breadcrumb" aria-label="Breadcrumb">
+                <div className="container">
+                    <div className="breadcrumb__inner">
+
+                        <a href={`${config?.appUrl}`} className="breadcrumb__item">
+                            <span className="breadcrumb__label text-nowrap">F4india</span>
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </a>
+                        <span className="breadcrumb__current">Visa-Bulletin</span>
+                    </div>
+                </div>
+            </nav>
 
 
             <section className="visa-bulletin-section">
@@ -170,151 +184,151 @@ export default function VisaBulletin({ visaBulletinApplication, currentSession, 
 
                             </div>
 
-<div className="accordion visa-faq" id="visaBulletinFaq">
+                            <div className="accordion visa-faq" id="visaBulletinFaq">
 
-    {/* Panel 1 (OPEN BY DEFAULT) */}
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingVisaBulletins">
-            <button 
-                className="accordion-button" 
-                type="button" 
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseVisaBulletins" 
-                aria-expanded="true" 
-                aria-controls="collapseVisaBulletins"
-            >
-                <i className="fa-regular fa-file-lines"></i>
-                <span>Fiscal Year 2026 Visa Bulletins</span>
-            </button>
-        </h2>
+                                {/* Panel 1 (OPEN BY DEFAULT) */}
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header" id="headingVisaBulletins">
+                                        <button
+                                            className="accordion-button"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseVisaBulletins"
+                                            aria-expanded="true"
+                                            aria-controls="collapseVisaBulletins"
+                                        >
+                                            <i className="fa-regular fa-file-lines"></i>
+                                            <span>Fiscal Year 2026 Visa Bulletins</span>
+                                        </button>
+                                    </h2>
 
-        <div 
-            id="collapseVisaBulletins" 
-            className="accordion-collapse collapse show"
-            aria-labelledby="headingVisaBulletins" 
-            data-bs-parent="#visaBulletinFaq"
-        >
-            <div className="accordion-body">
-                <div className="row">
-                    <div className="col-md-6">
-                        <ul className="visa-links">
-                            <li><a href="#">Visa Bulletin for January 2026</a></li>
-                            <li><a href="#">Visa Bulletin for February 2026</a></li>
-                            <li><a href="#">Visa Bulletin for March 2026</a></li>
-                            <li><a href="#">Visa Bulletin for April 2026</a></li>
-                        </ul>
-                    </div>
-                    <div className="col-md-6">
-                        <ul className="visa-links">
-                            <li><a href="#">Visa Bulletin for May 2026</a></li>
-                            <li><a href="#">Visa Bulletin for June 2026</a></li>
-                            <li><a href="#">Visa Bulletin for July 2026</a></li>
-                            <li><a href="#">Visa Bulletin for August 2026</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                    <div
+                                        id="collapseVisaBulletins"
+                                        className="accordion-collapse collapse show"
+                                        aria-labelledby="headingVisaBulletins"
+                                        data-bs-parent="#visaBulletinFaq"
+                                    >
+                                        <div className="accordion-body">
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <ul className="visa-links">
+                                                        <li><a href="#">Visa Bulletin for January 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for February 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for March 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for April 2026</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <ul className="visa-links">
+                                                        <li><a href="#">Visa Bulletin for May 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for June 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for July 2026</a></li>
+                                                        <li><a href="#">Visa Bulletin for August 2026</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-    {/* Panel 2 (CLOSED BY DEFAULT) */}
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingActionItems">
-            <button 
-                className="accordion-button collapsed" 
-                type="button" 
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseActionItems" 
-                aria-expanded="false" 
-                aria-controls="collapseActionItems"
-            >
-                <i className="fa-solid fa-scale-balanced"></i>
-                <span>Comprehensive List of Visa Action Items</span>
-            </button>
-        </h2>
+                                {/* Panel 2 (CLOSED BY DEFAULT) */}
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header" id="headingActionItems">
+                                        <button
+                                            className="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseActionItems"
+                                            aria-expanded="false"
+                                            aria-controls="collapseActionItems"
+                                        >
+                                            <i className="fa-solid fa-scale-balanced"></i>
+                                            <span>Comprehensive List of Visa Action Items</span>
+                                        </button>
+                                    </h2>
 
-        <div 
-            id="collapseActionItems" 
-            className="accordion-collapse collapse"
-            aria-labelledby="headingActionItems" 
-            data-bs-parent="#visaBulletinFaq"
-        >
-            <div className="accordion-body">
-                <p>The lists below are updated annually. Please refer to the Visa Bulletins above for final action dates established during the current fiscal year. Please refer to the Visa Bulletins above for specific Employment Fourth (E4) Preference final action dates for El Salvador, Guatemala, and Honduras (beginning with the May 2016 Visa Bulletin).</p>
-            </div>
-        </div>
-    </div>
+                                    <div
+                                        id="collapseActionItems"
+                                        className="accordion-collapse collapse"
+                                        aria-labelledby="headingActionItems"
+                                        data-bs-parent="#visaBulletinFaq"
+                                    >
+                                        <div className="accordion-body">
+                                            <p>The lists below are updated annually. Please refer to the Visa Bulletins above for final action dates established during the current fiscal year. Please refer to the Visa Bulletins above for specific Employment Fourth (E4) Preference final action dates for El Salvador, Guatemala, and Honduras (beginning with the May 2016 Visa Bulletin).</p>
+                                        </div>
+                                    </div>
+                                </div>
 
-    {/* Panel 3 (CLOSED BY DEFAULT) */}
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingFamilyItems">
-            <button 
-                className="accordion-button collapsed" 
-                type="button" 
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseFamilyItems" 
-                aria-expanded="false" 
-                aria-controls="collapseFamilyItems"
-            >
-                <i className="fa-solid fa-location-dot"></i>
-                <span>Family Items</span>
-            </button>
-        </h2>
+                                {/* Panel 3 (CLOSED BY DEFAULT) */}
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header" id="headingFamilyItems">
+                                        <button
+                                            className="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFamilyItems"
+                                            aria-expanded="false"
+                                            aria-controls="collapseFamilyItems"
+                                        >
+                                            <i className="fa-solid fa-location-dot"></i>
+                                            <span>Family Items</span>
+                                        </button>
+                                    </h2>
 
-        <div 
-            id="collapseFamilyItems" 
-            className="accordion-collapse collapse"
-            aria-labelledby="headingFamilyItems" 
-            data-bs-parent="#visaBulletinFaq"
-        >
-            <div className="accordion-body">
-                <ul className="visa-links">
-                    <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Worldwide_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Worldwide Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_China_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">China Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_India_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">India Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Mexico_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Mexico Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Philippines_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Philippines Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+                                    <div
+                                        id="collapseFamilyItems"
+                                        className="accordion-collapse collapse"
+                                        aria-labelledby="headingFamilyItems"
+                                        data-bs-parent="#visaBulletinFaq"
+                                    >
+                                        <div className="accordion-body">
+                                            <ul className="visa-links">
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Worldwide_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Worldwide Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_China_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">China Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_India_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">India Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Mexico_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Mexico Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/family-preference-cut-off-dates/Cut-off_Dates_Philippines_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Philippines Family Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
-    {/* Panel 4 (CLOSED BY DEFAULT) */}
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingEmploymentItems">
-            <button 
-                className="accordion-button collapsed" 
-                type="button" 
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseEmploymentItems" 
-                aria-expanded="false"
-                aria-controls="collapseEmploymentItems"
-            >
-                <i className="fa-solid fa-users-gear"></i>
-                <span>Employment Preferences</span>
-            </button>
-        </h2>
+                                {/* Panel 4 (CLOSED BY DEFAULT) */}
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header" id="headingEmploymentItems">
+                                        <button
+                                            className="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseEmploymentItems"
+                                            aria-expanded="false"
+                                            aria-controls="collapseEmploymentItems"
+                                        >
+                                            <i className="fa-solid fa-users-gear"></i>
+                                            <span>Employment Preferences</span>
+                                        </button>
+                                    </h2>
 
-        <div 
-            id="collapseEmploymentItems" 
-            className="accordion-collapse collapse"
-            aria-labelledby="headingEmploymentItems" 
-            data-bs-parent="#visaBulletinFaq"
-        >
-            <div className="accordion-body">
-                <p>This information is updated annually. Please refer to the Visa Bulletin below for information involving cutoff dates and chargeability by country.</p>
-                <ul className="visa-links">
-                    <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Worldwide_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Worldwide Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_China_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">China Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_India_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">India Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Mexico_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Mexico Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                    <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Philippines_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Philippines Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+                                    <div
+                                        id="collapseEmploymentItems"
+                                        className="accordion-collapse collapse"
+                                        aria-labelledby="headingEmploymentItems"
+                                        data-bs-parent="#visaBulletinFaq"
+                                    >
+                                        <div className="accordion-body">
+                                            <p>This information is updated annually. Please refer to the Visa Bulletin below for information involving cutoff dates and chargeability by country.</p>
+                                            <ul className="visa-links">
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Worldwide_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Worldwide Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_China_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">China Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_India_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">India Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Mexico_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Mexico Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                                <li><a href={`${config.storageUrl}/VisaBulletin/employment-cut-off-dates/Cut-off_Dates_Philippines_Online_FY23.pdf`} target="_blank" rel="noopener noreferrer" className="pdf_link">Philippines Employment Preference Final Action Dates (FY1992-2023) <span className="far fa-file-pdf pdf_link"></span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
-</div>
+                            </div>
 
                         </div>
                     </div>

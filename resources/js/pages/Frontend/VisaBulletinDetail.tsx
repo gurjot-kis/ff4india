@@ -30,6 +30,23 @@ export default function VisaBulletinDetail({ visaBulletinApplication, visaBullet
                 </div>
             </section>
 
+            <nav className="breadcrumb" aria-label="Breadcrumb">
+                <div className="container">
+                    <div className="breadcrumb__inner">
+
+                        <a href={`${config?.appUrl}`} className="breadcrumb__item">
+                            <span className="breadcrumb__label text-nowrap">F4india</span>
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </a>
+                        <a href={`${config?.appUrl}/visa-bulletin`} className="breadcrumb__item">
+                            <span className="breadcrumb__label text-nowrap">Visa-Bulletin</span>
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </a>
+                        <span className="breadcrumb__current">Current Visa Bulletin - {visaBulletinApplication?.session}</span>
+                    </div>
+                </div>
+            </nav>
+
 
             <section className="visa-bulletin-section">
                 <div className="container">
@@ -49,7 +66,7 @@ export default function VisaBulletinDetail({ visaBulletinApplication, visaBullet
                                             Guide for New Immigrants</a></li>
                                     </ul>
                                 </div>
- 
+
 
                                 <ContactUs />
 

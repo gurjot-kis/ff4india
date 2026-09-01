@@ -13,6 +13,8 @@ interface SharedProps extends Record<string, unknown> {
 
 export default function Header() {
 
+    const { url } = usePage();
+
     const { emergencyBroadcasts } = usePage<SharedProps>().props;
 
     return (
@@ -99,24 +101,20 @@ export default function Header() {
                         <h3 className="d-lg-none">Popular Links</h3>
                         <ul className="single-nav-list">
                             <li className="single-nav-item">
-                                <a href={config.appUrl} className="single-nav-link active">Home</a>
+                                <a href={config.appUrl} className={`single-nav-link ${url === '/' ? 'active' : ''}`}>Home</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/about`}  className="single-nav-link">About US</a>
+                                <a href={`${config.appUrl}/about`} className={`single-nav-link ${url === '/about' ? 'active' : ''}`}>About US</a>
                             </li>
-                            {/* <li className="single-nav-item">
-                        <a href="" className="single-nav-link">Services</a>
-                    </li> */}
-                            {/* <li className="single-nav-item">
-                        <a href="" className="single-nav-link">Visa Bulletin</a>
-                    </li> */}
 
                             <li className="single-nav-item">
-                                <button className="single-nav-link parent-link">
-                                    <span>Services</span>
-                                    <i className="fa-solid fa-chevron-right d-lg-none"></i>
-                                    <i className="fa-solid fa-chevron-down d-none d-lg-inline"></i>
-                                </button>
+                                <div className="single-nav-link parent-link-wrap">
+                                    <a href={`${config.appUrl}/services`} className="parent-link-text">Services</a>
+                                    <button className="submenu-toggle-btn parent-link" type="button" aria-label="Toggle Services submenu">
+                                        <i className="fa-solid fa-chevron-right d-lg-none"></i>
+                                        <i className="fa-solid fa-chevron-down d-none d-lg-inline"></i>
+                                    </button>
+                                </div>
                                 <ul className="single-submenu">
                                     <li>
                                         <button className="submenu-back-btn">
@@ -124,30 +122,26 @@ export default function Header() {
                                             <span>Main Menu</span>
                                         </button>
                                     </li>
-                                    <li><a href="">Family-Based Immigration</a></li>
-                                    <li><a href="">Green Card Petitions</a></li>
-                                    <li><a href="">USCIS Petitions (I-130)</a></li>
-                                    <li><a href="">NVC Processing</a></li>
-                                    <li><a href="">Consular Processing</a></li>
-                                    <li><a href="">U.S. Citizenship & Naturalization</a></li>
-                                    <li><a href="">Waivers</a></li>
-                                    <li><a href="">Humanitarian Reinstatement</a></li>
-                                    <li><a href="">Visa Refusals & 221(g)</a></li>
-                                    <li><a href="">Administrative Processing</a></li>
+                                    <li><a href={`${config.appUrl}/services#familybased-services`}>Family Immigration & Green Cards</a></li>
+                                    <li><a href={`${config.appUrl}/services#petitions-applications-services`}>USCIS Petitions & Applications</a></li>
+                                    <li><a href={`${config.appUrl}/services#consular-processing-services`}>NVC & Consular Processing</a></li>
+                                    <li><a href={`${config.appUrl}/services#waivers-services`}>Humanitarian Reinstatement & Waivers</a></li>
+                                    <li><a href={`${config.appUrl}/services#visa-refusals-services`}>Citizenship & Naturalization</a></li>
+                                    <li><a href={`${config.appUrl}/services#citizenship-services`}>Visa Refusals, 221(g) & Processing</a></li>
                                 </ul>
                             </li>
 
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/cspa-age-calculator`}  className="single-nav-link">CSPA Calculator</a>
+                                <a href={`${config.appUrl}/cspa-age-calculator`} className={`single-nav-link ${url === '/cspa-age-calculator' ? 'active' : ''}`}>CSPA Calculator</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/recent-approval`} className="single-nav-link">Recent Approvals</a>
+                                <a href={`${config.appUrl}/recent-approval`} className={`single-nav-link ${url === '/recent-approval' ? 'active' : ''}`}>Recent Approvals</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/blog`}  className="single-nav-link">Blogs</a>
+                                <a href={`${config.appUrl}/blog`} className={`single-nav-link ${url.startsWith('/blog') ? 'active' : ''}`}>Blogs</a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/contact`} className="single-nav-link">Contact Us</a>
+                                <a href={`${config.appUrl}/contact`} className={`single-nav-link ${url === '/contact' ? 'active' : ''}`}>Contact Us</a>
                             </li>
                         </ul>
                         <h3 className="d-lg-none">Stay Connected</h3>

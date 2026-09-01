@@ -293,13 +293,7 @@ p {
     background: linear-gradient(270deg, #2A65AA 30.77%, #05132D 64.83%, #05132D 100%, #05132D 100%, #05132D 100%, #05132D 100%);
 }
 
-/* .common-hero-sec::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url(../images/global-bg.png) center/cover no-repeat;
-    opacity: 0.15;
-} */
+ 
 
 .f4-form-group {
     display: flex;
@@ -351,26 +345,7 @@ p {
     position: relative;
 }
 
-/* .common-primary-btn::before {
-    content: "";
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    left: -2px;
-    top: -1px;
-    background: url("../images/right-icon.png") center center / 100% 100% no-repeat;
-
-}
-
-.common-primary-btn::after {
-    content: "";
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    right: -2px;
-    bottom: -2px;
-    background: url("../images/left-icon.png") center center / 100% 100% no-repeat;
-} */
+ 
 
 .common-secondary-btn {
     color: var(--primary-orange);
@@ -383,25 +358,9 @@ p {
     border-color: var(--primary-orange);
 }
 
-/* .common-secondary-btn:hover::before {
-    content: "";
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    left: -2px;
-    top: -1px;
-    background: url("../images/right-icon.png") center center / 100% 100% no-repeat;
-}
+ 
 
-.common-secondary-btn:hover::after {
-    content: "";
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    right: -2px;
-    bottom: -2px;
-    background: url("../images/left-icon.png") center center / 100% 100% no-repeat;
-} */
+ 
 
 .common-primary-btn:hover {
     color: var(--primary-orange);
@@ -571,7 +530,7 @@ p {
 
 /* Notice Start */
 .top-notice-wrapper {
-    background-color: var(--primary-main);
+    background-color: #FAF3D1;
     height: 40px;
     display: flex;
     align-items: center;
@@ -585,14 +544,14 @@ p {
 .notice-accent-bar {
     width: 6px;
     height: 100%;
-    background-color: var(--primary-red);
+    background-color: #FFBE2E;
     flex-shrink: 0;
 }
 
 .notice-badge-container {
     padding: 0 12px 0 18px;
     z-index: 2;
-    background-color: var(--primary-main);
+    background-color: #FAF3D1;
     display: flex;
     align-items: center;
     height: 100%;
@@ -600,18 +559,22 @@ p {
 }
 
 .notice-badge {
-    background-color: #fff;
-    color: var(--primary-main);
+    background-color: var(--primary-main);
+    color: #fff;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 0.66px;
-    padding: 6px 13px;
+    padding: 6px 10px;
     border-radius: 4.41px;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+.notice-badge img {
+    filter: brightness(0) invert(1);
 }
 
 .marquee-container {
@@ -637,7 +600,7 @@ p {
 }
 
 .notice-item {
-    color: #fff;
+    color: #000;
     font-size: 14px;
     font-weight: 500;
     padding-right: 50px;
@@ -647,8 +610,8 @@ p {
 }
 
 .notice-item .diamond-icon {
-    margin-right: 8px;
-    font-size: 10px;
+    margin-right: 5px;
+    font-weight: 600;
 }
 
 @keyframes marquee {
@@ -930,13 +893,7 @@ p {
     padding-bottom: 120px;
 }
 
-/* .hero-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url(../images/global-bg.png) center/cover no-repeat;
-    opacity: 0.15;
-} */
+ 
 
 .featured-btn {
     background-color: var(--card-gray);
@@ -1027,6 +984,10 @@ p {
     margin-top: 1px;
 }
 
+.home-hero-des {
+    max-width: 770px;
+}
+
 /* Services Section */
 
 .services-section {
@@ -1077,7 +1038,7 @@ p {
 .gov-footer .accordion-button {
     background: transparent;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     padding: 0;
     box-shadow: none;
@@ -1088,7 +1049,7 @@ p {
 }
 
 .footer-links li {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
@@ -1102,6 +1063,10 @@ p {
 .footer-links a:hover {
     color: #fff;
     text-decoration: none;
+}
+
+#footerOne .footer-links a {
+    margin-right: 3px;
 }
 
 .footer-disclaimer {
@@ -1186,7 +1151,7 @@ p {
 .footer-bottom {
     background: #1A1A1A;
     color: #fff;
-    padding: 32px 0;
+    padding: 25px 0;
 }
 
 .official-site,
@@ -1211,7 +1176,7 @@ p {
 }
 
 .bottom-links li {
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 
 .bottom-links a {
@@ -3394,7 +3359,7 @@ p {
 /* blogs page */
 
 .hero-des {
-    max-width: 800px;
+    max-width: 850px;
 }
 
 .blog-search-container {
@@ -3808,7 +3773,7 @@ p {
 }
 
 .blog-hero .hero-common-des {
-    max-width: 100%;
+    max-width: 1140px;
     padding: 0 20px;
     margin: auto;
 }
@@ -4011,6 +3976,7 @@ p {
     object-fit: cover;
     margin-left: 18px;
     margin-bottom: 18px;
+    object-position: left;
 }
 
 .experience-badge {
@@ -4256,13 +4222,8 @@ p {
     color: #fff;
 }
 
-#familybased-services,
-#visa-refusals-services,
-#petitions-applications-services,
-#consular-processing-services,
-#citizenship-services,
-#waivers-services {
-    scroll-margin-top: 170px;
+.scroll-margin-top {
+    scroll-margin-top: 180px;
 }
 
 .service-sidebar-btn {
@@ -4886,20 +4847,6 @@ p {
         justify-content: center;
     }
 
-    .top-notice-wrapper,
-    .notice-badge-container {
-        background-color: var(--primary-main);
-    }
-
-    .notice-item {
-        color: #fff;
-    }
-
-    .notice-badge {
-        background: #fff;
-        color: var(--primary-main);
-    }
-
     .brand-logo .logo-text {
         font-size: 15px;
         line-height: 1.4;
@@ -5042,6 +4989,10 @@ p {
         position: relative;
         z-index: 1;
         top: 0;
+    }
+
+    .scroll-margin-top {
+        scroll-margin-top: 110px;
     }
 }
 
@@ -5586,6 +5537,10 @@ p {
 
     .services-detail-image img {
         margin-bottom: 10px;
+    }
+
+    #footerOne .footer-links a {
+        margin-right: 0;
     }
 }
 

@@ -1,5 +1,6 @@
 import config from "@/config";
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
+import React from 'react';
 
 interface Blog {
     category_id: string;
@@ -12,6 +13,7 @@ interface Blog {
     meta_keywords: string;
     status: number;
     publish_date: string;
+    created_at: string;
 }
 
 interface Pagination<T> {
@@ -29,15 +31,20 @@ interface Pagination<T> {
     total: number;
 }
 
+interface Filters {
+    year: string | null;
+}
+
 interface BlogProps {
     blogs: Pagination<Blog> | null;
+    filters: Filters;
 }
 
 
-export default function Blog({ blogs,}: BlogProps) {
+export default function Blog({ blogs, filters, }: BlogProps) {
 
     console.log(blogs);
-    
+
     return (
         <>
             <section className="common-hero-sec text-center blogs-hero-sec">
@@ -77,37 +84,170 @@ export default function Blog({ blogs,}: BlogProps) {
                 <div className="container">
                     <div className="row g-4">
 
-                        <div className="col-12 col-md-6 col-lg-4">
-                            <article className="blog-card">
-                                <a className="blog-card-image-wrap" href={`${config.appUrl}/blog`}>
-                                    <img className="blog-card-image" src={`${config.storageUrl}/images/blog-1.png`}
-                                        alt="Reinstatement of revoked family-based petition" />
-                                </a>
-                                <a className="blog-card-body" href={`${config.appUrl}/blog`}>
-                                    <div className="blog-card-date">
-                                        <i className="fa-regular fa-calendar me-1 me-1"></i>
-                                        <span>July 15, 2026</span>
-                                    </div>
-                                    <h3 className="blog-card-title">Reinstatement of revoked family-based Petition to the approval of Immigrant
-                                        Visa
-                                    </h3>
-                                    <p className="blog-card-excerpt">Today's success story revolves around the reinstatement of a revoked
-                                        family-based petition, leading to the approval of an immigrant visa</p>
-                                    <div className="blog-card-footer">
-                                        <button type="submit" className="contact-butn common-btn blog-btn">
-                                            <span>Read More</span>
-                                            <i className="fa-solid fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
+                        {blogs?.data?.length > 0 ? (
+
+                            blogs && blogs.data.map((item) => (
+ 
+                                <div className="col-12 col-md-6 col-lg-4">
+                                    <article className="blog-card">
+                                        <a className="blog-card-image-wrap" href={`${config.appUrl}/blog/${item.slug}`}>
+                                            <img className="blog-card-image" src={`${config.storageUrl}/${item.featured_image}`}
+                                                alt="Reinstatement of revoked family-based petition" />
+                                        </a>
+                                        <a className="blog-card-body" href={`${config.appUrl}/blog/${item.slug}`}>
+                                            <div className="blog-card-date">
+                                                <i className="fa-regular fa-calendar me-1 me-1"></i>
+                                                <span>
+                                                    {new Date(item.created_at).toLocaleDateString('en-US', {
+                                                        month: 'long',
+                                                        day: 'numeric',
+                                                        year: 'numeric',
+                                                    })}
+                                                </span>
+                                            </div>
+                                            <h3 className="blog-card-title">{item.title}</h3>
+                                            <div
+    className="blog-card-excerpt"
+    dangerouslySetInnerHTML={{
+        __html: item.description,
+    }}
+/>
+                                            <div className="blog-card-footer">
+                                                <button type="submit" className="contact-butn common-btn blog-btn">
+                                                    <span>Read More</span>
+                                                    <i className="fa-solid fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+ 
+                            ))
+                        ) : (
+                            <div className="col-12">
+                                <div className="text-center py-5">
+                                    <h3>No blog found</h3>
+                                    <p>
+                                        No immigration case approvals were found for the selected year.
+                                    </p>
+                                </div>
+                            </div>
+
+                        )}
+
+
 
 
 
 
                     </div>
-                    <div className="case-pagination">
+
+
+                                    {blogs && blogs.last_page > 1 && (
+                        <div className="case-pagination">
+                            <nav className="unique-pagination-wrapper" aria-label="Page navigation">
+                                <ul className="pagination unique-pagination mb-0">
+                    
+                                    {/* First */}
+                                    <li className={`page-item ${blogs.current_page === 1 ? 'disabled' : ''}`}>
+                                        <a
+                                            className="page-link unique-page-link"
+                                            href={`${blogs.path}?page=1${filters.year ? `&year=${filters.year}` : ''}`}
+                                            aria-label="First"
+                                        >
+                                            <i className="fa-solid fa-angles-left"></i>
+                                        </a>
+                                    </li>
+                    
+                                    {/* Previous */}
+                                    <li className={`page-item ${!blogs.prev_page_url ? 'disabled' : ''}`}>
+                                        <a
+                                            className="page-link unique-page-link"
+                                            href={blogs.prev_page_url ?? '#'}
+                                            aria-label="Previous"
+                                        >
+                                            <i className="fa-solid fa-angle-left"></i>
+                                        </a>
+                                    </li>
+                    
+                                    {/* Page numbers */}
+                                    {Array.from(
+                                        { length: blogs.last_page },
+                                        (_, index) => index + 1
+                                    )
+                                        .filter((page) => {
+                                            const current = blogs.current_page;
+                                            const last = blogs.last_page;
+                    
+                                            return (
+                                                page === 1 ||
+                                                page === last ||
+                                                Math.abs(page - current) <= 1
+                                            );
+                                        })
+                                        .map((page, index, pages) => {
+                                            const previousPage = pages[index - 1];
+                    
+                                            return (
+                                                <React.Fragment key={page}>
+                                                    {previousPage && page - previousPage > 1 && (
+                                                        <li className="page-item">
+                                                            <span className="page-link unique-page-link unique-page-dots">
+                                                                ...
+                                                            </span>
+                                                        </li>
+                                                    )}
+                    
+                                                    <li
+                                                        className={`page-item ${
+                                                            blogs.current_page === page
+                                                                ? 'active'
+                                                                : ''
+                                                        }`}
+                                                    >
+                                                        <a
+                                                            className="page-link unique-page-link"
+                                                            href={`${blogs.path}?page=${page}${filters.year ? `&year=${filters.year}` : ''}`}
+                                                        >
+                                                            {page}
+                                                        </a>
+                                                    </li>
+                                                </React.Fragment>
+                                            );
+                                        })}
+                    
+                                    {/* Next */}
+                                    <li className={`page-item ${!blogs.next_page_url ? 'disabled' : ''}`}>
+                                        <a
+                                            className="page-link unique-page-link"
+                                            href={blogs.next_page_url ?? '#'}
+                                            aria-label="Next"
+                                        >
+                                            <i className="fa-solid fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                    
+                                    {/* Last */}
+                                    <li className={`page-item ${
+                                        blogs.current_page === blogs.last_page
+                                            ? 'disabled'
+                                            : ''
+                                    }`}>
+                                        <a
+                                            className="page-link unique-page-link"
+                                            href={`${blogs.path}?page=${blogs.last_page}${filters.year ? `&year=${filters.year}` : ''}`}
+                                            aria-label="Last"
+                                        >
+                                            <i className="fa-solid fa-angles-right"></i>
+                                        </a>
+                                    </li>
+                    
+                                </ul>
+                            </nav>
+                        </div>
+                    )}
+
+                    {/* <div className="case-pagination">
                         <nav className="unique-pagination-wrapper" aria-label="Page navigation">
                             <ul className="pagination unique-pagination mb-0">
 
@@ -155,7 +295,7 @@ export default function Blog({ blogs,}: BlogProps) {
 
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
