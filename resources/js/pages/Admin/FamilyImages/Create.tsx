@@ -35,7 +35,7 @@ export default function Create() {
         <>
             <Head title="Create Family Image" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 {/* Header */}
 

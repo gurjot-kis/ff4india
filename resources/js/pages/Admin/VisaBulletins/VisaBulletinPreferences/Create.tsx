@@ -110,7 +110,7 @@ export default function Create() {
         <>
             <Head title="Create Visa Bulletin Preference" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="flex justify-between mb-6">
                     <h1 className="text-2xl font-bold">

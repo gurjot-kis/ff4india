@@ -56,7 +56,7 @@ export default function Index({ blogs, filters }: Props) {
         <>
             <Head title="Blog Management" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="flex justify-between items-center mb-6">
 

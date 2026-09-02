@@ -58,7 +58,7 @@ export default function Edit({ visaBulletin }: Props) {
         <>
             <Head title="Edit Visa Bulletin" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="mb-6 flex items-center justify-between">
 

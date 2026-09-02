@@ -35,7 +35,7 @@ export default function Edit({ notice }: Props) {
         <>
             <Head title="Edit Notice" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="flex items-center justify-between mb-6">
 

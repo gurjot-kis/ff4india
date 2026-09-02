@@ -34,7 +34,7 @@ export default function Edit({ category }: Props) {
         <>
             <Head title="Edit Category" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="flex justify-between items-center mb-6">
 

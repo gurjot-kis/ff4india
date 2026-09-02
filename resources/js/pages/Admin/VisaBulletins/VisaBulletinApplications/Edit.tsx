@@ -85,7 +85,7 @@ export default function Edit({ preference }: Props) {
         <>
             <Head title="Edit Visa Bulletin Application" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 <div className="flex justify-between items-center mb-6">
 

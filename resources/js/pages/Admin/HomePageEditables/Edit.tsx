@@ -61,7 +61,7 @@ export default function Edit({ homePageEditable }: Props) {
         <>
             <Head title="Edit Homepage Editable" />
 
-            <div className="p-6">
+            <div className="p-4">
 
 
                 {/* Success Message */} 

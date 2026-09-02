@@ -59,7 +59,7 @@ export default function Index({ familyImages, filters }: Props) {
         <>
             <Head title="Family Image Management" />
 
-            <div className="p-6">
+            <div className="p-4">
 
                 {/* Header */}
 
