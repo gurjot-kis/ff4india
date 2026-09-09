@@ -134,11 +134,12 @@ export default function Index({ familyImages, filters }: Props) {
                                 </th>
 
                                 <th className="border px-4 py-3 text-center">
-                                    Priority Date
+                                    Case Approved On
+
                                 </th>
 
                                 <th className="border px-4 py-3 text-left">
-                                    Description
+                                    Visa Category
                                 </th>
 
                                 <th className="border px-4 py-3 text-left">

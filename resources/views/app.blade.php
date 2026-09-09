@@ -30,16 +30,24 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" href="{{ config('app.VITE_IMAGE_URL') }}storage/images/F4-Logo-Blue.png" sizes="any">
+        <link rel="icon" href="{{ config('app.VITE_IMAGE_URL') }}storage/images/F4-Logo-Blue.png" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="{{ config('app.VITE_IMAGE_URL') }}storage/images/F4-Logo-Blue.png">
 
+     
         @fonts
 
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         <x-inertia::head>
-            <title>{{ config('app.name', 'Laravel') }}</title>
+            <title>{{ config('app.name', 'Best Immigration Consultants in India | F4 India') }}</title>
+
+                <meta name="description" content="F4 India is one of the best immigration consultants in India, providing expert services for U.S. immigration petitions, green cards, permanent residency, immigration appeals, citizenship, CSPA, waivers, and humanitarian reinstatement." />
+
+                <meta name="keywords" content="best immigration consultants in India, top immigration consultants in India, best immigration consultants in Chandigarh, US immigration consultants in India" />
+
+                
+
         </x-inertia::head>
     </head>
     <body class="font-sans antialiased">

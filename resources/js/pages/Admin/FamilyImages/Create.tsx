@@ -122,7 +122,8 @@ export default function Create() {
                         <div className="mb-5">
 
                             <label className="block mb-2 font-medium">
-                                Priority Date
+                                Case Approved On
+
                             </label>
 
                             <input
@@ -150,7 +151,7 @@ export default function Create() {
                         <div className="mb-5">
 
                             <label className="block mb-2 font-medium">
-                                Description
+                                Visa Category
                             </label>
 
                             <textarea
@@ -161,7 +162,7 @@ export default function Create() {
                                         e.target.value
                                     )
                                 }
-                                rows={6}
+                                rows={1}
                                 className="w-full border rounded px-3 py-2"
                                 placeholder="Enter description"
                             />

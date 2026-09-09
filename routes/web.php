@@ -110,6 +110,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/export/pdf', [VisaBulletinApplicationController::class, 'exportPdf'])->name('pdf');
         Route::get('/print', [VisaBulletinApplicationController::class, 'print'])->name('print');
     });
+
+
+    Route::prefix('dashboard/contact-forms')->name('dashboard.contact-forms.')->group(function () {
+        Route::get('/export/excel', [ContactFormController::class, 'exportExcel'])->name('excel');
+        Route::get('/export/csv', [ContactFormController::class, 'exportCsv'])->name('csv');
+        Route::get('/export/pdf', [ContactFormController::class, 'exportPdf'])->name('pdf');
+        Route::get('/print', [ContactFormController::class, 'print'])->name('print');
+    });
     
 });
 

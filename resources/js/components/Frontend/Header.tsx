@@ -8,14 +8,13 @@ interface EmergencyBroadcast {
 }
 
 interface SharedProps extends Record<string, unknown> {
-    emergencyBroadcasts: EmergencyBroadcast | null;
+    emergencyBroadcasts: EmergencyBroadcast[];
 }
 
 export default function Header() {
 
-    const { url } = usePage();
-
-    const { emergencyBroadcasts } = usePage<SharedProps>().props;
+    const { url, props } = usePage<SharedProps>();
+    const { emergencyBroadcasts } = props;
 
     return (
         <>
@@ -32,19 +31,17 @@ export default function Header() {
                 <div className="marquee-container">
                     <div className="marquee-content">
 
-                        {emergencyBroadcasts && (
-                            <>
-                                {[...Array(5)].map((_, index) => (
-                                    <span
-                                        className="notice-item"
-                                        key={index}
-                                    >
-                                        <span className="diamond-icon">◆</span>
-                                        {emergencyBroadcasts.description}
-                                    </span>
-                                ))}
-                            </>
-                        )}
+                         {[...emergencyBroadcasts, ...emergencyBroadcasts].map(
+            (emergencyBroadcast, index) => (
+                <span
+                    className="notice-item"
+                    key={`${emergencyBroadcast.id}-${index}`}
+                >
+                    <span className="diamond-icon">◆</span>
+                    {emergencyBroadcast.description}
+                </span>
+            )
+        )}
 
 
                     </div>

@@ -86,7 +86,13 @@ export default function AboutSection({ familyimage, HomeEdit, }: AboutSectionPro
                                             </div>
                                             <div>
                                                 <span>CASE APPROVED ON</span>
-                                                <strong>{familyimage.priority_date}</strong>
+                                                <strong>{familyimage.priority_date &&
+                                                    new Date(familyimage.priority_date).toLocaleDateString('en-US', {
+                                                        month: 'long',
+                                                        day: 'numeric',
+                                                        year: 'numeric',
+                                                    })
+                                                }</strong>
                                             </div>
                                         </div>
                                     </div>

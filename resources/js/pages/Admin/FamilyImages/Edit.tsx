@@ -168,7 +168,7 @@ export default function Edit({ familyImage }: Props) {
                         <div className="mb-5">
 
                             <label className="block mb-2 font-medium">
-                                Priority Date
+                                Case Approved On
                             </label>
 
                             <input
@@ -196,7 +196,7 @@ export default function Edit({ familyImage }: Props) {
                         <div className="mb-5">
 
                             <label className="block mb-2 font-medium">
-                                Description
+                                Visa Category
                             </label>
 
                             <textarea
@@ -207,7 +207,7 @@ export default function Edit({ familyImage }: Props) {
                                         e.target.value
                                     )
                                 }
-                                rows={8}
+                                rows={1}
                                 className="w-full border rounded px-3 py-2"
                                 placeholder="Enter description"
                             />

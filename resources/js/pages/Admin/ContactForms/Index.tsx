@@ -46,7 +46,15 @@ export default function Index({
         );
     };
 
-  
+
+    const deleteRecord = (id: number) => {
+        if (confirm('Are you sure you want to delete this contact form?')) {
+            router.delete(`/dashboard/contact-forms/${id}`);
+        }
+    };
+
+
+
 
     return (
         <>
@@ -60,8 +68,48 @@ export default function Index({
                         Contact Forms Management
                     </h1>
 
-                    
+
                 </div>
+
+
+                <div className="col-12">
+
+                <div className="flex gap-2 mb-4">
+
+                    <a
+                        href="/dashboard/contact-forms/export/excel"
+                        className="bg-green-600 text-white px-4 py-2 rounded"
+                    >
+                        Excel
+                    </a>
+
+                    <a
+                        href="/dashboard/contact-forms/export/pdf"
+                        className="bg-red-600 text-white px-4 py-2 rounded"
+                    >
+                        PDF
+                    </a>
+
+                    <a
+                        href="/dashboard/contact-forms/export/csv"
+                        className="bg-blue-600 text-white px-4 py-2 rounded"
+                    >
+                        CSV
+                    </a>
+
+                    <a
+                        href="/dashboard/contact-forms/print"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
+                    >
+                        Print
+                    </a>
+
+                </div>
+
+
+                <div className="flex gap-2 mb-4"> 
 
                 <form
                     onSubmit={handleSearch}
@@ -95,6 +143,10 @@ export default function Index({
                     </button>
 
                 </form>
+                </div>
+
+                </div>
+
 
                 <div className="overflow-x-auto bg-white rounded shadow">
 
@@ -124,12 +176,16 @@ export default function Index({
                                     Message
                                 </th>
 
-                              
+
                                 <th className="border px-4 py-2 w-44">
                                     Created At
                                 </th>
 
-                             
+                                <th className="border px-4 py-2 w-32">
+                                    Action
+                                </th>
+
+
 
                             </tr>
 
@@ -161,12 +217,12 @@ export default function Index({
 
                                             {item.email}
 
-                                        </td>   
+                                        </td>
                                         <td className="border px-4 py-2">
 
                                             {item.phone}
 
-                                        </td>       
+                                        </td>
 
                                         <td className="border px-4 py-2">
 
@@ -175,7 +231,7 @@ export default function Index({
                                         </td>
 
 
-                                        
+
 
                                         <td className="border px-4 py-2">
 
@@ -187,10 +243,18 @@ export default function Index({
                                                     year: 'numeric',
                                                 }
                                             )}
-
                                         </td>
 
-                                         
+                                        <td className="border px-4 py-3 text-center">
+                                            <div className="flex justify-center gap-2">
+                                                <button
+                                                    onClick={() => deleteRecord(item.id)}
+                                                    className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </td>
 
                                     </tr>
 
@@ -198,14 +262,12 @@ export default function Index({
                             ) : (
 
                                 <tr>
-
                                     <td
                                         colSpan={5}
                                         className="text-center py-6"
                                     >
                                         No records found.
                                     </td>
-
                                 </tr>
 
                             )}
@@ -224,11 +286,10 @@ export default function Index({
                             key={index}
                             disabled={!link.url}
                             onClick={() => link.url && router.visit(link.url)}
-                            className={`px-3 py-1 border rounded ${
-                                link.active
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white'
-                            }`}
+                            className={`px-3 py-1 border rounded ${link.active
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-white'
+                                }`}
                             dangerouslySetInnerHTML={{
                                 __html: link.label,
                             }}

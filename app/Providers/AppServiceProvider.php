@@ -30,8 +30,9 @@ class AppServiceProvider extends ServiceProvider
         $this->configureDefaults();
 
         Inertia::share([
-            'emergencyBroadcasts' => fn () => EmergencyBroadcast::where('status', 1)->orderBy('id', 'desc')->first(),
+            'emergencyBroadcasts' => fn () => EmergencyBroadcast::where('status', 1)->orderBy('id', 'desc')->get(),
         ]);
+
     }
 
     /**
