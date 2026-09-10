@@ -2,33 +2,39 @@ import React from 'react';
 
 const services = [
     {
-        title: 'Family-Based Immigration',
-        text: 'Reuniting families is at the heart of what we do. We assist with family petitions, immigrant visas, Green Cards, adjustment of status, and consular processing for eligible relatives of U.S. citizens and lawful permanent residents.',
+        title: 'Family Immigration & Green Cards',
+        text: 'Helping families with spouse, parent, child, sibling and fiancé(e) immigration, family preference categories, Green Cards and Adjustment of Status.',
+        href: 'services-detail#familybased-services',
         className: 'featured-card',
     },
     {
-        title: 'USCIS Petitions',
-        text: 'From preparing petitions to responding to Requests for Evidence (RFEs), our legal team provides strategic guidance throughout the USCIS process to help ensure your case is complete, accurate, and well-supported.',
+        title: 'USCIS Petitions & Applications',
+        text: 'Helping individuals and families prepare and file immigration petitions and applications with USCIS, including responses to requests and notices.',
+        href: 'services-detail#petitions-applications-services',
         className: 'featured-card lightcard-bg',
     },
     {
         title: 'NVC & Consular Processing',
-        text: 'From preparing petitions to responding to Requests for Evidence (RFEs), our legal team provides strategic guidance throughout the USCIS process to help ensure your case is complete, accurate, and well-supported.',
+        text: 'Assistance with DS-260, Affidavit of Support, civil documents, NVC processing, CEAC submissions and immigrant visa interview preparation.',
+        href: 'services-detail#consular-processing-services',
         className: 'featured-card',
     },
     {
-        title: 'Waivers',
-        text: "Immigration obstacles don't have to end your journey. We prepare comprehensive waiver applications, including inadmissibility waivers, humanitarian reinstatement requests, and other legal remedies for complex immigration matters.",
+        title: 'Humanitarian Reinstatement & Waivers',
+        text: 'Assistance with reinstatement of revoked family petitions after the death of the petitioner, along with immigration waivers for grounds of inadmissibility.',
+        href: 'services-detail#waivers-services',
         className: 'featured-card',
     },
     {
-        title: 'Visa Refusals & Administrative Processing',
-        text: 'Our legal team provides strategic guidance for visa refusals, 221(g) cases, administrative processing, inadmissibility findings, and other challenges encountered during the U.S. visa application process.',
+        title: 'Citizenship & Naturalization',
+        text: 'Helping Green Card holders with naturalization, N-400 applications, citizenship through parents, N-600 applications and other citizenship matters.',
+        href: 'services-detail#visa-refusals-services',
         className: 'featured-card lightcard-bg',
     },
     {
-        title: 'U.S. Citizenship & Naturalization',
-        text: 'Our legal team provides strategic guidance for visa refusals, 221(g) cases, administrative processing, inadmissibility findings, and other challenges encountered during the U.S. visa application process.',
+        title: 'Visa Refusals, 221(g) & Processing',
+        text: 'Assistance with 221(g) refusals, administrative processing, additional-document requests and visa cases involving INA §212 inadmissibility.',
+        href: 'services-detail#citizenship-services',
         className: 'featured-card',
     },
 ];
@@ -47,7 +53,7 @@ export default function ServicesSection() {
                     <div className="row g-4">
                         {services.map((service) => (
                             <div className="col-12 col-md-6 col-lg-4" key={service.title}>
-                                <a href="#" className={`service-card ${service.className}`}>
+                                <a href={service.href} className={`service-card ${service.className}`}>
                                     <h3 className="service-title">{service.title}</h3>
                                     <div className="service-divider" />
                                     <p className="service-text">{service.text}</p>
@@ -57,7 +63,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="text-center">
-                        <a href="#" className="services-btn common-btn">
+                        <a href="/services" className="services-btn common-btn">
                             <span>View All Services</span>
                             <i className="fa-solid fa-arrow-right" />
                         </a>

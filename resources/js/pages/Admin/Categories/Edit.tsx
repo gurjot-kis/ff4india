@@ -34,134 +34,133 @@ export default function Edit({ category }: Props) {
         <>
             <Head title="Edit Category" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Edit Category
                     </h1>
 
                     <Link
                         href="/dashboard/categories"
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
                         Back
                     </Link>
 
                 </div>
 
-                <div className="bg-white shadow rounded-lg p-6">
+                <form
+                    onSubmit={submit}
+                    className="rounded create-visa-bulletin"
+                >
 
-                    <form onSubmit={submit}>
+                    {/* Category Name */}
 
-                        {/* Category Name */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Category Name
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Category Name
-                            </label>
+                        <input
+                            type="text"
+                            value={data.name}
+                            onChange={(e) =>
+                                setData('name', e.target.value)
+                            }
+                            className="w-full border rounded px-3 py-2"
+                            placeholder="Enter Category Name"
+                        />
 
-                            <input
-                                type="text"
-                                value={data.name}
-                                onChange={(e) =>
-                                    setData('name', e.target.value)
-                                }
-                                className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter Category Name"
-                            />
-
-                            {errors.name && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.name}
-                                </p>
-                            )}
-
-                        </div>
-
-                        {/* Slug */}
-
-                        <div className="mb-5">
-
-                            <label className="block mb-2 font-medium">
-                                Slug
-                            </label>
-
-                            <input
-                                type="text"
-                                value={category.slug}
-                                disabled
-                                className="w-full border rounded px-3 py-2 bg-gray-100 cursor-not-allowed"
-                            />
-
-                            <p className="text-gray-500 text-sm mt-1">
-                                Slug is generated automatically from the category name.
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.name}
                             </p>
+                        )}
 
-                        </div>
+                    </div>
 
-                        {/* Status */}
+                    {/* Slug */}
 
-                        <div className="mb-6">
+                    <div className="mb-3">
 
-                            <label className="block mb-2 font-medium">
-                                Status
-                            </label>
+                        <label className="block font-semibold mb-2">
+                            Slug
+                        </label>
 
-                            <select
-                                value={data.status ? '1' : '0'}
-                                onChange={(e) =>
-                                    setData(
-                                        'status',
-                                        e.target.value === '1'
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                            >
-                                <option value="1">
-                                    Active
-                                </option>
+                        <input
+                            type="text"
+                            value={category.slug}
+                            disabled
+                            className="w-full border rounded px-3 py-2 bg-gray-100 cursor-not-allowed"
+                        />
 
-                                <option value="0">
-                                    Inactive
-                                </option>
+                        <p className="text-gray-500 text-sm mt-1">
+                            Slug is generated automatically from the category name.
+                        </p>
 
-                            </select>
+                    </div>
 
-                            {errors.status && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.status}
-                                </p>
-                            )}
+                    {/* Status */}
 
-                        </div>
+                    <div className="">
 
-                        {/* Buttons */}
+                        <label className="block font-semibold mb-2">
+                            Status
+                        </label>
 
-                        <div className="flex gap-3">
+                        <select
+                            value={data.status ? '1' : '0'}
+                            onChange={(e) =>
+                                setData(
+                                    'status',
+                                    e.target.value === '1'
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        >
+                            <option value="1">
+                                Active
+                            </option>
 
-                            <button
-                                type="submit"
-                                disabled={processing}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded disabled:opacity-50"
-                            >
-                                {processing ? 'Updating...' : 'Update'}
-                            </button>
+                            <option value="0">
+                                Inactive
+                            </option>
 
-                            <Link
-                                href="/dashboard/categories"
-                                className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded"
-                            >
-                                Cancel
-                            </Link>
+                        </select>
 
-                        </div>
+                        {errors.status && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.status}
+                            </p>
+                        )}
 
-                    </form>
+                    </div>
 
-                </div>
+                    {/* Buttons */}
+
+                    <div className="flex gap-3 mt-4">
+
+                        <button
+                            type="submit"
+                            disabled={processing}
+                            className="primary_btn text-white px-10 py-2 rounded disabled:opacity-50"
+                        >
+                            {processing ? 'Updating...' : 'Update'}
+                        </button>
+
+                        <Link
+                            href="/dashboard/categories"
+                            className="bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Cancel
+                        </Link>
+
+                    </div>
+
+                </form>
 
             </div>
         </>

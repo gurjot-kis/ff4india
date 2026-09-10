@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Head, Link, router } from '@inertiajs/react';
+import { Search, RotateCcw, Trash, SquarePen } from "lucide-react";
 
 interface FamilyImage {
     id: number;
@@ -59,19 +60,19 @@ export default function Index({ familyImages, filters }: Props) {
         <>
             <Head title="Family Image Management" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
                 {/* Header */}
 
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Family Image Management
                     </h1>
 
                     <Link
                         href="/dashboard/family-images/create"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded primary_btn"
                     >
                         + Add Family Image
                     </Link>
@@ -80,40 +81,48 @@ export default function Index({ familyImages, filters }: Props) {
 
                 {/* Search */}
 
-                <form
-                    onSubmit={handleSearch}
-                    className="flex gap-2 mb-5"
-                >
+                <div className="col-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+                        <div className="lg:col-span-6 order-1 lg:order-2">
+                            <form
+                                onSubmit={handleSearch}
+                                className="flex gap-2 search-form"
+                            >
 
-                    <input
-                        type="text"
-                        value={search}
-                        onChange={(e) =>
-                            setSearch(e.target.value)
-                        }
-                        placeholder="Search Name..."
-                        className="border rounded px-3 py-2 w-80"
-                    />
+                                <input
+                                    type="text"
+                                    value={search}
+                                    onChange={(e) =>
+                                        setSearch(e.target.value)
+                                    }
+                                    placeholder="Search Name..."
+                                    className="border rounded px-3 py-2 w-80"
+                                />
 
-                    <button
-                        type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                    >
-                        Search
-                    </button>
+                                <button
+                                    type="submit"
+                                    className="bg-blue-600 text-white rounded flex gap-2 common-btn"
+                                >
+                                    <Search size={16} />
+                                    <span>Search</span>
+                                </button>
 
-                    <Link
-                        href="/dashboard/family-images"
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
-                    >
-                        Reset
-                    </Link>
+                                <Link
+                                    href="/dashboard/family-images"
+                                    className="bg-gray-600 text-white rounded flex gap-2 common-btn"
+                                >
+                                    <RotateCcw size={16} />
+                                    <span>Reset</span>
+                                </Link>
 
-                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Table */}
 
-                <div className="overflow-x-auto bg-white rounded shadow">
+                <div className="overflow-x-auto bg-white rounded styled-table">
 
                     <table className="w-full border-collapse">
 
@@ -121,15 +130,15 @@ export default function Index({ familyImages, filters }: Props) {
 
                             <tr>
 
-                                <th className="border px-4 py-3 text-center">
+                                <th className="border">
                                     #
                                 </th>
 
-                                <th className="border px-4 py-3 text-left">
+                                <th className="border">
                                     Image
                                 </th>
 
-                                <th className="border px-4 py-3 text-left">
+                                <th className="border">
                                     Name
                                 </th>
 
@@ -142,23 +151,23 @@ export default function Index({ familyImages, filters }: Props) {
                                     Visa Category
                                 </th>
 
-                                <th className="border px-4 py-3 text-left">
+                                <th className="border">
                                     Review
                                 </th>
 
-                                <th className="border px-4 py-3 text-center">
+                                <th className="border">
                                     Status
                                 </th>
 
-                                <th className="border px-4 py-3 text-center">
+                                <th className="border">
                                     Homepage
                                 </th>
 
-                                <th className="border px-4 py-3 text-center">
+                                <th className="border">
                                     Created At
                                 </th>
 
-                                <th className="border px-4 py-3 text-center">
+                                <th className="border text-center">
                                     Action
                                 </th>
 
@@ -177,13 +186,13 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* # */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
                                                 {index + 1}
                                             </td>
 
                                             {/* Image */}
 
-                                            <td className="border px-4 py-3">
+                                            <td className="border">
 
                                                 {item.image ? (
 
@@ -205,13 +214,13 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Name */}
 
-                                            <td className="border px-4 py-3">
+                                            <td className="border">
                                                 {item.name}
                                             </td>
 
                                             {/* Priority Date */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
 
                                                 {item.priority_date
                                                     ? new Date(
@@ -230,7 +239,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Description */}
 
-                                            <td className="border px-4 py-3">
+                                            <td className="border">
 
                                                 <div
                                                     className="max-w-xs line-clamp-3"
@@ -245,7 +254,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Review */}
 
-                                            <td className="border px-4 py-3">
+                                            <td className="border">
 
                                                 <div
                                                     className="max-w-xs line-clamp-3"
@@ -260,7 +269,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Status */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
 
                                                 {item.status ? (
 
@@ -280,7 +289,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Homepage */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
 
                                                 {item.set_homepage ? (
 
@@ -300,7 +309,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Created At */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
 
                                                 {new Date(
                                                     item.created_at
@@ -317,15 +326,15 @@ export default function Index({ familyImages, filters }: Props) {
 
                                             {/* Actions */}
 
-                                            <td className="border px-4 py-3 text-center">
+                                            <td className="border text-center">
 
                                                 <div className="flex justify-center gap-2">
 
                                                     <Link
                                                         href={`/dashboard/family-images/${item.id}/edit`}
-                                                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded"
+                                                        className="edit-btn flex gap-2 align-items-center"
                                                     >
-                                                        Edit
+                                                        <SquarePen /> <span>Edit</span>
                                                     </Link>
 
                                                     <button
@@ -335,9 +344,9 @@ export default function Index({ familyImages, filters }: Props) {
                                                                 item.id
                                                             )
                                                         }
-                                                        className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+                                                        className="delete-btn flex gap-2 align-items-center"
                                                     >
-                                                        Delete
+                                                        <Trash /> <span>Delete</span>
                                                     </button>
 
                                                 </div>
@@ -355,7 +364,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                                     <td
                                         colSpan={10}
-                                        className="text-center py-6"
+                                        className="text-md-center py-6"
                                     >
                                         No Family Images Found.
                                     </td>
@@ -372,7 +381,7 @@ export default function Index({ familyImages, filters }: Props) {
 
                 {/* Pagination */}
 
-                <div className="flex gap-2 mt-6 flex-wrap">
+                <div className="flex gap-2 mt-6 flex-wrap common-pagination">
 
                     {familyImages.links.map(
                         (link, index) => (

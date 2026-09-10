@@ -11,6 +11,8 @@ import { Spinner } from '@/components/ui/spinner';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
+import { useState } from 'react';
+import { Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 type Props = {
     status?: string;
@@ -18,60 +20,88 @@ type Props = {
 };
 
 export default function Login({ status, canResetPassword }: Props) {
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <>
             <Head title="Log in" />
 
-           
+            <div className="auth-card">
+                {/* <div className="auth-logo">
+                    <img src="/logo.svg" alt="logo" />
+                </div> */}
 
-            <Form
-                {...store.form()}
-                resetOnSuccess={['password']}
-                className="flex flex-col gap-6"
-            >
-                {({ processing, errors }) => (
-                    <>
-                        <div className="grid gap-6">
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">Email</Label>
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    name="email"
-                                    required
-                                    autoFocus
-                                    tabIndex={1}
-                                    autoComplete="email"
-                                    placeholder="email@example.com"
-                                />
-                                <InputError message={errors.email} />
+                <h1 className="auth-title">Log in to your account</h1>
+                <p className="auth-subtitle">Enter your email and password below to log in</p>
+
+                <Form
+                    {...store.form()}
+                    resetOnSuccess={['password']}
+                    className="auth-form flex flex-col gap-3"
+                >
+                    {({ processing, errors }) => (
+                        <>
+                            <div>
+                                <Label htmlFor="email" className="auth-field-label">Email</Label>
+                                <div className="auth-input-wrap">
+                                    <span className="auth-input-icon">
+                                        <Mail size={16} />
+                                    </span>
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        required
+                                        autoFocus
+                                        tabIndex={1}
+                                        autoComplete="email"
+                                        placeholder="email@example.com"
+                                        className="auth-input"
+                                    />
+                                </div>
+                                <InputError message={errors.email} className="mt-1" />
                             </div>
 
-                            <div className="grid gap-2">
-                                <div className="flex items-center">
-                                    <Label htmlFor="password">Password</Label>
+                            <div>
+                                <div className="flex items-center justify-between">
+                                    <Label htmlFor="password" className="auth-field-label">Password</Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="ml-auto text-sm"
+                                            className="text-sm mb-2"
                                             tabIndex={5}
                                         >
                                             Forgot your password?
                                         </TextLink>
                                     )}
                                 </div>
-                                <PasswordInput
-                                    id="password"
-                                    name="password"
-                                    required
-                                    tabIndex={2}
-                                    autoComplete="current-password"
-                                    placeholder="Password"
-                                />
-                                <InputError message={errors.password} />
+                                <div className="auth-input-wrap">
+                                    <span className="auth-input-icon">
+                                        <Lock size={16} />
+                                    </span>
+                                    <input
+                                        id="password"
+                                        type={showPassword ? 'text' : 'password'}
+                                        name="password"
+                                        required
+                                        tabIndex={2}
+                                        autoComplete="current-password"
+                                        placeholder="Password"
+                                        className="auth-input"
+                                    />
+                                    <button
+                                        type="button"
+                                        className="auth-input-toggle"
+                                        onClick={() => setShowPassword((v) => !v)}
+                                        tabIndex={-1}
+                                    >
+                                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                                    </button>
+                                </div>
+                                <InputError message={errors.password} className="mt-1" />
                             </div>
 
-                            <div className="flex items-center space-x-3">
+                            <div className="auth-remember">
                                 <Checkbox
                                     id="remember"
                                     name="remember"
@@ -82,36 +112,30 @@ export default function Login({ status, canResetPassword }: Props) {
 
                             <Button
                                 type="submit"
-                                className="mt-4 w-full"
+                                className="auth-btn"
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
                             >
                                 {processing && <Spinner />}
                                 Log in
+                                <ArrowRight size={16} />
                             </Button>
-                        </div>
+                        </>
+                    )}
+                </Form>
 
-                        {/* <div className="text-center text-sm text-muted-foreground">
-                            Don't have an account?{' '}
-                            <TextLink href={register()} tabIndex={5}>
-                                Sign up
-                            </TextLink>
-                        </div> */}
-                    </>
+                {status && (
+                    <div className="mt-4 text-center text-sm font-medium text-green-600">
+                        {status}
+                    </div>
                 )}
-            </Form>
-
-            {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
-                    {status}
-                </div>
-            )}
+            </div>
         </>
     );
 }
 
-Login.layout = {
-    title: 'Log in to your account',
-    description: 'Enter your email and password below to log in',
-};
+// Login.layout = {
+//     title: 'Log in to your account',
+//     description: 'Enter your email and password below to log in',
+// };

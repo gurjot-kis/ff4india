@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Head, Link, router } from '@inertiajs/react';
+import { FileSpreadsheet, FileText, Table, Printer, Search, RotateCcw, Trash, SquarePen } from "lucide-react";
 
 interface RecentApproval {
     id: number;
@@ -59,128 +60,134 @@ export default function Index({
         <>
             <Head title="Recent Approvals" /> 
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Recent Approvals
                     </h1>
 
                     <Link
                         href="/dashboard/recent-approvals/create"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded primary_btn"
                     >
                         + Add New
                     </Link>
 
                 </div>
 
+                <div className="col-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+                        <div className="lg:col-span-6 order-1 lg:order-2">
+                            <form
+                                onSubmit={handleSearch}
+                                className="flex gap-2 search-form"
+                            >
 
-            <div className="col-12">
+                                <input
+                                    type="text"
+                                    className="border rounded px-3 py-2 w-80"
+                                    placeholder="Search Name / Visa Category..."
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
 
-                <div className="flex gap-2 mb-4">
+                                <button
+                                    type="submit"
+                                    className="bg-blue-600 text-white rounded flex gap-2 common-btn"
+                                >
+                                    <Search size={16} />
+                                    <span>Search</span>
+                                </button>
 
-                    <a
-                        href="/dashboard/recent-approvals/export/excel"
-                        className="bg-green-600 text-white px-4 py-2 rounded"
-                    >
-                        Excel
-                    </a>
+                                <Link
+                                    href="/dashboard/recent-approvals"
+                                    className="bg-gray-600 text-white rounded flex gap-2 common-btn"
+                                >
+                                    <RotateCcw size={16} />
+                                    <span>Reset</span>
+                                </Link>
 
-                    <a
-                        href="/dashboard/recent-approvals/export/pdf"
-                        className="bg-red-600 text-white px-4 py-2 rounded"
-                    >
-                        PDF
-                    </a>
+                            </form>
+                        </div>
 
-                    <a
-                        href="/dashboard/recent-approvals/export/csv"
-                        className="bg-blue-600 text-white px-4 py-2 rounded"
-                    >
-                        CSV
-                    </a>
+                        <div className="lg:col-span-6 flex flex-wrap gap-2 justify-content-lg-end order-2 lg:order-1 all-download-btns">
 
-                    <a
-                        href="/dashboard/recent-approvals/print"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gray-700 text-white px-4 py-2 rounded"
-                    >
-                        Print
-                    </a>
+                            <a
+                                href="/dashboard/recent-approvals/export/excel"
+                                className="bg-green-600 text-white rounded flex gap-2 common-pdf-btn d-excel-btn"
+                            >
+                                <FileSpreadsheet size={16} />
+                                Excel
+                            </a>
 
+                            <a
+                                href="/dashboard/recent-approvals/export/pdf"
+                                className="bg-red-600 text-white rounded flex gap-2 common-pdf-btn d-pdf-btn"
+                            >
+                                <FileText size={16} />
+                                PDF
+                            </a>
+
+                            <a
+                                href="/dashboard/recent-approvals/export/csv"
+                                className="bg-blue-600 text-white rounded flex gap-2 common-pdf-btn d-csv-btn"
+                            >
+                                <Table size={16} />
+                                CSV
+                            </a>
+
+                            <a
+                                href="/dashboard/recent-approvals/print"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-gray-700 text-white rounded flex gap-2 common-pdf-btn d-print-btn"
+                            >
+                                <Printer size={16} />
+                                Print
+                            </a>
+
+                        </div>
+
+                        {/* Search */}
+
+                    </div>
                 </div>
-
-
-                {/* Search */}
-                <div className="flex gap-2 mb-4"> 
-                    <form
-                        onSubmit={handleSearch}
-                        className="flex gap-2 mb-5"
-                    >
-
-                        <input
-                            type="text"
-                            className="border rounded px-3 py-2 w-80"
-                            placeholder="Search Name / Visa Category..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-
-                        <button
-                            type="submit"
-                            className="bg-blue-600 text-white px-4 rounded"
-                        >
-                            Search
-                        </button>
-
-                        <Link
-                            href="/dashboard/recent-approvals"
-                            className="bg-gray-700 text-white px-4 py-2 rounded"
-                        >
-                            Reset
-                        </Link>
-
-                    </form>
-                </div>
-
-            </div>
 
                 {/* Table */}
 
-                <div className="overflow-x-auto bg-white rounded shadow">
+                <div className="overflow-x-auto bg-white rounded styled-table">
 
-                    <table className="min-w-full border-collapse">
+                    <table className="w-full border-collapse">
 
                         <thead className="bg-gray-100">
 
                             <tr>
 
-                                <th className="border px-4 py-3">#</th>
+                                <th className="border">#</th>
 
-                                <th className="border px-4 py-3">
+                                <th className="border">
                                     Image
                                 </th>
 
-                                <th className="border px-4 py-3">
+                                <th className="border">
                                     Name
                                 </th>
 
-                                <th className="border px-4 py-3">
+                                <th className="border">
                                     Approval Date
                                 </th>
 
-                                <th className="border px-4 py-3">
+                                <th className="border">
                                     Visa Category
                                 </th>
 
-                                <th className="border px-4 py-3">
+                                <th className="border">
                                     Status
                                 </th> 
                                 
-                                <th className="border px-4 py-3">
+                                <th className="border text-center">
                                     Action
                                 </th>
 
@@ -196,11 +203,11 @@ export default function Index({
 
                                     <tr key={item.id}>
 
-                                        <td className="border px-4 py-3 text-center">
+                                        <td className="border text-center">
                                             {index + 1}
                                         </td>
 
-                                        <td className="border px-4 py-3 text-center">
+                                        <td className="border text-center">
 
                                             {item.image ? (
 
@@ -220,11 +227,11 @@ export default function Index({
 
                                         </td>
 
-                                        <td className="border px-4 py-3">
+                                        <td className="border">
                                             {item.name}
                                         </td>
 
-                                        <td className="border px-4 py-3 text-center">
+                                        <td className="border">
                                             {new Date(
                                                 item.approval_date
                                             ).toLocaleDateString(
@@ -237,11 +244,11 @@ export default function Index({
                                             )}
                                         </td>
 
-                                        <td className="border px-4 py-3">
+                                        <td className="border">
                                             {item.visa_category}
                                         </td>
 
-                                        <td className="border px-4 py-3 text-center">
+                                        <td className="border">
 
                                             {item.status ? (
 
@@ -261,15 +268,15 @@ export default function Index({
 
                                         
 
-                                        <td className="border px-4 py-3">
+                                        <td className="border text-center">
 
                                             <div className="flex justify-center gap-2">
 
                                                 <Link
                                                     href={`/dashboard/recent-approvals/${item.id}/edit`}
-                                                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded"
+                                                    className="edit-btn flex gap-2 align-items-center"
                                                 >
-                                                    Edit
+                                                    <SquarePen /> <span>Edit</span>
                                                 </Link>
 
                                                 <button
@@ -278,9 +285,9 @@ export default function Index({
                                                             item.id
                                                         )
                                                     }
-                                                    className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+                                                    className="delete-btn flex gap-2 align-items-center"
                                                 >
-                                                    Delete
+                                                    <Trash /> <span>Delete</span>
                                                 </button>
 
                                             </div>
@@ -297,7 +304,7 @@ export default function Index({
 
                                     <td
                                         colSpan={8}
-                                        className="text-center py-6"
+                                        className="text-md-center py-6"
                                     >
                                         No Records Found.
                                     </td>
@@ -314,7 +321,7 @@ export default function Index({
 
                 {/* Pagination */}
 
-                <div className="flex gap-2 mt-6 flex-wrap">
+                <div className="flex gap-2 mt-6 flex-wrap common-pagination">
 
                     {recentApprovals.links.map((link, index) => (
 

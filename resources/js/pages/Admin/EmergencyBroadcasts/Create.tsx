@@ -32,120 +32,119 @@ export default function Create() {
         <>
             <Head title="Create Emergency Broadcast" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Create Emergency Broadcast
                     </h1>
 
                     <Link
                         href="/dashboard/emergency-broadcasts"
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
                         Back
                     </Link>
 
                 </div>
 
-                <div className="bg-white rounded-lg shadow p-6">
+                <form
+                    onSubmit={submit}
+                    className="rounded create-visa-bulletin"
+                >
 
-                    <form onSubmit={submit}>
+                    {/* Description */}
 
-                        {/* Description */}
+                    <div className="mb-8">
 
-                        <div className="mb-6">
+                        <label className="block font-semibold mb-2">
+                            Description
+                        </label>
 
-                            <label className="block font-medium mb-2">
-                                Description
-                            </label>
+                        <textarea
+                            rows={6}
+                            className="w-full border rounded px-3 py-2"
+                            placeholder="Enter Emergency Broadcast..."
+                            value={data.description}
+                            onChange={(e) =>
+                                setData('description', e.target.value)
+                            }
+                        />
 
-                            <textarea
-                                rows={6}
-                                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter Emergency Broadcast..."
-                                value={data.description}
-                                onChange={(e) =>
-                                    setData('description', e.target.value)
-                                }
-                            />
+                        {errors.description && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.description}
+                            </p>
+                        )}
 
-                            {errors.description && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.description}
-                                </p>
-                            )}
+                    </div>
 
-                        </div>
+                    {/* Status */}
 
-                        {/* Status */}
+                    <div className="mb-8">
 
-                        <div className="mb-6">
+                        <label className="block font-semibold mb-2">
+                            Status
+                        </label>
 
-                            <label className="block font-medium mb-2">
-                                Status
-                            </label>
+                        <select
+                            className="w-full border rounded px-3 py-2"
+                            value={data.status ? '1' : '0'}
+                            onChange={(e) =>
+                                setData('status', e.target.value === '1')
+                            }
+                        >
+                            <option value="1">
+                                Active
+                            </option>
 
-                            <select
-                                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                value={data.status ? '1' : '0'}
-                                onChange={(e) =>
-                                    setData('status', e.target.value === '1')
-                                }
-                            >
-                                <option value="1">
-                                    Active
-                                </option>
+                            <option value="0">
+                                Inactive
+                            </option>
 
-                                <option value="0">
-                                    Inactive
-                                </option>
+                        </select>
 
-                            </select>
+                        {errors.status && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.status}
+                            </p>
+                        )}
 
-                            {errors.status && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.status}
-                                </p>
-                            )}
+                    </div>
 
-                        </div>
+                    {/* Buttons */}
 
-                        {/* Buttons */}
+                    <div className="flex gap-3 mt-4">
 
-                        <div className="flex gap-3">
+                        <button
+                            type="submit"
+                            disabled={processing}
+                            className="primary_btn text-white px-8 sm:px-10 py-2 rounded disabled:opacity-50"
+                        >
+                            {processing
+                                ? 'Saving...'
+                                : 'Save'}
+                        </button>
 
-                            <button
-                                type="submit"
-                                disabled={processing}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded disabled:opacity-50"
-                            >
-                                {processing
-                                    ? 'Saving...'
-                                    : 'Save'}
-                            </button>
+                        <button
+                            type="button"
+                            onClick={() => reset()}
+                            className="reset_button bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Reset
+                        </button>
 
-                            <button
-                                type="button"
-                                onClick={() => reset()}
-                                className="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded"
-                            >
-                                Reset
-                            </button>
+                        <Link
+                            href="/dashboard/emergency-broadcasts"
+                            className="cancel_button bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Cancel
+                        </Link>
 
-                            <Link
-                                href="/dashboard/emergency-broadcasts"
-                                className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded"
-                            >
-                                Cancel
-                            </Link>
+                    </div>
 
-                        </div>
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
         </>

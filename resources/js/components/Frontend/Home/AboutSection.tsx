@@ -59,7 +59,7 @@ export default function AboutSection({ familyimage, HomeEdit, }: AboutSectionPro
                     <div className="col-lg-6">
                         <div className="success-card">
                             <h2 className="success-title">
-                                Making Immigration Dreams A Reality
+                                Good News Worth Celebrating
                             </h2>
 
                             {familyimage && (
@@ -117,11 +117,11 @@ export default function AboutSection({ familyimage, HomeEdit, }: AboutSectionPro
                         </div>
 
                         <div className="about-buttons d-flex d-lg-none">
-                            <a href="#" className="common-primary-btn">
+                            <a href="/about" className="common-primary-btn">
                                 <span>About Our Firm</span>
                                 <i className="fa-solid fa-arrow-right" />
                             </a>
-                            <a href="#" className="common-secondary-btn">
+                            <a href="/blog" className="common-secondary-btn">
                                 <span>More Success Stories</span>
                                 <i className="fa-solid fa-arrow-right" />
                             </a>

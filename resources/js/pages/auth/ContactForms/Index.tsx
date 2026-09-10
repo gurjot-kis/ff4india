@@ -1,0 +1,253 @@
+import React, { useState } from 'react';
+import { Head, Link, router } from '@inertiajs/react';
+import { Search, RotateCcw } from "lucide-react";
+
+interface ContactForm {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    status: boolean;
+    created_at: string;
+}
+
+interface Props {
+    contactForms: {
+        data: ContactForm[];
+        current_page: number;
+        per_page: number;
+        links: {
+            url: string | null;
+            label: string;
+            active: boolean;
+        }[];
+    };
+    filters: {
+        search: string;
+    };
+}
+
+export default function Index({
+    contactForms,
+    filters,
+}: Props) {
+    const [search, setSearch] = useState(filters.search || '');
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        router.get(
+            '/dashboard/contact-forms',
+            { search },
+            {
+                preserveState: true,
+                replace: true,
+            }
+        );
+    };
+
+  
+
+    return (
+        <>
+            <Head title="Contact Forms Management" />
+
+            <div className="app-inner-content">
+
+                <div className="flex justify-between items-center mb-6 heading-outer">
+
+                    <h1 className="text-2xl font-bold main_heading">
+                        Contact Forms Management
+                    </h1>
+
+                    
+                </div>
+
+                <div className="col-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+                        <div className="lg:col-span-6 order-1 lg:order-2">
+                            <form
+                                onSubmit={handleSearch}
+                                className="flex gap-2 search-form"
+                            >
+
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    className="border rounded px-3 py-2 w-80"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
+
+                                <button
+                                    type="submit"
+                                    className="bg-blue-600 text-white rounded flex gap-2 common-btn"
+                                >
+                                    <Search size={16} />
+                                    <span>Search</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="bg-gray-600 text-white rounded flex gap-2 common-btn"
+                                    onClick={() => {
+                                        setSearch('');
+                                        router.get('/dashboard/contact-forms');
+                                    }}
+                                >
+                                    <RotateCcw size={16} />
+                                    <span>Reset</span>
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="overflow-x-auto bg-white rounded styled-table">
+
+                    <table className="w-full border-collapse">
+
+                        <thead className="bg-gray-100">
+
+                            <tr>
+
+                                <th className="border">
+                                    #
+                                </th>
+
+                                <th className="border">
+                                    Name
+                                </th>
+
+                                <th className="border">
+                                    Email
+                                </th>
+
+                                <th className="border">
+                                    Phone
+                                </th>
+
+                                <th className="border">
+                                    Message
+                                </th>
+
+                              
+                                <th className="border">
+                                    Created At
+                                </th>
+
+                             
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {contactForms.data.length > 0 ? (
+                                contactForms.data.map((item, index) => (
+
+                                    <tr key={item.id}>
+
+                                        <td className="border text-center">
+
+                                            {(contactForms.current_page - 1) *
+                                                contactForms.per_page +
+                                                index +
+                                                1}
+
+                                        </td>
+
+                                        <td className="border">
+
+                                            {item.name}
+
+                                        </td>
+
+                                        <td className="border">
+
+                                            {item.email}
+
+                                        </td>   
+                                        <td className="border">
+
+                                            {item.phone}
+
+                                        </td>       
+
+                                        <td className="border">
+
+                                            {item.message}
+
+                                        </td>
+
+
+                                        
+
+                                        <td className="border">
+
+                                            {new Date(item.created_at).toLocaleDateString(
+                                                'en-US',
+                                                {
+                                                    day: 'numeric',
+                                                    month: 'long',
+                                                    year: 'numeric',
+                                                }
+                                            )}
+
+                                        </td>
+
+                                         
+
+                                    </tr>
+
+                                ))
+                            ) : (
+
+                                <tr>
+
+                                    <td
+                                        colSpan={5}
+                                        className="text-md-center py-6"
+                                    >
+                                        No records found.
+                                    </td>
+
+                                </tr>
+
+                            )}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div className="flex gap-2 mt-6 flex-wrap common-pagination">
+
+                    {contactForms.links.map((link, index) => (
+
+                        <button
+                            key={index}
+                            disabled={!link.url}
+                            onClick={() => link.url && router.visit(link.url)}
+                            className={`px-4 py-2 border rounded ${
+                                link.active
+                                    ? 'bg-blue-600 text-white'
+                                    : 'bg-white'
+                            } ${!link.url ? 'pointer-events-none opacity-50' : ''}`}
+                            dangerouslySetInnerHTML={{
+                                __html: link.label,
+                            }}
+                        />
+
+                    ))}
+
+                </div>
+
+            </div>
+        </>
+    );
+}

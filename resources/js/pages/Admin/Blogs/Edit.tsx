@@ -62,342 +62,341 @@ export default function Edit({ blog, categories }: Props) {
         <>
             <Head title="Edit Blog" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Edit Blog
                     </h1>
 
                     <Link
                         href="/dashboard/blogs"
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
                         Back
                     </Link>
 
                 </div>
 
-                <div className="bg-white rounded shadow p-6">
+                <form
+                    onSubmit={submit}
+                    className="rounded create-visa-bulletin"
+                >
 
-                    <form onSubmit={submit}>
+                    {/* Category */}
 
-                        {/* Category */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Category
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Category
-                            </label>
-
-                            <select
-                                value={data.category_id}
-                                onChange={(e) =>
-                                    setData(
-                                        'category_id',
-                                        Number(e.target.value)
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            >
-
-                                {categories.map((category) => (
-
-                                    <option
-                                        key={category.id}
-                                        value={category.id}
-                                    >
-                                        {category.name}
-                                    </option>
-
-                                ))}
-
-                            </select>
-
-                            {errors.category_id &&
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.category_id}
-                                </p>
+                        <select
+                            value={data.category_id}
+                            onChange={(e) =>
+                                setData(
+                                    'category_id',
+                                    Number(e.target.value)
+                                )
                             }
+                            className="w-full border rounded px-3 py-2"
+                        >
 
-                        </div>
+                            {categories.map((category) => (
 
-                        {/* Title */}
+                                <option
+                                    key={category.id}
+                                    value={category.id}
+                                >
+                                    {category.name}
+                                </option>
 
-                        <div className="mb-5">
+                            ))}
 
-                            <label className="block mb-2 font-medium">
-                                Blog Title
-                            </label>
+                        </select>
 
-                            <input
-                                type="text"
-                                value={data.title}
-                                onChange={(e) =>
-                                    setData('title', e.target.value)
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            />
+                        {errors.category_id &&
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.category_id}
+                            </p>
+                        }
 
-                            {errors.title &&
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.title}
-                                </p>
+                    </div>
+
+                    {/* Title */}
+
+                    <div className="mb-3">
+
+                        <label className="block font-semibold mb-2">
+                            Blog Title
+                        </label>
+
+                        <input
+                            type="text"
+                            value={data.title}
+                            onChange={(e) =>
+                                setData('title', e.target.value)
                             }
+                            className="w-full border rounded px-3 py-2"
+                        />
 
-                        </div>
+                        {errors.title &&
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.title}
+                            </p>
+                        }
 
-                        {/* Slug */}
+                    </div>
 
-                        <div className="mb-5">
+                    {/* Slug */}
 
-                            <label className="block mb-2 font-medium">
-                                Slug
-                            </label>
+                    <div className="mb-3">
 
-                            <input
-                                type="text"
-                                value={blog.slug}
-                                disabled
-                                className="w-full border rounded px-3 py-2 bg-gray-100"
+                        <label className="block font-semibold mb-2">
+                            Slug
+                        </label>
+
+                        <input
+                            type="text"
+                            value={blog.slug}
+                            disabled
+                            className="w-full border rounded px-3 py-2 bg-gray-100"
+                        />
+
+                    </div>
+
+                    {/* Current Image */}
+
+                    <div className="mb-3">
+
+                        <label className="block font-semibold mb-2">
+                            Current Featured Image
+                        </label>
+
+                        {blog.featured_image ? (
+
+                            <img
+                                src={`/storage/${blog.featured_image}`}
+                                className="w-40 rounded border"
+                                alt={blog.title}
                             />
 
-                        </div>
+                        ) : (
 
-                        {/* Current Image */}
+                            <p>No Image Uploaded</p>
 
-                        <div className="mb-5">
+                        )}
 
-                            <label className="block mb-2 font-medium">
-                                Current Featured Image
-                            </label>
+                    </div>
 
-                            {blog.featured_image ? (
+                    {/* Change Image */}
 
-                                <img
-                                    src={`/storage/${blog.featured_image}`}
-                                    className="w-40 rounded border"
-                                    alt={blog.title}
-                                />
+                    <div className="mb-3">
 
-                            ) : (
+                        <label className="block font-semibold mb-2">
+                            Change Featured Image
+                        </label>
 
-                                <p>No Image Uploaded</p>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) =>
+                                setData(
+                                    'featured_image',
+                                    e.target.files
+                                        ? e.target.files[0]
+                                        : null
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        />
 
-                            )}
+                    </div>
 
-                        </div>
+                    {/* Description */}
 
-                        {/* Change Image */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Description
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Change Featured Image
-                            </label>
+                        {/* <textarea
+                            rows={10}
+                            value={data.description}
+                            onChange={(e) =>
+                                setData(
+                                    'description',
+                                    e.target.value
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        /> */}
 
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) =>
-                                    setData(
-                                        'featured_image',
-                                        e.target.files
-                                            ? e.target.files[0]
-                                            : null
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            />
+                        <Editor
+    apiKey={import.meta.env.VITE_TINYMCE_API_KEY} value={data.description}
+    onEditorChange={(content) =>
+        setData('description', content)
+    }
+    init={{
+        height: 500,
+        menubar: true,
+        plugins: [
+            'advlist',
+            'autolink',
+            'lists',
+            'link',
+            'image',
+            'charmap',
+            'preview',
+            'anchor',
+            'searchreplace',
+            'visualblocks',
+            'code',
+            'fullscreen',
+            'insertdatetime',
+            'media',
+            'table',
+            'help',
+            'wordcount',
+        ],
+        toolbar:
+            'undo redo | blocks | ' +
+            'bold italic underline strikethrough | ' +
+            'alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | ' +
+            'link image media table | ' +
+            'removeformat | code fullscreen',
+    }}
+/>
 
-                        </div>
+{errors.description && (
+    <p className="text-red-500 text-sm mt-1">
+        {errors.description}
+    </p>
+)}
 
-                        {/* Description */}
+                    </div>
 
-                        <div className="mb-5">
+                    <hr className="my-6"/>
 
-                            <label className="block mb-2 font-medium">
-                                Description
-                            </label>
+                    <h2 className="text-xl font-semibold mb-5">
+                        SEO Information
+                    </h2>
 
-                            {/* <textarea
-                                rows={10}
-                                value={data.description}
-                                onChange={(e) =>
-                                    setData(
-                                        'description',
-                                        e.target.value
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            /> */}
+                    {/* Meta Title */}
 
-                            <Editor
-        apiKey={import.meta.env.VITE_TINYMCE_API_KEY} value={data.description}
-        onEditorChange={(content) =>
-            setData('description', content)
-        }
-        init={{
-            height: 500,
-            menubar: true,
-            plugins: [
-                'advlist',
-                'autolink',
-                'lists',
-                'link',
-                'image',
-                'charmap',
-                'preview',
-                'anchor',
-                'searchreplace',
-                'visualblocks',
-                'code',
-                'fullscreen',
-                'insertdatetime',
-                'media',
-                'table',
-                'help',
-                'wordcount',
-            ],
-            toolbar:
-                'undo redo | blocks | ' +
-                'bold italic underline strikethrough | ' +
-                'alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | ' +
-                'link image media table | ' +
-                'removeformat | code fullscreen',
-        }}
-    />
+                    <div className="mb-3">
 
-    {errors.description && (
-        <p className="text-red-500 text-sm mt-1">
-            {errors.description}
-        </p>
-    )}
+                        <label className="block font-semibold mb-2">
+                            Meta Title
+                        </label>
 
-                        </div>
+                        <input
+                            type="text"
+                            value={data.meta_title}
+                            onChange={(e) =>
+                                setData(
+                                    'meta_title',
+                                    e.target.value
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        />
 
-                        <hr className="my-6"/>
+                    </div>
 
-                        <h2 className="text-xl font-semibold mb-5">
-                            SEO Information
-                        </h2>
+                    {/* Meta Description */}
 
-                        {/* Meta Title */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Meta Description
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Meta Title
-                            </label>
+                        <textarea
+                            rows={4}
+                            value={data.meta_description}
+                            onChange={(e) =>
+                                setData(
+                                    'meta_description',
+                                    e.target.value
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        />
 
-                            <input
-                                type="text"
-                                value={data.meta_title}
-                                onChange={(e) =>
-                                    setData(
-                                        'meta_title',
-                                        e.target.value
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            />
+                    </div>
 
-                        </div>
+                    {/* Meta Keywords */}
 
-                        {/* Meta Description */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Meta Keywords
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Meta Description
-                            </label>
+                        <input
+                            type="text"
+                            value={data.meta_keywords}
+                            onChange={(e) =>
+                                setData(
+                                    'meta_keywords',
+                                    e.target.value
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        />
 
-                            <textarea
-                                rows={4}
-                                value={data.meta_description}
-                                onChange={(e) =>
-                                    setData(
-                                        'meta_description',
-                                        e.target.value
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            />
+                    </div>
 
-                        </div>
+                    {/* Status */}
 
-                        {/* Meta Keywords */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Status
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Meta Keywords
-                            </label>
+                        <select
+                            value={data.status ? '1' : '0'}
+                            onChange={(e) =>
+                                setData(
+                                    'status',
+                                    e.target.value === '1'
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        >
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
 
-                            <input
-                                type="text"
-                                value={data.meta_keywords}
-                                onChange={(e) =>
-                                    setData(
-                                        'meta_keywords',
-                                        e.target.value
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            />
+                    </div>
 
-                        </div>
+                    {/* Buttons */}
 
-                        {/* Status */}
+                    <div className="flex gap-3 mt-4">
 
-                        <div className="mb-6">
+                        <button
+                            type="submit"
+                            disabled={processing}
+                            className="primary_btn text-white px-10 py-2 rounded disabled:opacity-50"
+                        >
+                            {processing ? 'Updating...' : 'Update'}
+                        </button>
 
-                            <label className="block mb-2 font-medium">
-                                Status
-                            </label>
+                        <Link
+                            href="/dashboard/blogs"
+                            className="bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Cancel
+                        </Link>
 
-                            <select
-                                value={data.status ? '1' : '0'}
-                                onChange={(e) =>
-                                    setData(
-                                        'status',
-                                        e.target.value === '1'
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2"
-                            >
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
-                            </select>
+                    </div>
 
-                        </div>
-
-                        {/* Buttons */}
-
-                        <div className="flex gap-3">
-
-                            <button
-                                type="submit"
-                                disabled={processing}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded"
-                            >
-                                {processing ? 'Updating...' : 'Update'}
-                            </button>
-
-                            <Link
-                                href="/dashboard/blogs"
-                                className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded"
-                            >
-                                Cancel
-                            </Link>
-
-                        </div>
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
         </>

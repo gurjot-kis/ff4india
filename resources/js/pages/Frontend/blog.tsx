@@ -50,10 +50,9 @@ export default function Blog({ blogs, filters, }: BlogProps) {
             <section className="common-hero-sec text-center blogs-hero-sec">
                 <div className="container position-relative z-2">
                     <div className="hero-content">
-                        <h1 className="hero-title hero-common-title">Our Latest Immigration Success Stories</h1>
+                        <h1 className="hero-title hero-common-title">U.S. Immigration Insights & Updates</h1>
                         <p className="hero-des hero-common-des m-auto ">
-                            Explore inspiring client success stories, recent case approvals, and real immigration journeys that reflect
-                            our commitment to achieving successful outcomes.
+                            Explore inspiring client success stories, recent case approvals, and real immigration journeys that reflect our commitment to achieving successful outcomes.
                         </p>
                         <div className="blog-search-container">
                             <div className="blog-search-input-wrap">
@@ -82,12 +81,12 @@ export default function Blog({ blogs, filters, }: BlogProps) {
 
             <div className="blogs-list common-padding">
                 <div className="container">
-                    <div className="row g-4">
+                    <div className="row g-4 justify-content-center">
 
                         {blogs?.data?.length > 0 ? (
 
                             blogs && blogs.data.map((item) => (
- 
+
                                 <div className="col-12 col-md-6 col-lg-4">
                                     <article className="blog-card">
                                         <a className="blog-card-image-wrap" href={`${config.appUrl}/blog/${item.slug}`}>
@@ -107,11 +106,11 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                             </div>
                                             <h3 className="blog-card-title">{item.title}</h3>
                                             <div
-    className="blog-card-excerpt"
-    dangerouslySetInnerHTML={{
-        __html: item.description,
-    }}
-/>
+                                                className="blog-card-excerpt"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: item.description,
+                                                }}
+                                            />
                                             <div className="blog-card-footer">
                                                 <button type="submit" className="contact-butn common-btn blog-btn">
                                                     <span>Read More</span>
@@ -121,7 +120,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                         </a>
                                     </article>
                                 </div>
- 
+
                             ))
                         ) : (
                             <div className="col-12">
@@ -143,11 +142,11 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                     </div>
 
 
-                                    {blogs && blogs.last_page > 1 && (
+                    {blogs && blogs.last_page > 1 && (
                         <div className="case-pagination">
                             <nav className="unique-pagination-wrapper" aria-label="Page navigation">
                                 <ul className="pagination unique-pagination mb-0">
-                    
+
                                     {/* First */}
                                     <li className={`page-item ${blogs.current_page === 1 ? 'disabled' : ''}`}>
                                         <a
@@ -158,7 +157,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                             <i className="fa-solid fa-angles-left"></i>
                                         </a>
                                     </li>
-                    
+
                                     {/* Previous */}
                                     <li className={`page-item ${!blogs.prev_page_url ? 'disabled' : ''}`}>
                                         <a
@@ -169,7 +168,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                             <i className="fa-solid fa-angle-left"></i>
                                         </a>
                                     </li>
-                    
+
                                     {/* Page numbers */}
                                     {Array.from(
                                         { length: blogs.last_page },
@@ -178,7 +177,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                         .filter((page) => {
                                             const current = blogs.current_page;
                                             const last = blogs.last_page;
-                    
+
                                             return (
                                                 page === 1 ||
                                                 page === last ||
@@ -187,7 +186,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                         })
                                         .map((page, index, pages) => {
                                             const previousPage = pages[index - 1];
-                    
+
                                             return (
                                                 <React.Fragment key={page}>
                                                     {previousPage && page - previousPage > 1 && (
@@ -197,13 +196,12 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                                             </span>
                                                         </li>
                                                     )}
-                    
+
                                                     <li
-                                                        className={`page-item ${
-                                                            blogs.current_page === page
-                                                                ? 'active'
-                                                                : ''
-                                                        }`}
+                                                        className={`page-item ${blogs.current_page === page
+                                                            ? 'active'
+                                                            : ''
+                                                            }`}
                                                     >
                                                         <a
                                                             className="page-link unique-page-link"
@@ -215,7 +213,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                                 </React.Fragment>
                                             );
                                         })}
-                    
+
                                     {/* Next */}
                                     <li className={`page-item ${!blogs.next_page_url ? 'disabled' : ''}`}>
                                         <a
@@ -226,13 +224,12 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                             <i className="fa-solid fa-angle-right"></i>
                                         </a>
                                     </li>
-                    
+
                                     {/* Last */}
-                                    <li className={`page-item ${
-                                        blogs.current_page === blogs.last_page
-                                            ? 'disabled'
-                                            : ''
-                                    }`}>
+                                    <li className={`page-item ${blogs.current_page === blogs.last_page
+                                        ? 'disabled'
+                                        : ''
+                                        }`}>
                                         <a
                                             className="page-link unique-page-link"
                                             href={`${blogs.path}?page=${blogs.last_page}${filters.year ? `&year=${filters.year}` : ''}`}
@@ -241,7 +238,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                                             <i className="fa-solid fa-angles-right"></i>
                                         </a>
                                     </li>
-                    
+
                                 </ul>
                             </nav>
                         </div>
@@ -300,8 +297,9 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                 </div>
             </div>
 
-
-            <ConsultationCTA />
+            <section class="bg-light-grey">
+                <ConsultationCTA />
+            </section>
 
         </>
     )

@@ -96,14 +96,10 @@ export default function InstagramSlider({
                                 clickable: true,
                             }}
                             breakpoints={{
-                                576: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 20,
-                                },
-                                992: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 24,
-                                },
+                                0: { slidesPerView: 1, spaceBetween: 14 },
+                                576: { slidesPerView: 2, spaceBetween: 16 },
+                                992: { slidesPerView: 3, spaceBetween: 20 },
+                                1200: { slidesPerView: 4, spaceBetween: 25 },
                             }}
                         >
 

@@ -17,10 +17,10 @@ interface RecentApprovalsProps {
         total: number;
     };
 }
- 
-    
 
-export default function RecentApprovals({ recentApprovals, }: RecentApprovalsProps) {    
+
+
+export default function RecentApprovals({ recentApprovals, }: RecentApprovalsProps) {
     return (
         <section className="recent-cases common-padding">
             <div className="container">
@@ -29,7 +29,7 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
                         <h2>Making Immigration Dreams a Reality</h2>
                     </div>
 
-                    <a href="#" className="view-all-btn d-none d-lg-inline-block">
+                    <a href="/recent-approval" className="view-all-btn d-none d-lg-flex">
                         <span>View All</span>
                         <i className="fa-solid fa-arrow-right" />
                     </a>
@@ -54,11 +54,11 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
 
                                     <div className="case-meta">
 
-                                        {/* <span className="case-category">
+                                        <span className="case-category">
                                             {approval.visa_category}
-                                        </span> */}
+                                        </span>
 
-                                        <h3>{approval.name}</h3>
+
 
                                         <span className="case-date">
                                             <i className="fa-regular fa-calendar" />
@@ -77,11 +77,11 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
 
                                     </div>
 
-                                    
 
-                                    <p>
+                                    <h3>{approval.name}</h3>
+                                    {/* <p>
                                         {approval.visa_category}
-                                    </p>
+                                    </p> */}
 
                                 </div>
 
@@ -89,6 +89,15 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
                         </div>
                     ))}
                 </div>
+                <div class="text-center">
+                    <a href="/recent-approval" class="m-view-all common-btn d-inline-flex d-lg-none" target="_blank">
+                        <span>View All</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
             </div>
         </section>
     );

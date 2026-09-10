@@ -29,23 +29,36 @@ export default function VideoSlider({ videos }: VideoSliderProps) {
             <div className="container">
                 <div className="videos-sec-header">
                     <div className="common-heading mb-0">
-                    <h2> Client Success Stories & Immigration Insights</h2>
-                    
+                        <h2> Client Success Stories & Immigration Insights</h2>
+
                     </div>
-                    <a href="https://www.youtube.com/@f4indiaimmigrationlawfirm" className="view-all-btn d-none d-lg-inline-block"
-                    target="_blank">
-                    <span>View All</span>
-                    <i className="fa-solid fa-arrow-right"></i>
+                    <a href="https://www.youtube.com/@f4indiaimmigrationlawfirm" className="view-all-btn d-none d-lg-flex"
+                        target="_blank">
+                        <span>View All</span>
+                        <i className="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
-         
+
                 <Swiper
                     modules={[Navigation, Pagination]}
-                    slidesPerView={3}
+                    slidesPerView={1}
                     spaceBetween={24}
-                    className='swiper video-swiper swiper-initialized swiper-horizontal swiper-backface-hidden'
                     loop={videos.length > 3}
+                    navigation={{
+                        nextEl: '.video-next',
+                        prevEl: '.video-prev',
+                    }}
+                    pagination={{
+                        el: '.video-pagination',
+                        clickable: true,
+                    }}
+                    breakpoints={{
+                        768: { slidesPerView: 2, spaceBetween: 24 },
+                        992: { slidesPerView: 3, spaceBetween: 24 },
+                    }}
+                    className='swiper video-swiper swiper-initialized swiper-horizontal swiper-backface-hidden'
+
                 >
                     {videos.map((video) => (
                         <SwiperSlide key={video.id}>
@@ -91,7 +104,7 @@ export default function VideoSlider({ videos }: VideoSliderProps) {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                
+
 
             </div>
         </section>
@@ -288,7 +301,7 @@ export default function VideoSlider({ videos }: VideoSliderProps) {
 //             </div>
 //         </section>
 
-        {/* <section className="videos-sec common-padding">
+{/* <section className="videos-sec common-padding">
             <div className="container">
 
                  <div className="videos-sec-header">

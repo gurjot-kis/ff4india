@@ -35,116 +35,114 @@ export default function Edit({ notice }: Props) {
         <>
             <Head title="Edit Notice" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Edit Notice
                     </h1>
 
                     <Link
                         href="/dashboard/notices"
-                        className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
                         Back
                     </Link>
 
                 </div>
 
-                <div className="bg-white rounded-lg shadow p-6">
+                <form
+                    onSubmit={submit}
+                    className="rounded create-visa-bulletin"
+                >
 
-                    <form onSubmit={submit}>
+                    {/* Description */}
 
-                        {/* Description */}
+                    <div className="mb-8">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Description
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Description
-                            </label>
+                        <textarea
+                            className="w-full border rounded px-3 py-2"
+                            placeholder="Enter Notice"
+                            rows={5}
+                            value={data.description}
+                            onChange={(e) => setData('description', e.target.value)}
+                        ></textarea>
 
-                         
+                        {errors.description && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.description}
+                            </p>
+                        )}
 
-                            <textarea
-                                className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter Notice"
-                                rows={5}
-                                value={data.description}
-                                onChange={(e) => setData('description', e.target.value)}
-                            ></textarea>
+                    </div>
 
-                            {errors.description && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.description}
-                                </p>
-                            )}
+                    {/* Status */}
 
-                        </div>
+                    <div className="mb-8">
 
-                        {/* Status */}
+                        <label className="block font-semibold mb-2">
+                            Status
+                        </label>
 
-                        <div className="mb-6">
+                        <select
+                            className="w-full border rounded px-3 py-2"
+                            value={data.status ? '1' : '0'}
+                            onChange={(e) =>
+                                setData(
+                                    'status',
+                                    e.target.value === '1'
+                                )
+                            }
+                        >
+                            <option value="1">
+                                Active
+                            </option>
 
-                            <label className="block mb-2 font-medium">
-                                Status
-                            </label>
+                            <option value="0">
+                                Inactive
+                            </option>
+                        </select>
 
-                            <select
-                                className="w-full border rounded px-3 py-2"
-                                value={data.status ? '1' : '0'}
-                                onChange={(e) =>
-                                    setData(
-                                        'status',
-                                        e.target.value === '1'
-                                    )
-                                }
-                            >
-                                <option value="1">
-                                    Active
-                                </option>
+                        {errors.status && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.status}
+                            </p>
+                        )}
 
-                                <option value="0">
-                                    Inactive
-                                </option>
-                            </select>
+                    </div>
 
-                            {errors.status && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.status}
-                                </p>
-                            )}
+                    {/* Buttons */}
 
-                        </div>
+                    <div className="flex gap-3 mt-4">
 
-                        {/* Buttons */}
+                        <button
+                            type="submit"
+                            disabled={processing}
+                            className="primary_btn text-white px-8 py-2 rounded disabled:opacity-50"
+                        >
+                            {processing
+                                ? 'Updating...'
+                                : 'Update Notice'}
+                        </button>
 
-                        <div className="flex gap-3">
+                        <Link
+                            href="/dashboard/notices"
+                            className="bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Cancel
+                        </Link>
 
-                            <button
-                                type="submit"
-                                disabled={processing}
-                                className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-                            >
-                                {processing
-                                    ? 'Updating...'
-                                    : 'Update Notice'}
-                            </button>
+                    </div>
 
-                            <Link
-                                href="/dashboard/notices"
-                                className="px-5 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-                            >
-                                Cancel
-                            </Link>
-
-                        </div>
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
+
         </>
     );
 }

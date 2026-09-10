@@ -23,121 +23,120 @@ export default function Create() {
         <>
             <Head title="Create Category" />
 
-            <div className="p-4">
+            <div className="app-inner-content">
 
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 heading-outer">
 
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-bold main_heading">
                         Create Category
                     </h1>
 
                     <Link
                         href="/dashboard/categories"
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
+                        className="bg-gray-700 text-white px-4 py-2 rounded"
                     >
                         Back
                     </Link>
 
                 </div>
 
-                <div className="bg-white shadow rounded-lg p-6">
+                <form
+                    onSubmit={submit}
+                    className="rounded create-visa-bulletin"
+                >
 
-                    <form onSubmit={submit}>
+                    {/* Category Name */}
 
-                        {/* Category Name */}
+                    <div className="mb-3">
 
-                        <div className="mb-5">
+                        <label className="block font-semibold mb-2">
+                            Category Name
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Category Name
-                            </label>
+                        <input
+                            type="text"
+                            value={data.name}
+                            onChange={(e) =>
+                                setData('name', e.target.value)
+                            }
+                            className="w-full border rounded px-3 py-2"
+                            placeholder="Enter Category Name"
+                        />
 
-                            <input
-                                type="text"
-                                value={data.name}
-                                onChange={(e) =>
-                                    setData('name', e.target.value)
-                                }
-                                className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter Category Name"
-                            />
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.name}
+                            </p>
+                        )}
 
-                            {errors.name && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.name}
-                                </p>
-                            )}
+                    </div>
 
-                        </div>
+                    {/* Status */}
 
-                        {/* Status */}
+                    <div className="">
 
-                        <div className="mb-6">
+                        <label className="block font-semibold mb-2">
+                            Status
+                        </label>
 
-                            <label className="block mb-2 font-medium">
-                                Status
-                            </label>
+                        <select
+                            value={data.status ? '1' : '0'}
+                            onChange={(e) =>
+                                setData(
+                                    'status',
+                                    e.target.value === '1'
+                                )
+                            }
+                            className="w-full border rounded px-3 py-2"
+                        >
+                            <option value="1">
+                                Active
+                            </option>
 
-                            <select
-                                value={data.status ? '1' : '0'}
-                                onChange={(e) =>
-                                    setData(
-                                        'status',
-                                        e.target.value === '1'
-                                    )
-                                }
-                                className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                            >
-                                <option value="1">
-                                    Active
-                                </option>
+                            <option value="0">
+                                Inactive
+                            </option>
 
-                                <option value="0">
-                                    Inactive
-                                </option>
+                        </select>
 
-                            </select>
+                        {errors.status && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.status}
+                            </p>
+                        )}
 
-                            {errors.status && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.status}
-                                </p>
-                            )}
+                    </div>
 
-                        </div>
+                    {/* Buttons */}
 
-                        {/* Buttons */}
+                    <div className="flex gap-3 mt-4">
 
-                        <div className="flex gap-3">
+                        <button
+                            type="submit"
+                            disabled={processing}
+                            className="primary_btn text-white px-10 py-2 rounded disabled:opacity-50"
+                        >
+                            {processing ? 'Saving...' : 'Save'}
+                        </button>
 
-                            <button
-                                type="submit"
-                                disabled={processing}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded disabled:opacity-50"
-                            >
-                                {processing ? 'Saving...' : 'Save'}
-                            </button>
+                        <button
+                            type="button"
+                            onClick={() => reset()}
+                            className="reset_button bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Reset
+                        </button>
 
-                            <button
-                                type="button"
-                                onClick={() => reset()}
-                                className="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded"
-                            >
-                                Reset
-                            </button>
+                        <Link
+                            href="/dashboard/categories"
+                            className="bg-gray-500 hover:bg-gray-700 text-white px-6 py-2 rounded"
+                        >
+                            Cancel
+                        </Link>
 
-                            <Link
-                                href="/dashboard/categories"
-                                className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded"
-                            >
-                                Cancel
-                            </Link>
+                    </div>
 
-                        </div>
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
         </>

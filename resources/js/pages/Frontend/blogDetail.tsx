@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import config from "@/config";
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
@@ -25,16 +26,20 @@ interface BlogProps {
 
 export default function blogDetail({ videos = [], blog, blogs }: BlogProps) {
 
+    useEffect(() => {
+        document.querySelectorAll('.story-content p').forEach((p) => {
+            const text = p.textContent?.replace(/\u00A0/g, '').trim();
+            if (!text && !p.querySelector('img, iframe, video')) {
+                p.classList.add('is-empty-p');
+            }
+        });
+    }, [blog]);
+
 
     return (
         <>
 
-
-
-
-
-
-            <section className="common-hero-sec text-center blog-hero">
+            <section className="common-hero-sec text-center blog-hero mb-0">
                 <div className="container position-relative z-2">
                     <div className="hero-content">
                         <h1 className="hero-title hero-common-title">{blog?.title}</h1>
@@ -67,7 +72,7 @@ export default function blogDetail({ videos = [], blog, blogs }: BlogProps) {
 
 
                         <div className="col-lg-8">
-                            <div className="success-story">
+                            <div className="success-story me-lg-4">
                                 <div className="success-image">
                                     <img src={`${config.storageUrl}/${blog?.featured_image}`} alt="blog-img" />
                                 </div>

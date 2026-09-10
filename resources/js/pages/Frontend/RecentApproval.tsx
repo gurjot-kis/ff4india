@@ -61,12 +61,12 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
                 <div className="container">
                     <div className="visa-filter-section">
                         <div className="row align-items-center g-3">
-                            <div className="col-12 col-md-5 col-lg-5">
+                            {/* <div className="col-12 col-md-5 col-lg-5">
                                 <div className="input-group visa-filter-search">
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="col-12 col-md-7 col-lg-7">
-                                <div className="d-flex flex-wrap justify-content-md-end align-items-center visa-filter-controls">
+                                <div className="d-flex flex-wrap align-items-center visa-filter-controls">
                                     <span className="visa-filter-label">
                                         Sort by:
                                     </span>

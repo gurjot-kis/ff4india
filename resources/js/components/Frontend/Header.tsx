@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import config from '@/config';
+import { useMobileNav } from '@/hooks/useMobileNav';
+import { useStickyHeader } from '@/hooks/useStickyHeader';
+import NoticeModal from '@/components/NoticeModal';
 
 interface EmergencyBroadcast {
     id: number;
@@ -15,6 +18,9 @@ export default function Header() {
 
     const { url, props } = usePage<SharedProps>();
     const { emergencyBroadcasts } = props;
+
+    const nav = useMobileNav();
+    const isSticky = useStickyHeader(50);
 
     return (
         <>
@@ -48,9 +54,22 @@ export default function Header() {
                 </div>
             </div>
 
+            {/* Notice Modal (uses the same emergencyBroadcasts data as the marquee) */}
+            {emergencyBroadcasts && (
+                <NoticeModal
+                    notices={[
+                        {
+                            id: emergencyBroadcasts.id,
+                            text: emergencyBroadcasts.description,
+                        },
+                    ]}
+                    storageKey={`ff4india-notice-${emergencyBroadcasts.id}`}
+                />
+            )}
+
 
             {/* Main Header */}
-            <header className="site-header">
+            <header className={`site-header${isSticky ? ' navbar-sticky' : ''}`}>
 
                 <div className="main-header">
                     <div className="container">
@@ -70,21 +89,33 @@ export default function Header() {
                             </div>
 
                             <div className="mobile-header-actions d-lg-none">
-                                <button id="mobileSearchBtn" className="mobile-action-btn" aria-label="Toggle Search">
+                                <button
+                                    id="mobileSearchBtn"
+                                    className="mobile-action-btn"
+                                    aria-label="Toggle Search"
+                                    onClick={nav.toggleSearch}
+                                >
                                     <i className="fa-solid fa-magnifying-glass"></i>
                                 </button>
-                                <button id="mobileMenuOpenBtn" className="mobileMenuOpenBtn mobile-action-btn"
-                                    aria-label="Open Navigation Menu">
+                                <button
+                                    id="mobileMenuOpenBtn"
+                                    className={`mobileMenuOpenBtn mobile-action-btn${nav.isNavOpen ? ' active' : ''}`}
+                                    aria-label="Open Navigation Menu"
+                                    aria-expanded={nav.isNavOpen}
+                                    onClick={nav.toggleNav}
+                                >
                                     <i className="fa-solid fa-bars menu-icon"></i>
                                     <i className="fa-solid fa-xmark close-icon"></i>
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
-                <div id="mobileSearchDropdown" className="mobile-search-dropdown d-lg-none">
+                <div
+                    id="mobileSearchDropdown"
+                    className={`mobile-search-dropdown d-lg-none${nav.isSearchOpen ? ' active' : ''}`}
+                >
                     <div className="mobile-search-input-group">
                         <input type="text" placeholder="Search..." />
                         <button type="submit" aria-label="Execute Search">
@@ -93,73 +124,121 @@ export default function Header() {
                     </div>
                 </div>
 
-                <nav id="unifiedNavbar" className="navbar-main">
+                <nav id="unifiedNavbar" className={`navbar-main${nav.isNavOpen ? ' active' : ''}`}>
                     <div className="container single-nav-wrapper">
                         <h3 className="d-lg-none">Popular Links</h3>
                         <ul className="single-nav-list">
                             <li className="single-nav-item">
-                                <a href={config.appUrl} className={`single-nav-link ${url === '/' ? 'active' : ''}`}>Home</a>
+                                <a
+                                    href={config.appUrl}
+                                    className={`single-nav-link ${url === '/' ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    Home
+                                </a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/about`} className={`single-nav-link ${url === '/about' ? 'active' : ''}`}>About US</a>
+                                <a
+                                    href={`${config.appUrl}/about`}
+                                    className={`single-nav-link ${url === '/about' ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    About US
+                                </a>
                             </li>
 
                             <li className="single-nav-item">
-                                <div className="single-nav-link parent-link-wrap">
-                                    <a href={`${config.appUrl}/services`} className="parent-link-text">Services</a>
-                                    <button className="submenu-toggle-btn parent-link" type="button" aria-label="Toggle Services submenu">
+                                <div className={`single-nav-link parent-link-wrap ${url.startsWith('/services') ? 'active' : ''}`}>
+                                    <a
+                                        href={`${config.appUrl}/services`}
+                                        className="parent-link-text"
+                                        onClick={nav.closeNav}
+                                    >
+                                        Services
+                                    </a>
+                                    <button
+                                        className="submenu-toggle-btn parent-link"
+                                        type="button"
+                                        aria-label="Toggle Services submenu"
+                                        onClick={(e) => {
+                                            if (window.innerWidth < 992) {
+                                                e.preventDefault();
+                                                nav.openSubmenu('services');
+                                            }
+                                        }}
+                                    >
                                         <i className="fa-solid fa-chevron-right d-lg-none"></i>
                                         <i className="fa-solid fa-chevron-down d-none d-lg-inline"></i>
                                     </button>
                                 </div>
-                                <ul className="single-submenu">
+                                <ul className={`single-submenu${nav.openSubmenuId === 'services' ? ' active' : ''}`}>
                                     <li>
-                                        <button className="submenu-back-btn">
+                                        <button className="submenu-back-btn" onClick={nav.closeSubmenu}>
                                             <i className="fa-solid fa-chevron-left"></i>
                                             <span>Main Menu</span>
                                         </button>
                                     </li>
-                                    <li><a href={`${config.appUrl}/services#familybased-services`}>Family Immigration & Green Cards</a></li>
-                                    <li><a href={`${config.appUrl}/services#petitions-applications-services`}>USCIS Petitions & Applications</a></li>
-                                    <li><a href={`${config.appUrl}/services#consular-processing-services`}>NVC & Consular Processing</a></li>
-                                    <li><a href={`${config.appUrl}/services#waivers-services`}>Humanitarian Reinstatement & Waivers</a></li>
-                                    <li><a href={`${config.appUrl}/services#visa-refusals-services`}>Citizenship & Naturalization</a></li>
-                                    <li><a href={`${config.appUrl}/services#citizenship-services`}>Visa Refusals, 221(g) & Processing</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#familybased-services`} onClick={nav.closeNav}>Family Immigration & Green Cards</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#petitions-applications-services`} onClick={nav.closeNav}>USCIS Petitions & Applications</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#consular-processing-services`} onClick={nav.closeNav}>NVC & Consular Processing</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#waivers-services`} onClick={nav.closeNav}>Humanitarian Reinstatement & Waivers</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#visa-refusals-services`} onClick={nav.closeNav}>Citizenship & Naturalization</a></li>
+                                    <li><a href={`${config.appUrl}/services-detail#citizenship-services`} onClick={nav.closeNav}>Visa Refusals, 221(g) & Processing</a></li>
                                 </ul>
                             </li>
 
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/cspa-age-calculator`} className={`single-nav-link ${url === '/cspa-age-calculator' ? 'active' : ''}`}>CSPA Calculator</a>
+                                <a
+                                    href={`${config.appUrl}/cspa-age-calculator`}
+                                    className={`single-nav-link ${url === '/cspa-age-calculator' ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    CSPA Calculator
+                                </a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/recent-approval`} className={`single-nav-link ${url === '/recent-approval' ? 'active' : ''}`}>Recent Approvals</a>
+                                <a
+                                    href={`${config.appUrl}/recent-approval`}
+                                    className={`single-nav-link ${url === '/recent-approval' ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    Recent Approvals
+                                </a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/blog`} className={`single-nav-link ${url.startsWith('/blog') ? 'active' : ''}`}>Blogs</a>
+                                <a
+                                    href={`${config.appUrl}/blog`}
+                                    className={`single-nav-link ${url.startsWith('/blog') ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    Blogs
+                                </a>
                             </li>
                             <li className="single-nav-item">
-                                <a href={`${config.appUrl}/contact`} className={`single-nav-link ${url === '/contact' ? 'active' : ''}`}>Contact Us</a>
+                                <a
+                                    href={`${config.appUrl}/contact`}
+                                    className={`single-nav-link ${url === '/contact' ? 'active' : ''}`}
+                                    onClick={nav.closeNav}
+                                >
+                                    Contact Us
+                                </a>
                             </li>
                         </ul>
                         <h3 className="d-lg-none">Stay Connected</h3>
                         <div className="social-icons-row d-lg-none">
-                            <a href="https://www.facebook.com/f4indiaconsultants/" className="social-icon facebook" aria-label="Facebook"
-                                target="_blank">
+                            <a href="https://www.facebook.com/f4indiaconsultants/" className="social-icon facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                                 <i className="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="https://twitter.com/india_f4" className="social-icon twitter" aria-label="Twitter" target="_blank">
+                            <a href="https://twitter.com/india_f4" className="social-icon twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                                 <i className="fa-brands fa-x-twitter"></i>
                             </a>
-                            <a href="https://www.instagram.com/f4india/" className="social-icon instagram" aria-label="Instagram"
-                                target="_blank">
+                            <a href="https://www.instagram.com/f4india/" className="social-icon instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                                 <i className="fa-brands fa-instagram"></i>
                             </a>
-                            <a href="https://www.youtube.com/channel/UCOgjhwFEXL1CtpkAEPbtF7Q" className="social-icon youtube"
-                                aria-label="YouTube" target="_blank">
+                            <a href="https://www.youtube.com/channel/UCOgjhwFEXL1CtpkAEPbtF7Q" className="social-icon youtube" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                                 <i className="fa-brands fa-youtube"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/samar-sandhu-716a99174" className="social-icon linkedin"
-                                aria-label="LinkedIn" target="_blank">
+                            <a href="https://www.linkedin.com/in/samar-sandhu-716a99174" className="social-icon linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <i className="fa-brands fa-linkedin-in"></i>
                             </a>
                         </div>

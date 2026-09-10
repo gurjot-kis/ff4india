@@ -9,9 +9,7 @@ export default function about() {
                     <div className="hero-content">
                         <h1 className="hero-title hero-common-title">About Us</h1>
                         <p className="hero-des hero-common-des m-auto">
-                            Established in 2008, F4 INDIA has grown from a domestic U.S. immigration law practice to a truly word wide
-                            Company. Our expansion has been a direct result of our calculated and wise decisions to establish our offices
-                            in India, Canada, and the U.S
+                            Established in 2008, F4 INDIA has grown into a trusted name in U.S. immigration law. Our growth is the result of informed decisions, client trust, and a commitment to delivering the right solutions. Today, we proudly serve clients worldwide with reliable, transparent, and result-driven U.S. immigration services — all from our office in Mohali, India.
                         </p>
                     </div>
                 </div>
@@ -39,14 +37,14 @@ export default function about() {
                                     <h2 className="about-title">F4 India Overview</h2>
                                 </div>
 
-                                <p>At <a href={`${config.appUrl}/home.html`}>F4 India Immigration</a>, we help individuals and families navigate the U.S.
+                                <p>At <a href={`${config.appUrl}/`}>F4 India Immigration</a>, we help individuals and families navigate the U.S.
                                     immigration process with
                                     clear guidance, careful preparation, and personal attention. We understand that immigration is not simply
                                     about completing forms or submitting documents. For our clients, it often means being reunited with a
                                     spouse, parents, children, siblings, or other loved ones and building a future together in the United
                                     States. </p>
 
-                                <p>Our work is primarily focused on <a href={`${config.appUrl}/services.html`}>family-based U.S. immigration.</a> We assist
+                                <p>Our work is primarily focused on <a href={`${config.appUrl}/services-detail#familybased-services`}>family-based U.S. immigration.</a> We assist
                                     clients through
                                     different
                                     stages of the immigration process, from filing petitions with USCIS to National Visa Center processing and
@@ -62,12 +60,12 @@ export default function about() {
                         <div className="col-lg-6">
                             <div className="about-image-wrapper">
 
-                                <img src={`${config.storageUrl}/images/about-2.png`} alt="U.S. Immigration Passport" className="img-fluid about-image" />
+                                <img src={`${config.storageUrl}/images/about-3.png`} alt="U.S. Immigration Passport" className="img-fluid about-image" />
 
-                                    <div className="experience-badge">
-                                        <strong>18+</strong>
-                                        <span>Years of Experience</span>
-                                    </div>
+                                <div className="experience-badge">
+                                    <strong>18+</strong>
+                                    <span>Years of Experience</span>
+                                </div>
 
                             </div>
                         </div>
@@ -85,22 +83,16 @@ export default function about() {
                                     promises. Instead, we focus on doing the work carefully and helping our clients understand their options.
                                 </p>
 
-                                <p>We believe in keeping our communication with clients simple and honest. Immigration procedures can be
-                                    complicated, so we take the time to explain what is required, identify potential concerns, and keep our
-                                    clients informed about the important steps in their case. We do not believe in making unrealistic
-                                    promises. Instead, we focus on doing the work carefully and helping our clients understand their options.
-                                </p>
-
                                 <p>At the end of the day, every case represents more than a receipt number or a file. It represents people
                                     who are waiting to be together. <b>That is why we take our work seriously, and that is why we are proud to
                                         help families through their U.S. immigration journey</b></p>
 
                                 <p>If you would like to know more about us and the work we do, we invite you to explore our website and
-                                    learn more about the <a href={`${config.appUrl}/services.html`}> immigration services we provide.</a>
-                                    You can also visit our <a href={`${config.appUrl}/recent-approvals.html`}>Approvals</a> page to see some of our achievements
+                                    learn more about the <a href={`${config.appUrl}/services`}> immigration services we provide.</a>
+                                    You can also visit our <a href={`${config.appUrl}/recent-approval`}>Approvals</a> page to see some of our achievements
                                     and cases we have
                                     successfully helped with. And if you would like to hear directly from the people we have worked with,
-                                    visit our <a href={`${config.appUrl}/home.html`}>YouTube channel </a>to see what our clients have to say about their
+                                    visit our <a href={`https://www.youtube.com/channel/UCOgjhwFEXL1CtpkAEPbtF7Q"`} target="_blank">YouTube channel </a>to see what our clients have to say about their
                                     experience with us. </p>
 
                                 <p><b>Welcome to F4 India Immigration. We are here to help you take the next step. </b></p>
@@ -113,8 +105,11 @@ export default function about() {
                 </div>
             </section>
 
-            <ConsultationCTA />
- 
+            <div className="bg-light-grey">
+                <ConsultationCTA />
+            </div>
+
+
         </>
     )
 }

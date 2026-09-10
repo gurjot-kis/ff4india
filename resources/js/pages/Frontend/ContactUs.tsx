@@ -1,9 +1,10 @@
 import FrontendLayout from '@/layouts/FrontendLayout';
 import config from '@/config';
-import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
+// import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import { useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
+import CountryCodePhoneInput from '@/components/CountryCodePhoneInput';
  
 interface PageProps {
     flash: {
@@ -29,6 +30,7 @@ export default function ContactUs() {
         name: '',
         email: '',
         phone: '',
+        countryCode: '+91',
         category: '',
         message: '',
     });
@@ -111,6 +113,7 @@ export default function ContactUs() {
                     setData('name', '');
                     setData('email', '');
                     setData('phone', '');
+                    setData('countryCode', '+91');
                     setData('category', '');
                     setData('message', '');
 
@@ -148,15 +151,13 @@ export default function ContactUs() {
                                     <i>
                                         <img src={`${config?.storageUrl}/images/white-check.svg`} alt="img" />
                                     </i>
-                                    <h2 className="card-heading">Check your passport application status </h2>
+                                    <h2 className="card-heading">Get The Right Guidance</h2>
                                 </div>
 
                                 <hr className="card-divider" />
 
                                 <div className="card-details-list">
-                                    <p>We will send updates about your status if you provided an email address on your application.<a
-                                        className="contact-right-banner" href="#"> Find out what your status</a> means or check your status if you
-                                        did not provide an email address.</p>
+                                    <p>U.S. immigration rules can be complex. Get clear, case-specific guidance before making an important decision.</p>
 
                                 </div>
 
@@ -271,21 +272,16 @@ export default function ContactUs() {
                             Phone Number
                         </label>
 
-                        <input
-                            type="tel"
-                            id="phone"
-                            className={`form-control ${
-                                errors.phone ? 'is-invalid' : ''
-                            }`}
-                            placeholder="+1 (555) 000-0000"
-                            value={data.phone}
-                            onChange={(e) =>
-                                setData('phone', e.target.value)
-                            }
+                        <CountryCodePhoneInput
+                            phone={data.phone}
+                            onPhoneChange={(value) => setData('phone', value)}
+                            onCountryChange={(country) => setData('countryCode', country.dial)}
+                            error={errors.phone}
+                            defaultIso="in"
                         />
 
                         {errors.phone && (
-                            <div className="invalid-feedback">
+                            <div className="invalid-feedback d-block">
                                 {errors.phone}
                             </div>
                         )}
@@ -453,7 +449,7 @@ export default function ContactUs() {
                                                     href="https://www.google.com/maps/search/?api=1&query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062">
                                                     <h3>Office Hours</h3>
 
-                                                    <p>Mon – Sat | 10:00 AM –6:00 PM (IST)</p>
+                                                    <p>Mon – Fri | 10:30 AM – 5:00 PM (IST)</p>
                                                 </a>
                                             </div>
                                             <div className="whatsapp-card">
@@ -627,7 +623,7 @@ export default function ContactUs() {
 
 
            
-            <ReviewSlider />
+            {/* <ReviewSlider /> */}
             <ConsultationCTA />
         </>
     );

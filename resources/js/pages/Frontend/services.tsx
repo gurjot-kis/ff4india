@@ -55,7 +55,7 @@ export default function Services() {
                             <li className="nav-item" role="presentation">
                                 <button className="nav-link" id="non-immigrant-tab" data-bs-toggle="tab" data-bs-target="#non-immigrant"
                                     type="button" role="tab" aria-controls="non-immigrant" aria-selected="false">
-                                    Non Immigrant Visa
+                                    Visa Refusals 221G
                                 </button>
                             </li>
 
@@ -80,8 +80,6 @@ export default function Services() {
                                 </button>
                             </li>
 
-                          
-
                         </ul>
 
                     </div>
@@ -92,7 +90,7 @@ export default function Services() {
                             <div className="row g-4">
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#familybased-services" className="service-card featured-card">
+                                    <a href="services-detail#familybased-services" className="service-card featured-card">
                                         <h3 className="service-title">Family Immigration &amp; Green Cards</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -104,7 +102,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#petitions-applications-services"
+                                    <a href="services-detail#petitions-applications-services"
                                         className="service-card featured-card lightcard-bg">
                                         <h3 className="service-title">USCIS Petitions &amp; Applications</h3>
                                         <div className="service-divider"></div>
@@ -117,7 +115,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#consular-processing-services" className="service-card featured-card">
+                                    <a href="services-detail#consular-processing-services" className="service-card featured-card">
                                         <h3 className="service-title">NVC &amp; Consular Processing</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -129,7 +127,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#waivers-services" className="service-card featured-card">
+                                    <a href="services-detail#waivers-services" className="service-card featured-card">
                                         <h3 className="service-title">Humanitarian Reinstatement &amp; Waivers</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -141,7 +139,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#waivers-services" className="service-card featured-card lightcard-bg">
+                                    <a href="services-detail#waivers-services" className="service-card featured-card lightcard-bg">
                                         <h3 className="service-title">Citizenship &amp; Naturalization</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -153,7 +151,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="services-detail.html#citizenship-services" className="service-card featured-card">
+                                    <a href="services-detail#citizenship-services" className="service-card featured-card">
                                         <h3 className="service-title">Visa Refusals, 221(g) &amp; Processing</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -170,7 +168,7 @@ export default function Services() {
                         <div className="tab-pane fade" id="immigrant" role="tabpanel" aria-labelledby="immigrant-tab">
                             <div className="row g-4">
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card">
+                                    <a href="services-detail#familybased-services" className="service-card featured-card">
                                         <h3 className="service-title">Family Immigration &amp; Green Cards</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -182,7 +180,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card lightcard-bg">
+                                    <a href="services-detail#petitions-applications-services" className="service-card featured-card lightcard-bg">
                                         <h3 className="service-title">USCIS Petitions &amp; Applications</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -194,7 +192,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card">
+                                    <a href="services-detail#consular-processing-services" className="service-card featured-card">
                                         <h3 className="service-title">NVC &amp; Consular Processing</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -210,7 +208,7 @@ export default function Services() {
                         <div className="tab-pane fade" id="non-immigrant" role="tabpanel" aria-labelledby="non-immigrant-tab">
                             <div className="row g-4">
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card">
+                                    <a href="services-detail#citizenship-services" className="service-card featured-card">
                                         <h3 className="service-title">Visa Refusals, 221(g) &amp; Processing</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -226,7 +224,7 @@ export default function Services() {
                         <div className="tab-pane fade" id="citizenship" role="tabpanel" aria-labelledby="citizenship-tab">
                             <div className="row g-4">
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card lightcard-bg">
+                                    <a href="services-detail#waivers-services" className="service-card featured-card lightcard-bg">
                                         <h3 className="service-title">Citizenship &amp; Naturalization</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -242,7 +240,7 @@ export default function Services() {
                         <div className="tab-pane fade" id="waiver" role="tabpanel" aria-labelledby="waiver-tab">
                             <div className="row g-4">
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card">
+                                    <a href="services-detail#waivers-services" className="service-card featured-card">
                                         <h3 className="service-title">Humanitarian Reinstatement &amp; Waivers</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -258,7 +256,7 @@ export default function Services() {
                         <div className="tab-pane fade" id="processing" role="tabpanel" aria-labelledby="processing-tab">
                             <div className="row g-4">
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card lightcard-bg">
+                                    <a href="services-detail#petitions-applications-services" className="service-card featured-card lightcard-bg">
                                         <h3 className="service-title">USCIS Petitions &amp; Applications</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -270,7 +268,7 @@ export default function Services() {
                                 </div>
 
                                 <div className="col-12 col-md-6 col-lg-4">
-                                    <a href="javascript:void(0)" className="service-card featured-card">
+                                    <a href="services-detail#consular-processing-services" className="service-card featured-card">
                                         <h3 className="service-title">NVC &amp; Consular Processing</h3>
                                         <div className="service-divider"></div>
                                         <p className="service-text">
@@ -283,15 +281,14 @@ export default function Services() {
                             </div>
                         </div>
 
-
-
                     </div>
-
 
                 </div>
             </section>
 
-            <ConsultationCTA />
+            <div className="bg-light-grey">
+                <ConsultationCTA />
+            </div>
         </>
     )
 }

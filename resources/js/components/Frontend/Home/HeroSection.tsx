@@ -14,7 +14,7 @@ export default function HeroSection() {
                                 Comprehensive U.S. Immigration Representation
                             </h1>
 
-                            <p className="hero-description hero-common-des">
+                            <p className="hero-description hero-common-des home-hero-des">
                                 From <span>USCIS</span> to the{' '}
                                 <span>National Visa Center (NVC)</span> and{' '}
                                 <span>U.S. Embassies & Consulates worldwide,</span>{' '}
@@ -24,7 +24,7 @@ export default function HeroSection() {
                                 support from start to finish.
                             </p>
 
-                            <a href="#" className="featured-btn common-btn">
+                            <a href="https://greencardpetitions.com/about-us/appointment" className="featured-btn common-btn" target="_blank">
                                 <span>Book Consultation</span>
                                 <i className="fa-solid fa-arrow-right" />
                             </a>
@@ -68,7 +68,7 @@ export default function HeroSection() {
                                 <div className="detail-item">
                                     <img src={`${config.storageUrl}/images/info.svg`} alt="hours" className="item-icon" />
                                     <div className="detail-text">
-                                        Mon – Sat | 10:00 AM – 6:00 PM (IST)
+                                        Mon – Fri | 10:30 AM – 5:00 PM (IST)
                                     </div>
                                 </div>
 
@@ -86,9 +86,9 @@ export default function HeroSection() {
                                         <a href="https://www.youtube.com/channel/UCOgjhwFEXL1CtpkAEPbtF7Q" target="_blank" rel="noopener noreferrer" className="social-icon youtube text-white" aria-label="YouTube">
                                             <i className="fa-brands fa-youtube" />
                                         </a>
-                                        <a href="https://www.linkedin.com/in/samar-sandhu-716a99174" target="_blank" rel="noopener noreferrer" className="social-icon linkedin text-white" aria-label="LinkedIn">
+                                        {/* <a href="https://www.linkedin.com/in/samar-sandhu-716a99174" target="_blank" rel="noopener noreferrer" className="social-icon linkedin text-white" aria-label="LinkedIn">
                                             <i className="fa-brands fa-linkedin-in" />
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>

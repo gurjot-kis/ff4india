@@ -1,5 +1,6 @@
 import { useForm, usePage } from '@inertiajs/react';
 import React, { useState, useEffect } from 'react';
+import CountryCodePhoneInput from '@/components/CountryCodePhoneInput';
 
 export default function ContactUs() {
 
@@ -22,6 +23,7 @@ export default function ContactUs() {
         name: '',
         email: '',
         phone: '',
+        countryCode: '+91',
         message: '',
     });
 
@@ -39,7 +41,7 @@ export default function ContactUs() {
 
     const [showOtpPopup, setShowOtpPopup] = useState(false);
 
-    
+
     const [successMessage, setSuccessMessage] = useState(
         flash.success ?? ''
     );
@@ -62,7 +64,7 @@ export default function ContactUs() {
     const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
- 
+
         post('/contact-us/send-otp-slider', {
             preserveScroll: true,
 
@@ -89,12 +91,13 @@ export default function ContactUs() {
         postOtp('/contact-us/verify-otp-slider', {
             preserveScroll: true,
 
-            onSuccess: () => {     
+            onSuccess: () => {
 
                 setShowOtpPopup(false);
                 setData('name', '');
                 setData('email', '');
                 setData('phone', '');
+                setData('countryCode', '+91');
                 setData('message', '');
 
                 // Clear contact form
@@ -110,28 +113,28 @@ export default function ContactUs() {
 
     return (
         <>
-            <div className="contact-card updates-card">
+            <div className="contact-card updates-card sticky_card">
                 <div className="updates-header">
                     <i className="fa-regular fa-message"></i>
                     <span>CONTACT US</span>
                 </div>
 
-                 {successMessage && (
-    <div className="alert alert-success">
-        {successMessage}
-    </div>
-)}
+
 
                 <div className="contact-body">
+                    {successMessage && (
+                        <div className="alert alert-success">
+                            {successMessage}
+                        </div>
+                    )}
                     <form onSubmit={handleContactSubmit}>
 
                         {/* NAME */}
                         <div className="from-group">
                             <input
                                 type="text"
-                                className={`form-control ${
-                                    errors.name ? 'is-invalid' : ''
-                                }`}
+                                className={`form-control ${errors.name ? 'is-invalid' : ''
+                                    }`}
                                 placeholder="Your Name"
                                 value={data.name}
                                 onChange={(e) =>
@@ -150,9 +153,8 @@ export default function ContactUs() {
                         <div className="from-group">
                             <input
                                 type="email"
-                                className={`form-control ${
-                                    errors.email ? 'is-invalid' : ''
-                                }`}
+                                className={`form-control ${errors.email ? 'is-invalid' : ''
+                                    }`}
                                 placeholder="Email Address"
                                 value={data.email}
                                 onChange={(e) =>
@@ -168,21 +170,17 @@ export default function ContactUs() {
                         </div>
 
                         {/* PHONE */}
-                        <div className="from-group">
-                            <input
-                                type="tel"
-                                className={`form-control ${
-                                    errors.phone ? 'is-invalid' : ''
-                                }`}
-                                placeholder="Phone Number (optional)"
-                                value={data.phone}
-                                onChange={(e) =>
-                                    setData('phone', e.target.value)
-                                }
+                        <div className="from-group contact-cc-inputgroup">
+                            <CountryCodePhoneInput
+                                phone={data.phone}
+                                onPhoneChange={(value) => setData('phone', value)}
+                                onCountryChange={(country) => setData('countryCode', country.dial)}
+                                error={errors.phone}
+                                defaultIso="in"
                             />
 
                             {errors.phone && (
-                                <div className="invalid-feedback">
+                                <div className="invalid-feedback d-block">
                                     {errors.phone}
                                 </div>
                             )}
@@ -191,9 +189,8 @@ export default function ContactUs() {
                         {/* MESSAGE */}
                         <div className="from-group">
                             <textarea
-                                className={`form-control ${
-                                    errors.message ? 'is-invalid' : ''
-                                }`}
+                                className={`form-control ${errors.message ? 'is-invalid' : ''
+                                    }`}
                                 rows={3}
                                 placeholder="Your immigration question..."
                                 value={data.message}
@@ -218,7 +215,7 @@ export default function ContactUs() {
                             <span>
                                 {processing
                                     ? 'Sending OTP...'
-                                    : 'Contact Us Now'}
+                                    : 'Submit Inquiry'}
                             </span>
 
                             <i className="fa-solid fa-arrow-right"></i>
@@ -266,11 +263,10 @@ export default function ContactUs() {
                                     type="text"
                                     inputMode="numeric"
                                     maxLength={6}
-                                    className={`form-control text-center ${
-                                        otpErrors.otp
-                                            ? 'is-invalid'
-                                            : ''
-                                    }`}
+                                    className={`form-control text-center ${otpErrors.otp
+                                        ? 'is-invalid'
+                                        : ''
+                                        }`}
                                     placeholder="Enter 6-digit OTP"
                                     value={otpData.otp}
                                     onChange={(e) => {
