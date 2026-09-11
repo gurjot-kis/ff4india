@@ -3,6 +3,7 @@ import config from "@/config";
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
 import VideoSlider from '@/components/Frontend/Home/VideoSlider';
+import SharePage from './SocialShare';
 
 interface Blog {
     category_id: string;
@@ -97,7 +98,7 @@ export default function blogDetail({ videos = [], blog, blogs }: BlogProps) {
 
                                     <div className="story-actions">
 
-                                        <div className="share-page">
+                                        {/* <div className="share-page">
                                             <span>Share this page:</span>
 
                                             <a href="#" aria-label="Print">
@@ -115,7 +116,13 @@ export default function blogDetail({ videos = [], blog, blogs }: BlogProps) {
                                             <a href="#" aria-label="X">
                                                 <i className="fa-brands fa-x-twitter"></i>
                                             </a>
-                                        </div>
+                                            
+                                        </div> */}
+
+                                        <SharePage
+                                            title={blog?.title}
+                                            description={blog?.description}
+                                        />
 
                                     </div>
                                 </div>

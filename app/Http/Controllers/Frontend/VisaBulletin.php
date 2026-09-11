@@ -25,39 +25,34 @@ use Inertia\Response;
 class VisaBulletin extends Controller
 {
 
-
-
-
     public function servicesDetail()
     {
         return Inertia::render(
             'Frontend/servicesDetail',
-            [ ]
+            []
         );
     }
-   
+
     public function services()
     {
         return Inertia::render(
             'Frontend/services',
-            [ ]
+            []
         );
     }
- 
 
-    public function blogDetail($slug) {
+
+    public function blogDetail($slug)
+    {
         $blogs = Blog::where('slug', '!=', $slug)->orderBy('id', 'desc')->paginate(10)->withQueryString();
         $youtubeList = YoutubeVideo::orderBy('id', 'desc')->paginate(6);
-        if(!$slug)
-        {
-            
-        }
-        else{
+        if (!$slug) {
+        } else {
 
             $blog = Blog::where(['slug' => $slug])->first();
 
             //echo "<pre>"; print_r($blog); echo "</pre>"; die;
-            
+
             return Inertia::render(
                 'Frontend/blogDetail',
                 [
@@ -70,18 +65,18 @@ class VisaBulletin extends Controller
         }
     }
 
-    
+
 
     public function blog(Request $request): Response
     {
-      $blogs = Blog::latest('id')->paginate(10)->withQueryString();
+        $blogs = Blog::latest('id')->paginate(10)->withQueryString();
 
 
-                 
+
         return Inertia::render(
             'Frontend/blog',
-            [ 
-                "blogs" => $blogs 
+            [
+                "blogs" => $blogs
             ]
         );
     }
@@ -90,7 +85,7 @@ class VisaBulletin extends Controller
     {
         return Inertia::render(
             'Frontend/about',
-            [ ]
+            []
         );
     }
 
@@ -98,27 +93,35 @@ class VisaBulletin extends Controller
     {
         return Inertia::render(
             'Frontend/cspaAgeCalculator',
-            [ ]
+            []
         );
     }
 
-    
+
     public function sendOtp(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:30'],
+            'countryCode' => ['required', 'string', 'max:30'],
             'category' => ['required', 'string', 'max:100'],
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
         $otp = (string) random_int(100000, 999999);
+        
+        $codephone = "";
+
+        if($validated['phone'])
+        {    
+            $codephone = $validated['countryCode'].$validated['phone'];
+        }
 
         $contact = ContactForm::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'phone' => $validated['phone'] ?? null,
+            'phone' => $codephone ?? null,
             'category' => $validated['category'],
             'message' => $validated['message'],
 
@@ -137,6 +140,7 @@ class VisaBulletin extends Controller
             'otp_email' => $contact->email,
         ]);
     }
+
 
     public function verifyOtp(Request $request): RedirectResponse
     {
@@ -189,16 +193,24 @@ class VisaBulletin extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
+            'countryCode' => ['required', 'string', 'max:30'],
             'phone' => ['nullable', 'string', 'max:30'],
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
         $otp = (string) random_int(100000, 999999);
 
+        $codephone = "";
+
+        if($validated['phone'])
+        {    
+            $codephone = $validated['countryCode'].$validated['phone'];
+        }
+
         $contact = ContactForm::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'phone' => $validated['phone'] ?? null,
+            'phone' => $codephone ?? null,
             'message' => $validated['message'],
 
             'otp' => $otp,
@@ -332,7 +344,7 @@ class VisaBulletin extends Controller
     {
         return Inertia::render(
             'Frontend/ContactUs',
-            [ ]
+            []
         );
     }
 
@@ -346,12 +358,14 @@ class VisaBulletin extends Controller
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
-        // Save to database or send email here.
-        // Example:
+     
+       
         $contact = ContactForm::create($validated);
 
- 
+
         return back()->with('success', 'Your message has been sent successfully.');
     }
 
+
+    
 }

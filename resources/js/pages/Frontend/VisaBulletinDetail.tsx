@@ -3,6 +3,7 @@ import config from '@/config';
 import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
+import SharePage from './SocialShare';
 
 
 interface VisaBulletinDetailProps {
@@ -13,6 +14,11 @@ interface VisaBulletinDetailProps {
 
 export default function VisaBulletinDetail({ visaBulletinApplication, visaBulletinPreference, nextSession, }: VisaBulletinDetailProps) {
 
+    const currentPage = {
+        title: 'Visa Bulletin - F4india',
+        description: 'The U.S. Department of Immigration has no higher priority than the safety and security of Americans. Our Bureau of Consular Affairs provides information, referrals, and public awareness about U.S',
+    };
+    
     //console.log('Application:', visaBulletinApplication);
     //console.log('Preference:', visaBulletinPreference);
 
@@ -78,13 +84,19 @@ export default function VisaBulletinDetail({ visaBulletinApplication, visaBullet
                             <div className="bulletin-topbar">
                                 <h2>Current Visa Bulletin - {visaBulletinApplication?.session}</h2>
 
-                                <div className="share-page">
+                                {/* <div className="share-page">
                                     <span>Share this page:</span>
                                     <a href="#" aria-label="Print"><i className="fa-solid fa-print"></i></a>
                                     <a href="#" aria-label="Email"><i className="fa-solid fa-envelope"></i></a>
                                     <a href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
                                     <a href="#" aria-label="X"><i className="fa-brands fa-x-twitter"></i></a>
-                                </div>
+                                </div> */}
+
+                                <SharePage
+                                    title={currentPage.title}
+                                    description={currentPage.description}
+                                />
+
                             </div>
 
                             <div className="bulletin-banner">

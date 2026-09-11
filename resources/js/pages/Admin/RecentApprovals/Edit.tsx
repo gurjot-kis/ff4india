@@ -42,7 +42,7 @@ export default function Edit({ recentApproval }: Props) {
 
     return (
         <>
-            <Head title="Edit Recent Approval" />
+            {/* <Head title="Edit Recent Approval" /> */}
 
             <div className="app-inner-content">
 

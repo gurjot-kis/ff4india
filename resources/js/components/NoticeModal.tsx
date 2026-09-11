@@ -63,7 +63,6 @@ export default function NoticeModal({
                     <div className="notice-list">
                         {notices.map((notice, index) => (
                             <div className="notice-list-item" key={notice.id}>
-                                {/* <span className="notice-index">{index + 1}</span> */}
                                 <span className="diamond-icon"><Check /></span>
                                 <p>{notice.text}</p>
                             </div>

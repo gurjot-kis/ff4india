@@ -62,7 +62,7 @@ export default function Index({ visaBulletins, filters }: Props) {
 
     return (
         <>
-            <Head title="Visa Bulletins" />
+            {/* <Head title="Visa Bulletins" /> */}
 
             <div className="app-inner-content">
 

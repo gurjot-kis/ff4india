@@ -4,6 +4,7 @@ import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
 import { useEffect, useState } from 'react';
+import SharePage from './SocialShare';
 
 interface VisaBulletinApplication {
     id: number;
@@ -16,10 +17,15 @@ interface VisaBulletinProps {
     nextSession: Record<string, any> | null;
 }
 
+
 export default function VisaBulletin({ visaBulletinApplication, currentSession, nextSession }: VisaBulletinProps) {
-    console.log(visaBulletinApplication);
+ 
 
-
+    const currentPage = {
+        title: 'Visa Bulletin - F4india',
+        description: 'The U.S. Department of Immigration has no higher priority than the safety and security of Americans. Our Bureau of Consular Affairs provides information, referrals, and public awareness about U.S',
+    };
+    
     const [currentmonth, currentyear] = currentSession?.split(' ') ?? ['', ''];
 
     const [nextmonth, nextyear] = nextSession?.split(' ') ?? ['', ''];
@@ -98,7 +104,7 @@ export default function VisaBulletin({ visaBulletinApplication, currentSession, 
                                     The Visa Bulletin
                                 </h2>
 
-                                <div className="share-page">
+                                {/* <div className="share-page">
                                     <span>Share this page:</span>
 
                                     <a href="#" aria-label="Print">
@@ -116,7 +122,12 @@ export default function VisaBulletin({ visaBulletinApplication, currentSession, 
                                     <a href="#" aria-label="X">
                                         <i className="fa-brands fa-x-twitter"></i>
                                     </a>
-                                </div>
+                                </div> */}
+
+                                <SharePage
+                                    title={currentPage.title}
+                                    description={currentPage.description}
+                                />
 
                             </div>
 

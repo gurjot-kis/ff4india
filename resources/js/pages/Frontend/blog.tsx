@@ -43,7 +43,7 @@ interface BlogProps {
 
 export default function Blog({ blogs, filters, }: BlogProps) {
 
-    console.log(blogs);
+    //console.log(blogs);
 
     return (
         <>

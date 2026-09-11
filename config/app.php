@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'image_url' => env('VITE_IMAGE_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

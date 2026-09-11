@@ -54,7 +54,7 @@ export default function Index({
 
     return (
         <>
-            <Head title="Emergency Broadcast Management" />
+            {/* <Head title="Emergency Broadcast Management" /> */}
 
             <div className="app-inner-content">
 

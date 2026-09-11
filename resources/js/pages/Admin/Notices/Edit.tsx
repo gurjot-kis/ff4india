@@ -33,7 +33,7 @@ export default function Edit({ notice }: Props) {
 
     return (
         <>
-            <Head title="Edit Notice" />
+            {/* <Head title="Edit Notice" /> */}
 
             <div className="app-inner-content">
 

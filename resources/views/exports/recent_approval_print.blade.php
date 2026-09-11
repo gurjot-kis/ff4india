@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -10,27 +11,12 @@
             font-family: Arial, Helvetica, sans-serif;
             margin: 30px;
             color: #222;
-        }
-
-        .print-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
+            font-size: 14px;
         }
 
         h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        .print-button {
-            padding: 8px 15px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            margin: 0 0 25px 0;
+            font-size: 26px;
         }
 
         table {
@@ -41,19 +27,33 @@
         th,
         td {
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
             vertical-align: middle;
+            font-size: 13px;
         }
 
         th {
             background: #f3f4f6;
             font-weight: bold;
+            font-size: 14px;
         }
 
         .status-active {
             color: #15803d;
             font-weight: bold;
+        }
+
+        .image-cell {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .approval-image {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .status-inactive {
@@ -62,9 +62,9 @@
         }
 
         .approval-image {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
             border-radius: 4px;
         }
 
@@ -75,10 +75,22 @@
 
             body {
                 margin: 10px;
+                font-size: 13px;
             }
 
             table {
-                font-size: 12px;
+                font-size: 13px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            .approval-image {
+                width: 90px;
+                height: 90px;
             }
         }
     </style>
@@ -86,12 +98,12 @@
 
 <body>
 
-    
-
-        <h1>Recent Approvals</h1>
 
 
-    
+    <h1>Recent Approvals</h1>
+
+
+
 
     <table>
 
@@ -111,67 +123,66 @@
 
             @forelse($preferences as $index => $item)
 
-                <tr>
+            <tr>
 
-                    <td>
-                        {{ $index + 1 }}
-                    </td>
+                <td>
+                    {{ $index + 1 }}
+                </td>
 
-                    <td>
-                        {{ $item->name }}
-                    </td>
+                <td>
+                    {{ $item->name }}
+                </td>
 
-                    <td>
-                        @if($item->image)
-                            <img
-                                src="{{ asset('storage/' . $item->image) }}"
-                                alt="{{ $item->name }}"
-                                class="approval-image"
-                            >
-                        @else
-                            -
-                        @endif
-                    </td>
+                <td class="image-cell">
+                    @if($item->image)
+                    <img
+                        src="{{ asset('storage/' . $item->image) }}"
+                        alt="{{ $item->name }}"
+                        class="approval-image">
+                    @else
+                    -
+                    @endif
+                </td>
 
-                    <td>
-                        {{ $item->approval_date
+                <td>
+                    {{ $item->approval_date
                             ? \Carbon\Carbon::parse($item->approval_date)->format('d M Y')
                             : '-'
                         }}
-                    </td>
+                </td>
 
-                    <td>
-                        {{ $item->visa_category }}
-                    </td>
+                <td>
+                    {{ $item->visa_category }}
+                </td>
 
-                    <td>
-                        @if($item->status)
-                            <span class="status-active">
-                                Active
-                            </span>
-                        @else
-                            <span class="status-inactive">
-                                Inactive
-                            </span>
-                        @endif
-                    </td>
+                <td>
+                    @if($item->status)
+                    <span class="status-active">
+                        Active
+                    </span>
+                    @else
+                    <span class="status-inactive">
+                        Inactive
+                    </span>
+                    @endif
+                </td>
 
-                    <td>
-                        {{ $item->created_at
+                <td>
+                    {{ $item->created_at
                             ? $item->created_at->format('d M Y H:i')
                             : '-'
                         }}
-                    </td>
+                </td>
 
-                </tr>
+            </tr>
 
             @empty
 
-                <tr>
-                    <td colspan="7" style="text-align:center;">
-                        No recent approvals found.
-                    </td>
-                </tr>
+            <tr>
+                <td colspan="7" style="text-align:center;">
+                    No recent approvals found.
+                </td>
+            </tr>
 
             @endforelse
 
@@ -180,10 +191,11 @@
     </table>
 
 </body>
+
 </html>
 
 <script>
-window.onload = function () {
-    window.print();
-}
-</script> 
+    window.onload = function() {
+        window.print();
+    }
+</script>

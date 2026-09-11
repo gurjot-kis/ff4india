@@ -165,9 +165,7 @@
                         {{ $item->email }}
                     </td>
                     <td>
-                        $item->phone
-                            ? $item->phone
-                            : '-'
+                        {{ $item->phone ? $item->phone : '' }}
                     </td>
                     <td>
                         {{ $item->message }}
@@ -180,7 +178,7 @@
                             ? $item->created_at->format(
                                 'd M Y H:i'
                             )
-                            : '-'
+                            : ''
                         }}
 
                     </td>

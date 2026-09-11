@@ -30,7 +30,7 @@ export default function Create() {
 
     return (
         <>
-            <Head title="Add Notice" />
+            {/* <Head title="Add Notice" /> */}
 
             <div className="app-inner-content">
 

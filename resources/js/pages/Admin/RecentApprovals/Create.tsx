@@ -29,7 +29,7 @@ export default function Create() {
 
     return (
         <>
-            <Head title="Add Recent Approval" />
+            {/* <Head title="Add Recent Approval" /> */}
 
             <div className="app-inner-content">
 

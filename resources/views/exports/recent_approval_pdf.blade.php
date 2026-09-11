@@ -16,7 +16,7 @@
         body {
             font-family: DejaVu Sans, Arial, Helvetica, sans-serif;
             color: #222;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .header {
@@ -45,7 +45,7 @@
             background-color: #f3f4f6;
             border: 1px solid #999;
             padding: 8px;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: bold;
             text-align: left;
         }
@@ -53,7 +53,7 @@
         td {
             border: 1px solid #999;
             padding: 7px;
-            font-size: 9px;
+            font-size: 10px;
             vertical-align: middle;
         }
 
@@ -72,8 +72,8 @@
         }
 
         .approval-image {
-            width: 55px;
-            height: 55px;
+            width: 90px;
+            height: 90px;
         }
 
         .no-data {
@@ -84,7 +84,7 @@
         .footer {
             margin-top: 15px;
             text-align: right;
-            font-size: 9px;
+            font-size: 10px;
         }
 
     </style>
@@ -112,18 +112,18 @@
 
                 <th
                     class="text-center"
-                    width="5%"
+                    width="3%"
                 >
                     #
                 </th>
 
-                <th width="20%">
+                <th width="17%">
                     Name
                 </th>
 
                 <th
                     class="text-center"
-                    width="12%"
+                    width="20%"
                 >
                     Image
                 </th>
@@ -143,7 +143,7 @@
                     Status
                 </th>
 
-                <th width="18%">
+                <th width="15%">
                     Created At
                 </th>
 

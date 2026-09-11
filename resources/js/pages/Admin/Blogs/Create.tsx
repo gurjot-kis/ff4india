@@ -46,7 +46,7 @@ export default function Create({ categories }: Props) {
 
     return (
         <>
-            <Head title="Create Blog" />
+            {/* <Head title="Create Blog" /> */}
 
             <div className="app-inner-content">
 

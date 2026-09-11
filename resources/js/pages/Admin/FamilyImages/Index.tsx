@@ -58,7 +58,7 @@ export default function Index({ familyImages, filters }: Props) {
 
     return (
         <>
-            <Head title="Family Image Management" />
+            {/* <Head title="Family Image Management" /> */}
 
             <div className="app-inner-content">
 

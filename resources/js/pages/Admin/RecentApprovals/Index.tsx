@@ -58,7 +58,7 @@ export default function Index({
 
     return (
         <>
-            <Head title="Recent Approvals" /> 
+            {/* <Head title="Recent Approvals" />  */}
 
             <div className="app-inner-content">
 

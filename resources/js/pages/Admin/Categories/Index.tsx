@@ -52,7 +52,7 @@ export default function Index({ categories, filters }: Props) {
 
     return (
         <>
-            <Head title="Category Management" />
+            {/* <Head title="Category Management" /> */}
 
             <div className="app-inner-content">
 

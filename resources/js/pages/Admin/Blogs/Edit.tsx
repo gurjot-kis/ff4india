@@ -60,7 +60,7 @@ export default function Edit({ blog, categories }: Props) {
 
     return (
         <>
-            <Head title="Edit Blog" />
+            {/* <Head title="Edit Blog" /> */}
 
             <div className="app-inner-content">
 

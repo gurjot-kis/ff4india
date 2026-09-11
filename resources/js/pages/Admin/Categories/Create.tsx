@@ -21,7 +21,7 @@ export default function Create() {
 
     return (
         <>
-            <Head title="Create Category" />
+            {/* <Head title="Create Category" /> */}
 
             <div className="app-inner-content">
 

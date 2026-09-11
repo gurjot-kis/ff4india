@@ -31,7 +31,7 @@ export default function Edit({ emergencyBroadcast }: Props) {
 
     return (
         <>
-            <Head title="Edit Emergency Broadcast" />
+            {/* <Head title="Edit Emergency Broadcast" /> */}
 
             <div className="app-inner-content">
 

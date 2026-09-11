@@ -52,7 +52,7 @@ export default function Edit({ familyImage }: Props) {
 
     return (
         <>
-            <Head title="Edit Family Image" />
+            {/* <Head title="Edit Family Image" /> */}
 
             <div className="app-inner-content">
 

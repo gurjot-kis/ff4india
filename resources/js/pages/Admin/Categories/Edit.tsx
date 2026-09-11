@@ -32,7 +32,7 @@ export default function Edit({ category }: Props) {
 
     return (
         <>
-            <Head title="Edit Category" />
+            {/* <Head title="Edit Category" /> */}
 
             <div className="app-inner-content">
 

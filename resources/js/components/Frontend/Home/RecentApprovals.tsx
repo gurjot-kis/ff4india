@@ -89,10 +89,10 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
                         </div>
                     ))}
                 </div>
-                <div class="text-center">
-                    <a href="/recent-approval" class="m-view-all common-btn d-inline-flex d-lg-none" target="_blank">
+                <div className="text-center">
+                    <a href="/recent-approval" className="m-view-all common-btn d-inline-flex d-lg-none" target="_blank">
                         <span>View All</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i className="fa-solid fa-arrow-right"></i>
                     </a>
 
                 </div>

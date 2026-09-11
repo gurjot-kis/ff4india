@@ -65,7 +65,7 @@ export default function Index({ notices, filters }: Props) {
 
     return (
         <>
-            <Head title="Notice Management" />
+            {/* <Head title="Notice Management" /> */}
 
             <div className="app-inner-content">
 

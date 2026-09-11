@@ -37,17 +37,17 @@ export default function Header() {
                 <div className="marquee-container">
                     <div className="marquee-content">
 
-                         {[...emergencyBroadcasts, ...emergencyBroadcasts].map(
-            (emergencyBroadcast, index) => (
-                <span
-                    className="notice-item"
-                    key={`${emergencyBroadcast.id}-${index}`}
-                >
-                    <span className="diamond-icon">◆</span>
-                    {emergencyBroadcast.description}
-                </span>
-            )
-        )}
+                        {[...emergencyBroadcasts, ...emergencyBroadcasts].map(
+                            (emergencyBroadcast, index) => (
+                                <span
+                                    className="notice-item"
+                                    key={`${emergencyBroadcast.id}-${index}`}
+                                >
+                                    <span className="diamond-icon">◆</span>
+                                    {emergencyBroadcast.description}
+                                </span>
+                            )
+                        )}
 
 
                     </div>
@@ -55,15 +55,14 @@ export default function Header() {
             </div>
 
             {/* Notice Modal (uses the same emergencyBroadcasts data as the marquee) */}
-            {emergencyBroadcasts && (
+      
+            {emergencyBroadcasts && emergencyBroadcasts.length > 0 && (
                 <NoticeModal
-                    notices={[
-                        {
-                            id: emergencyBroadcasts.id,
-                            text: emergencyBroadcasts.description,
-                        },
-                    ]}
-                    storageKey={`ff4india-notice-${emergencyBroadcasts.id}`}
+                    notices={emergencyBroadcasts.map((emergencyBroadcast) => ({
+                        id: emergencyBroadcast.id,
+                        text: emergencyBroadcast.description,
+                    }))}
+                    storageKey={`ff4india-notice-${emergencyBroadcasts.map(item => item.id).join('-')}`}
                 />
             )}
 

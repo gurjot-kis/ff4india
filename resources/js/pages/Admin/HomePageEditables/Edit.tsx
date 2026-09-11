@@ -59,7 +59,7 @@ export default function Edit({ homePageEditable }: Props) {
 
     return (
         <>
-            <Head title="Edit Homepage Editable" />
+            {/* <Head title="Edit Homepage Editable" /> */}
 
             <div className="app-inner-content">
 

@@ -55,7 +55,7 @@ export default function Index({ blogs, filters }: Props) {
 
     return (
         <>
-            <Head title="Blog Management" />
+            {/* <Head title="Blog Management" /> */}
 
             <div className="app-inner-content">
 

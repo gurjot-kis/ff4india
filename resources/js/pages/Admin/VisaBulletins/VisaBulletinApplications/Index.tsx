@@ -98,7 +98,7 @@ export default function Index({ preferences, filters }: Props) {
 
     return (
         <>
-            <Head title="Visa Bulletin Application" />
+            {/* <Head title="Visa Bulletin Application" /> */}
 
             <div className="app-inner-content">
 

@@ -40,7 +40,7 @@ interface RecentApprovalProps {
 
 export default function RecentApproval({ recentApprovals,filters, }: RecentApprovalProps) {
 
-    console.log(recentApprovals);
+    //console.log(recentApprovals);
 
     return (
         <>

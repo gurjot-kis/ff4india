@@ -33,7 +33,7 @@ export default function Create() {
 
     return (
         <>
-            <Head title="Create Family Image" />
+            {/* <Head title="Create Family Image" /> */}
 
             <div className="app-inner-content">
 

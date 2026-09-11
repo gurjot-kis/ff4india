@@ -56,7 +56,7 @@ export default function Edit({ visaBulletin }: Props) {
 
     return (
         <>
-            <Head title="Edit Visa Bulletin" />
+            {/* <Head title="Edit Visa Bulletin" /> */}
 
             <div className="app-inner-content">
 
