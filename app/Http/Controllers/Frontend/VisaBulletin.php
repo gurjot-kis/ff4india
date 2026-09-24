@@ -97,9 +97,15 @@ class VisaBulletin extends Controller
         );
     }
 
+    public function sendNVC(Request $request): RedirectResponse
+    {
+        echo "test"; 
+        echo "<pre>"; print_r($request->all()); echo "</pre>"; die;
+    }
 
     public function sendOtp(Request $request): RedirectResponse
     {
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
@@ -339,6 +345,15 @@ class VisaBulletin extends Controller
         );
     }
 
+    
+
+    public function askNvc()
+    {
+        return Inertia::render(
+            'Frontend/askNvc',
+            []
+        );
+    }
 
     public function contactus()
     {

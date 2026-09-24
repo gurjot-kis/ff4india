@@ -16,6 +16,9 @@ use App\Http\Controllers\Admin\ApiSocialController;
 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\VisaBulletin;
+use App\Http\Controllers\Frontend\InquiryController;
+
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +33,13 @@ Route::get('/visa-bulletin-detail/{session}', [VisaBulletin::class, 'VisaBulleti
 Route::get('/recent-approval', [VisaBulletin::class, 'RecentApprovals'])->name('RecentApprovals');
 
 Route::get('/contact', [VisaBulletin::class, 'contactus'])->name('contactus');
+
+Route::get('/ask-nvc', [VisaBulletin::class, 'askNvc'])->name('askNvc');
+
+Route::post('/inquiries', [InquiryController::class, 'store'])->name('inquiries.store');
+
+
+Route::post('/contact-us/sendNVC', [VisaBulletin::class, 'sendNVC'])->name('sendNVC');
 
 Route::post('/contact-us', [VisaBulletin::class, 'contactStore'])->name('contactStore');
 
