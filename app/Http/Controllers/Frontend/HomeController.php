@@ -14,12 +14,13 @@ use App\Models\Admin\HomePageEditable;
 use App\Services\FacebookService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
+use App\Models\GoogleReview;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $youtubeList = YoutubeVideo::orderBy('id', 'desc')->paginate(6);
+        $youtubeList = YoutubeVideo::orderBy('id', 'asc')->paginate(6);
         $recentApprovals = RecentApproval::orderBy('id', 'desc')->paginate(6);
         $familyimage = FamilyImage::where(['status' => '1', 'set_homepage' => '1'])->orderBy('id', 'desc')->first();
         $homeEdit = HomePageEditable::orderBy('id', 'desc')->first();
@@ -27,7 +28,10 @@ class HomeController extends Controller
         $instagramResponse = $this->get_instagram_video();
         $instagramData = $instagramResponse->getData(true);
 
-        //echo "<pre>"; print_r($homeEdit); echo "</pre>"; die;
+
+        $latestReview = GoogleReview::query()->orderByDesc('review_time')->get();
+
+        //echo "<pre>"; print_r($latestReview); echo "</pre>"; die;
 
         return Inertia::render('Frontend/Home', [
             'videos' => $youtubeList,
@@ -35,6 +39,7 @@ class HomeController extends Controller
             'instagramVideos' => $instagramData,
             'familyimage' => $familyimage,
             'homeEdit' => $homeEdit,
+            'latestReview' => $latestReview,
         ]);
     }
 
@@ -95,4 +100,8 @@ class HomeController extends Controller
     
     
     }
+
+
+    
+
 }

@@ -39,9 +39,10 @@ interface HomeProps {
     instagramVideos: any;
     familyimage: any;
     homeEdit: any;
+    latestReview: any;
 }
 
-export default function Home({ videos = [], recentApprovals, instagramVideos, familyimage, homeEdit }: HomeProps) {
+export default function Home({ videos = [], recentApprovals, instagramVideos, familyimage, homeEdit, latestReview }: HomeProps) {
 
     
     return (
@@ -58,7 +59,8 @@ export default function Home({ videos = [], recentApprovals, instagramVideos, fa
 
 
             <RecentApprovals recentApprovals={recentApprovals} />
-            <ReviewSlider />
+ 
+            <ReviewSlider reviews={latestReview} />
             <InstagramSlider instagramVideos={instagramVideos} />
             <ConsultationCTA />
  

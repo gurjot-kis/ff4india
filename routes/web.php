@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Route::get('/google-review', [HomeController::class, 'google_review'])->name('google_review');
+
 Route::get('/visa-bulletin', [VisaBulletin::class, 'index'])->name('VisaBulletin');
 
 Route::get('/visa-bulletin-detail/{session}', [VisaBulletin::class, 'VisaBulletinDetail'])->name('VisaBulletinDetail');

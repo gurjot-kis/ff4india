@@ -36,9 +36,10 @@ interface Filters {
 interface RecentApprovalProps {
     recentApprovals: Pagination<RecentApproval> | null;
     filters: Filters;
+    latestReview: any;
 }
 
-export default function RecentApproval({ recentApprovals,filters, }: RecentApprovalProps) {
+export default function RecentApproval({ recentApprovals,filters, latestReview }: RecentApprovalProps) {
 
     //console.log(recentApprovals);
 
@@ -298,7 +299,7 @@ export default function RecentApproval({ recentApprovals,filters, }: RecentAppro
                 </div>
             </section>
 
-            <ReviewSlider />
+            <ReviewSlider reviews={latestReview} />
             <ConsultationCTA />
         </>
     );

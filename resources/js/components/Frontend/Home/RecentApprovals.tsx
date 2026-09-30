@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '@/config';
 
 interface RecentApproval {
     id: number;
@@ -29,10 +30,10 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
                         <h2>Making Immigration Dreams a Reality</h2>
                     </div>
 
-                    <a href="/recent-approval" className="view-all-btn d-none d-lg-flex">
+                    {/* <a href="/recent-approval" className="view-all-btn d-none d-lg-flex">
                         <span>View All</span>
                         <i className="fa-solid fa-arrow-right" />
-                    </a>
+                    </a> */}
                 </div>
 
                 <div className="row g-xxl-5 g-4">
@@ -43,11 +44,9 @@ export default function RecentApprovals({ recentApprovals, }: RecentApprovalsPro
                         >
                             <a className="case-card" href="#">
 
-                                <div className="case-image">
-                                    <img
-                                        src={`${import.meta.env.VITE_IMAGE_URL}${approval.image}`}
-                                        alt={approval.name}
-                                    />
+                                <div className="case-image"> 
+
+                                    <img src={`${config?.storageUrl}/${approval.image}`} alt={approval.name} />
                                 </div>
 
                                 <div className="case-content">

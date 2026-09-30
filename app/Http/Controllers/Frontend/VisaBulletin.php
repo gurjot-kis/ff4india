@@ -17,6 +17,8 @@ use App\Mail\ContactDetailsMail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\YoutubeVideo;
+use App\Models\GoogleReview;
+
 
 use Carbon\Carbon;
 use Inertia\Inertia;
@@ -324,6 +326,7 @@ class VisaBulletin extends Controller
 
     public function RecentApprovals(Request $request): Response
     {
+        $latestReview = GoogleReview::query()->orderByDesc('review_time')->get();
         $year = $request->year;
 
         $recentApprovals = RecentApproval::query()
@@ -338,6 +341,7 @@ class VisaBulletin extends Controller
             'Frontend/RecentApproval',
             [
                 'recentApprovals' => $recentApprovals,
+                'latestReview' => $latestReview,
                 'filters' => [
                     'year' => $year,
                 ],

@@ -219,7 +219,7 @@ register.form = registerForm
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -234,7 +234,7 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -243,7 +243,7 @@ home.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -253,7 +253,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -263,7 +263,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -273,7 +273,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,7 +283,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:20
+* @see app/Http/Controllers/Frontend/HomeController.php:21
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -300,7 +300,7 @@ home.form = homeForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 export const VisaBulletin = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -315,7 +315,7 @@ VisaBulletin.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 VisaBulletin.url = (options?: RouteQueryOptions) => {
@@ -324,7 +324,7 @@ VisaBulletin.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 VisaBulletin.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -334,7 +334,7 @@ VisaBulletin.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 VisaBulletin.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -344,7 +344,7 @@ VisaBulletin.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 const VisaBulletinForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -354,7 +354,7 @@ const VisaBulletinForm = (options?: RouteQueryOptions): RouteFormDefinition<'get
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 VisaBulletinForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -364,7 +364,7 @@ VisaBulletinForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletin
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:283
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:285
 * @route '/visa-bulletin'
 */
 VisaBulletinForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -381,7 +381,7 @@ VisaBulletin.form = VisaBulletinForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 export const VisaBulletinDetail = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -396,7 +396,7 @@ VisaBulletinDetail.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 VisaBulletinDetail.url = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -423,7 +423,7 @@ VisaBulletinDetail.url = (args: { session: string | number } | [session: string 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 VisaBulletinDetail.get = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -433,7 +433,7 @@ VisaBulletinDetail.get = (args: { session: string | number } | [session: string 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 VisaBulletinDetail.head = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -443,7 +443,7 @@ VisaBulletinDetail.head = (args: { session: string | number } | [session: string
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 const VisaBulletinDetailForm = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -453,7 +453,7 @@ const VisaBulletinDetailForm = (args: { session: string | number } | [session: s
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 VisaBulletinDetailForm.get = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -463,7 +463,7 @@ VisaBulletinDetailForm.get = (args: { session: string | number } | [session: str
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::VisaBulletinDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:300
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:302
 * @route '/visa-bulletin-detail/{session}'
 */
 VisaBulletinDetailForm.head = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -480,7 +480,7 @@ VisaBulletinDetail.form = VisaBulletinDetailForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 export const RecentApprovals = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -495,7 +495,7 @@ RecentApprovals.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 RecentApprovals.url = (options?: RouteQueryOptions) => {
@@ -504,7 +504,7 @@ RecentApprovals.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 RecentApprovals.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -514,7 +514,7 @@ RecentApprovals.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 RecentApprovals.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -524,7 +524,7 @@ RecentApprovals.head = (options?: RouteQueryOptions): RouteDefinition<'head'> =>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 const RecentApprovalsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -534,7 +534,7 @@ const RecentApprovalsForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 RecentApprovalsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -544,7 +544,7 @@ RecentApprovalsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::RecentApprovals
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:325
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:327
 * @route '/recent-approval'
 */
 RecentApprovalsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -561,7 +561,7 @@ RecentApprovals.form = RecentApprovalsForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 export const contactus = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -576,7 +576,7 @@ contactus.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 contactus.url = (options?: RouteQueryOptions) => {
@@ -585,7 +585,7 @@ contactus.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 contactus.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -595,7 +595,7 @@ contactus.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 contactus.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -605,7 +605,7 @@ contactus.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 const contactusForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -615,7 +615,7 @@ const contactusForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 contactusForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -625,7 +625,7 @@ contactusForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactus
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:358
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:362
 * @route '/contact'
 */
 contactusForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -642,7 +642,7 @@ contactus.form = contactusForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 export const askNvc = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -657,7 +657,7 @@ askNvc.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 askNvc.url = (options?: RouteQueryOptions) => {
@@ -666,7 +666,7 @@ askNvc.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 askNvc.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -676,7 +676,7 @@ askNvc.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 askNvc.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -686,7 +686,7 @@ askNvc.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 const askNvcForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -696,7 +696,7 @@ const askNvcForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 askNvcForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -706,7 +706,7 @@ askNvcForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::askNvc
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:350
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:354
 * @route '/ask-nvc'
 */
 askNvcForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -723,7 +723,7 @@ askNvc.form = askNvcForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendNVC
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:100
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:102
 * @route '/contact-us/sendNVC'
 */
 export const sendNVC = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -738,7 +738,7 @@ sendNVC.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendNVC
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:100
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:102
 * @route '/contact-us/sendNVC'
 */
 sendNVC.url = (options?: RouteQueryOptions) => {
@@ -747,7 +747,7 @@ sendNVC.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendNVC
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:100
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:102
 * @route '/contact-us/sendNVC'
 */
 sendNVC.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -757,7 +757,7 @@ sendNVC.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendNVC
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:100
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:102
 * @route '/contact-us/sendNVC'
 */
 const sendNVCForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -767,7 +767,7 @@ const sendNVCForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendNVC
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:100
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:102
 * @route '/contact-us/sendNVC'
 */
 sendNVCForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -779,7 +779,7 @@ sendNVC.form = sendNVCForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactStore
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:366
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:370
 * @route '/contact-us'
 */
 export const contactStore = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -794,7 +794,7 @@ contactStore.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactStore
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:366
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:370
 * @route '/contact-us'
 */
 contactStore.url = (options?: RouteQueryOptions) => {
@@ -803,7 +803,7 @@ contactStore.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactStore
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:366
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:370
 * @route '/contact-us'
 */
 contactStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -813,7 +813,7 @@ contactStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactStore
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:366
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:370
 * @route '/contact-us'
 */
 const contactStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -823,7 +823,7 @@ const contactStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'pos
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::contactStore
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:366
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:370
 * @route '/contact-us'
 */
 contactStoreForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -835,7 +835,7 @@ contactStore.form = contactStoreForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:106
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:108
 * @route '/contact-us/send-otp'
 */
 export const sendOtp = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -850,7 +850,7 @@ sendOtp.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:106
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:108
 * @route '/contact-us/send-otp'
 */
 sendOtp.url = (options?: RouteQueryOptions) => {
@@ -859,7 +859,7 @@ sendOtp.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:106
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:108
 * @route '/contact-us/send-otp'
 */
 sendOtp.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -869,7 +869,7 @@ sendOtp.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:106
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:108
 * @route '/contact-us/send-otp'
 */
 const sendOtpForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -879,7 +879,7 @@ const sendOtpForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:106
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:108
 * @route '/contact-us/send-otp'
 */
 sendOtpForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -891,7 +891,7 @@ sendOtp.form = sendOtpForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:151
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:153
 * @route '/contact-us/verify-otp'
 */
 export const verifyOtp = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -906,7 +906,7 @@ verifyOtp.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:151
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:153
 * @route '/contact-us/verify-otp'
 */
 verifyOtp.url = (options?: RouteQueryOptions) => {
@@ -915,7 +915,7 @@ verifyOtp.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:151
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:153
 * @route '/contact-us/verify-otp'
 */
 verifyOtp.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -925,7 +925,7 @@ verifyOtp.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:151
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:153
 * @route '/contact-us/verify-otp'
 */
 const verifyOtpForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -935,7 +935,7 @@ const verifyOtpForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtp
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:151
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:153
 * @route '/contact-us/verify-otp'
 */
 verifyOtpForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -947,7 +947,7 @@ verifyOtp.form = verifyOtpForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:197
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:199
 * @route '/contact-us/send-otp-slider'
 */
 export const sendOtpSlider = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -962,7 +962,7 @@ sendOtpSlider.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:197
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:199
 * @route '/contact-us/send-otp-slider'
 */
 sendOtpSlider.url = (options?: RouteQueryOptions) => {
@@ -971,7 +971,7 @@ sendOtpSlider.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:197
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:199
 * @route '/contact-us/send-otp-slider'
 */
 sendOtpSlider.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -981,7 +981,7 @@ sendOtpSlider.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => (
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:197
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:199
 * @route '/contact-us/send-otp-slider'
 */
 const sendOtpSliderForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -991,7 +991,7 @@ const sendOtpSliderForm = (options?: RouteQueryOptions): RouteFormDefinition<'po
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::sendOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:197
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:199
 * @route '/contact-us/send-otp-slider'
 */
 sendOtpSliderForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1003,7 +1003,7 @@ sendOtpSlider.form = sendOtpSliderForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:238
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:240
 * @route '/contact-us/verify-otp-slider'
 */
 export const verifyOtpSlider = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1018,7 +1018,7 @@ verifyOtpSlider.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:238
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:240
 * @route '/contact-us/verify-otp-slider'
 */
 verifyOtpSlider.url = (options?: RouteQueryOptions) => {
@@ -1027,7 +1027,7 @@ verifyOtpSlider.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:238
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:240
 * @route '/contact-us/verify-otp-slider'
 */
 verifyOtpSlider.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1037,7 +1037,7 @@ verifyOtpSlider.post = (options?: RouteQueryOptions): RouteDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:238
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:240
 * @route '/contact-us/verify-otp-slider'
 */
 const verifyOtpSliderForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1047,7 +1047,7 @@ const verifyOtpSliderForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::verifyOtpSlider
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:238
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:240
 * @route '/contact-us/verify-otp-slider'
 */
 verifyOtpSliderForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1059,7 +1059,7 @@ verifyOtpSlider.form = verifyOtpSliderForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 export const cspaAgeCalculator = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1074,7 +1074,7 @@ cspaAgeCalculator.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 cspaAgeCalculator.url = (options?: RouteQueryOptions) => {
@@ -1083,7 +1083,7 @@ cspaAgeCalculator.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 cspaAgeCalculator.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1093,7 +1093,7 @@ cspaAgeCalculator.get = (options?: RouteQueryOptions): RouteDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 cspaAgeCalculator.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1103,7 +1103,7 @@ cspaAgeCalculator.head = (options?: RouteQueryOptions): RouteDefinition<'head'> 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 const cspaAgeCalculatorForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1113,7 +1113,7 @@ const cspaAgeCalculatorForm = (options?: RouteQueryOptions): RouteFormDefinition
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 cspaAgeCalculatorForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1123,7 +1123,7 @@ cspaAgeCalculatorForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::cspaAgeCalculator
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:92
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:94
 * @route '/cspa-age-calculator'
 */
 cspaAgeCalculatorForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1140,7 +1140,7 @@ cspaAgeCalculator.form = cspaAgeCalculatorForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1155,7 +1155,7 @@ about.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 about.url = (options?: RouteQueryOptions) => {
@@ -1164,7 +1164,7 @@ about.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1174,7 +1174,7 @@ about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1184,7 +1184,7 @@ about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1194,7 +1194,7 @@ const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1204,7 +1204,7 @@ aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:84
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
 * @route '/about'
 */
 aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1221,7 +1221,7 @@ about.form = aboutForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 export const blog = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1236,7 +1236,7 @@ blog.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 blog.url = (options?: RouteQueryOptions) => {
@@ -1245,7 +1245,7 @@ blog.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 blog.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1255,7 +1255,7 @@ blog.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 blog.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1265,7 +1265,7 @@ blog.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 const blogForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1275,7 +1275,7 @@ const blogForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 blogForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1285,7 +1285,7 @@ blogForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:70
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
 */
 blogForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1302,7 +1302,7 @@ blog.form = blogForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 export const blogDetail = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1317,7 +1317,7 @@ blogDetail.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 blogDetail.url = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -1344,7 +1344,7 @@ blogDetail.url = (args: { session: string | number } | [session: string | number
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 blogDetail.get = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1354,7 +1354,7 @@ blogDetail.get = (args: { session: string | number } | [session: string | number
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 blogDetail.head = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1364,7 +1364,7 @@ blogDetail.head = (args: { session: string | number } | [session: string | numbe
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 const blogDetailForm = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1374,7 +1374,7 @@ const blogDetailForm = (args: { session: string | number } | [session: string | 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 blogDetailForm.get = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1384,7 +1384,7 @@ blogDetailForm.get = (args: { session: string | number } | [session: string | nu
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blogDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:45
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:47
 * @route '/blog/{session}'
 */
 blogDetailForm.head = (args: { session: string | number } | [session: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1401,7 +1401,7 @@ blogDetail.form = blogDetailForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 export const services = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1416,7 +1416,7 @@ services.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 services.url = (options?: RouteQueryOptions) => {
@@ -1425,7 +1425,7 @@ services.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 services.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1435,7 +1435,7 @@ services.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 services.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1445,7 +1445,7 @@ services.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 const servicesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1455,7 +1455,7 @@ const servicesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 servicesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1465,7 +1465,7 @@ servicesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::services
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:36
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:38
 * @route '/services'
 */
 servicesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1482,7 +1482,7 @@ services.form = servicesForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 export const servicesDetail = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1497,7 +1497,7 @@ servicesDetail.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 servicesDetail.url = (options?: RouteQueryOptions) => {
@@ -1506,7 +1506,7 @@ servicesDetail.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 servicesDetail.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1516,7 +1516,7 @@ servicesDetail.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 servicesDetail.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1526,7 +1526,7 @@ servicesDetail.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => 
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 const servicesDetailForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1536,7 +1536,7 @@ const servicesDetailForm = (options?: RouteQueryOptions): RouteFormDefinition<'g
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 servicesDetailForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1546,7 +1546,7 @@ servicesDetailForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::servicesDetail
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:28
+* @see app/Http/Controllers/Frontend/VisaBulletin.php:30
 * @route '/services-detail'
 */
 servicesDetailForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
