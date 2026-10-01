@@ -297,7 +297,7 @@ export default function Blog({ blogs, filters, }: BlogProps) {
                 </div>
             </div>
 
-            <section class="bg-light-grey">
+            <section className="bg-light-grey">
                 <ConsultationCTA />
             </section>
 

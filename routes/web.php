@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\FamilyImageController;
 use App\Http\Controllers\Admin\HomePageEditableController;
 use App\Http\Controllers\Admin\ApiSocialController;
-
+use App\Http\Controllers\Admin\NvcFormController;
 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\VisaBulletin;
@@ -74,33 +74,36 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::resource('notices', NoticeController::class)->except(['show']);
         Route::resource('visa-bulletins', VisaBulletinController::class)->except(['show']);
-        Route::resource('emergency-broadcasts', EmergencyBroadcastController::class)->except('show'); 
+        Route::resource('emergency-broadcasts', EmergencyBroadcastController::class)->except('show');
 
-        Route::resource('visa-preferences', VisaBulletinPreferenceController::class)->except('show'); 
-        Route::resource('visa-applications', VisaBulletinApplicationController::class)->except('show'); 
-        
-        Route::resource('recent-approvals', RecentApprovalController::class)->except('show');   
-          
-        Route::resource('contact-forms', ContactFormController::class)->except('show');  
-        
-        Route::resource('categories', CategoryController::class)->except('show');  
+        Route::resource('visa-preferences', VisaBulletinPreferenceController::class)->except('show');
+        Route::resource('visa-applications', VisaBulletinApplicationController::class)->except('show');
 
+        Route::resource('recent-approvals', RecentApprovalController::class)->except('show');
+
+        Route::resource('contact-forms', ContactFormController::class)->except('show');
+
+        //Route::resource('nvc-forms', NvcFormController::class)->except('show');
+        Route::get('nvc-forms', [NvcFormController::class, 'index']);
+        Route::delete('nvc-forms/{inquiry}', [NvcFormController::class, 'destroy']);
+
+        Route::resource('categories', CategoryController::class)->except('show');
         Route::resource('blogs', BlogController::class)->except('show');
-        
         Route::resource('family-images', FamilyImageController::class)->except('show');
-
         Route::resource('home-page', HomePageEditableController::class)->except('show')->parameters(['home-page' => 'homePageEditable',]);
-
         Route::get('social/check_uscis_status', [ApiSocialController::class, 'check_uscis_status'])->name('check_uscis_status');
+    });
 
-        
-        
-
+    Route::prefix('dashboard/nvc-forms')->name('dashboard.nvc-forms.')->group(function () {
+        Route::get('/export/excel', [NvcFormController::class, 'exportExcel'])->name('excel');
+        Route::get('/export/csv', [NvcFormController::class, 'exportCsv'])->name('csv');
+        Route::get('/export/pdf', [NvcFormController::class, 'exportPdf'])->name('pdf');
+        Route::get('/print', [NvcFormController::class, 'print'])->name('print');
     });
 
     Route::get('social/check_youtube_video', [ApiSocialController::class, 'check_youtube_video'])->name('check_youtube_video');
-        Route::get('social/check_facebook_video', [ApiSocialController::class, 'check_facebook_video'])->name('check_facebook_video');
-        Route::get('social/check_instagram_video', [ApiSocialController::class, 'check_instagram_video'])->name('check_instagram_video');
+    Route::get('social/check_facebook_video', [ApiSocialController::class, 'check_facebook_video'])->name('check_facebook_video');
+    Route::get('social/check_instagram_video', [ApiSocialController::class, 'check_instagram_video'])->name('check_instagram_video');
 
     Route::prefix('dashboard/recent-approvals')->name('dashboard.recent-approvals.')->group(function () {
         Route::get('/export/excel', [RecentApprovalController::class, 'exportExcel'])->name('excel');
@@ -130,7 +133,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/export/pdf', [ContactFormController::class, 'exportPdf'])->name('pdf');
         Route::get('/print', [ContactFormController::class, 'print'])->name('print');
     });
-    
 });
 
-require __DIR__.'/settings.php';
+require __DIR__ . '/settings.php';

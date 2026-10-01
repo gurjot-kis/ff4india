@@ -5,6 +5,7 @@ import VisaBulletinPreferenceController from './VisaBulletinPreferenceController
 import VisaBulletinApplicationController from './VisaBulletinApplicationController'
 import RecentApprovalController from './RecentApprovalController'
 import ContactFormController from './ContactFormController'
+import NvcFormController from './NvcFormController'
 import CategoryController from './CategoryController'
 import BlogController from './BlogController'
 import FamilyImageController from './FamilyImageController'
@@ -19,6 +20,7 @@ const Admin = {
     VisaBulletinApplicationController: Object.assign(VisaBulletinApplicationController, VisaBulletinApplicationController),
     RecentApprovalController: Object.assign(RecentApprovalController, RecentApprovalController),
     ContactFormController: Object.assign(ContactFormController, ContactFormController),
+    NvcFormController: Object.assign(NvcFormController, NvcFormController),
     CategoryController: Object.assign(CategoryController, CategoryController),
     BlogController: Object.assign(BlogController, BlogController),
     FamilyImageController: Object.assign(FamilyImageController, FamilyImageController),

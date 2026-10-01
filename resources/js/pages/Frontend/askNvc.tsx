@@ -32,6 +32,7 @@ export default function AskNvc() {
         data,
         setData,
         post,
+        transform,
         processing,
         errors,
         reset,
@@ -122,6 +123,45 @@ export default function AskNvc() {
     |--------------------------------------------------------------------------
     */
 
+    // useEffect(() => {
+    //     const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+    //     if (!siteKey) {
+    //         console.error(
+    //             'VITE_RECAPTCHA_SITE_KEY is not configured.'
+    //         );
+    //         return;
+    //     }
+
+    //     const existingScript = document.querySelector(
+    //         'script[data-recaptcha-script="true"]'
+    //     );
+
+    //     if (existingScript) {
+    //         return;
+    //     }
+
+    //     const script = document.createElement('script');
+
+    //     script.src =
+    //         `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+
+    //     script.async = true;
+    //     script.defer = true;
+    //     script.setAttribute(
+    //         'data-recaptcha-script',
+    //         'true'
+    //     );
+
+    //     document.head.appendChild(script);
+
+    //     return () => {
+    //         // Do not remove the script.
+    //         // Other pages/components may also use reCAPTCHA.
+    //     };
+    // }, []);
+
+
     useEffect(() => {
         const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
@@ -129,6 +169,10 @@ export default function AskNvc() {
             console.error(
                 'VITE_RECAPTCHA_SITE_KEY is not configured.'
             );
+            return;
+        }
+
+        if (window.grecaptcha) {
             return;
         }
 
@@ -147,17 +191,23 @@ export default function AskNvc() {
 
         script.async = true;
         script.defer = true;
+
         script.setAttribute(
             'data-recaptcha-script',
             'true'
         );
 
-        document.head.appendChild(script);
-
-        return () => {
-            // Do not remove the script.
-            // Other pages/components may also use reCAPTCHA.
+        script.onload = () => {
+            console.log('Google reCAPTCHA script loaded successfully.');
         };
+
+        script.onerror = () => {
+            console.error(
+                'Failed to load Google reCAPTCHA script.'
+            );
+        };
+
+        document.head.appendChild(script);
     }, []);
 
     /*
@@ -207,51 +257,84 @@ export default function AskNvc() {
     */
 
 
-    const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    const submit = (
+        e: React.FormEvent<HTMLFormElement>
+    ) => {
         e.preventDefault();
 
-        const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+        const siteKey =
+            import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
         if (!siteKey) {
             console.error(
                 'VITE_RECAPTCHA_SITE_KEY is missing.'
             );
 
-            return;
-        }
-
-        if (!window.grecaptcha) {
-            console.error(
-                'Google reCAPTCHA has not loaded yet.'
+            setGeneralError(
+                'Security verification is not configured. Please contact support.'
             );
 
             return;
         }
 
-        window.grecaptcha.ready(async () => {
+        const executeRecaptcha = async () => {
             try {
-                /*
-                 * Generate reCAPTCHA v3 token.
-                 */
-                const token = await window.grecaptcha.execute(
-                    siteKey,
-                    {
-                        action: 'nvc_inquiry',
-                    }
+                // Wait until Google reCAPTCHA is available
+                let attempts = 0;
+
+                while (
+                    !window.grecaptcha &&
+                    attempts < 50
+                ) {
+                    await new Promise((resolve) =>
+                        setTimeout(resolve, 200)
+                    );
+
+                    attempts++;
+                }
+
+                if (!window.grecaptcha) {
+                    throw new Error(
+                        'Google reCAPTCHA failed to load.'
+                    );
+                }
+
+                // Wait for reCAPTCHA to be ready
+                await new Promise<void>((resolve) => {
+                    window.grecaptcha.ready(() => {
+                        resolve();
+                    });
+                });
+
+                console.log(
+                    'Executing reCAPTCHA with site key:',
+                    siteKey
                 );
 
-                /*
-                 * Add reCAPTCHA token to the Inertia form.
-                 */
-                setData('recaptcha_token', token);
+                const token =
+                    await window.grecaptcha.execute(
+                        siteKey,
+                        {
+                            action: 'nvc_inquiry',
+                        }
+                    );
 
-                /*
-                 * Submit form using Inertia.
-                 *
-                 * forceFormData: true is required because
-                 * multiple files are being uploaded.
-                 */
-                post('inquiries', {
+                if (!token) {
+                    throw new Error(
+                        'reCAPTCHA returned an empty token.'
+                    );
+                }
+
+                console.log(
+                    'reCAPTCHA token generated successfully.'
+                );
+
+                transform((formData) => ({
+                    ...formData,
+                    recaptcha_token: token,
+                }));
+
+                post('/inquiries', {
                     preserveScroll: true,
                     forceFormData: true,
 
@@ -260,11 +343,29 @@ export default function AskNvc() {
 
                         reset();
 
-                        setData('filingStatus', 'already_filed');
-                        setData('visaCategory', []);
-                        setData('files', []);
+                        setData(
+                            'recaptcha_token',
+                            ''
+                        );
 
-                        setAttachmentInputKey((prev) => prev + 1);
+                        setData(
+                            'filingStatus',
+                            'already_filed'
+                        );
+
+                        setData(
+                            'visaCategory',
+                            []
+                        );
+
+                        setData(
+                            'files',
+                            []
+                        );
+
+                        setAttachmentInputKey(
+                            (prev) => prev + 1
+                        );
 
                         window.scrollTo({
                             top: 0,
@@ -289,14 +390,17 @@ export default function AskNvc() {
                         });
                     },
                 });
+
             } catch (error) {
                 console.error(
-                    'reCAPTCHA verification error:',
+                    'reCAPTCHA execution failed:',
                     error
                 );
 
                 setGeneralError(
-                    'Security verification failed. Please refresh the page and try again.'
+                    error instanceof Error
+                        ? `Security verification failed: ${error.message}`
+                        : 'Security verification failed. Please refresh the page and try again.'
                 );
 
                 window.scrollTo({
@@ -304,7 +408,9 @@ export default function AskNvc() {
                     behavior: 'smooth',
                 });
             }
-        });
+        };
+
+        executeRecaptcha();
     };
 
     /*
@@ -315,6 +421,8 @@ export default function AskNvc() {
 
     const resetForm = () => {
         reset();
+
+        setData('recaptcha_token', '');
 
         setData(
             'filingStatus',

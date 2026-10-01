@@ -10,6 +10,7 @@ import categories from './categories'
 import blogs from './blogs'
 import familyImages from './family-images'
 import homePage from './home-page'
+import nvcForms from './nvc-forms'
 /**
 * @see \App\Http\Controllers\Admin\ApiSocialController::check_uscis_status
 * @see app/Http/Controllers/Admin/ApiSocialController.php:19
@@ -104,6 +105,7 @@ const dashboard = {
     familyImages: Object.assign(familyImages, familyImages),
     homePage: Object.assign(homePage, homePage),
     check_uscis_status: Object.assign(check_uscis_status, check_uscis_status),
+    nvcForms: Object.assign(nvcForms, nvcForms),
 }
 
 export default dashboard

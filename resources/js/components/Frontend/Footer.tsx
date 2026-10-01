@@ -83,6 +83,7 @@ export default function Footer() {
                                             <li><a href="/blog">Immigration Blog</a></li>
                                             <li><a href="/#home-videos-sec">Immigration Videos</a></li>
                                             <li><a href="/contact">Contact Us</a></li>
+                                            <li><a href="/ask-nvc">Public Inquiry</a></li>
                                         </ul>
                                     </div>
                                 </div>
