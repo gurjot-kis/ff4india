@@ -218,8 +218,89 @@ registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 register.form = registerForm
 
 /**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: about.url(options),
+    method: 'get',
+})
+
+about.definition = {
+    methods: ["get","head"],
+    url: '/about',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+about.url = (options?: RouteQueryOptions) => {
+    return about.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: about.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: about.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Frontend\PageController::about
+* @see app/Http/Controllers/Frontend/PageController.php:15
+* @route '/about'
+*/
+aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+about.form = aboutForm
+
+/**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -234,7 +315,7 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -243,7 +324,7 @@ home.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -253,7 +334,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -263,7 +344,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -273,7 +354,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,7 +364,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Frontend\HomeController::home
-* @see app/Http/Controllers/Frontend/HomeController.php:21
+* @see app/Http/Controllers/Frontend/HomeController.php:22
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1137,87 +1218,6 @@ cspaAgeCalculatorForm.head = (options?: RouteQueryOptions): RouteFormDefinition<
 })
 
 cspaAgeCalculator.form = cspaAgeCalculatorForm
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: about.url(options),
-    method: 'get',
-})
-
-about.definition = {
-    methods: ["get","head"],
-    url: '/about',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.url = (options?: RouteQueryOptions) => {
-    return about.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: about.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-about.form = aboutForm
 
 /**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog

@@ -9,6 +9,7 @@ import AboutSection from '@/components/Frontend/Home/AboutSection';
 import RecentApprovals from '@/components/Frontend/Home/RecentApprovals';
 import ReviewSlider from '@/components/Frontend/Home/ReviewSlider';
 import InstagramSlider from '@/components/Frontend/Home/InstagramSlider';
+import FacebookSlider from '@/components/Frontend/Home/FacebookSlider';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 
 // interface Video {
@@ -37,12 +38,13 @@ interface HomeProps {
     videos: any;
     recentApprovals: any;
     instagramVideos: any;
+    facebookVideos: any;
     familyimage: any;
     homeEdit: any;
     latestReview: any;
 }
 
-export default function Home({ videos = [], recentApprovals, instagramVideos, familyimage, homeEdit, latestReview }: HomeProps) {
+export default function Home({ videos = [], recentApprovals, instagramVideos, facebookVideos, familyimage, homeEdit, latestReview }: HomeProps) {
 
     
     return (
@@ -62,6 +64,7 @@ export default function Home({ videos = [], recentApprovals, instagramVideos, fa
  
             <ReviewSlider reviews={latestReview} />
             <InstagramSlider instagramVideos={instagramVideos} />
+            <FacebookSlider facebookVideos={facebookVideos} />
             <ConsultationCTA />
  
         

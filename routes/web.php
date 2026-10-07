@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\VisaBulletinController;
 use App\Http\Controllers\Admin\EmergencyBroadcastController;
@@ -17,10 +19,12 @@ use App\Http\Controllers\Admin\NvcFormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\VisaBulletin;
 use App\Http\Controllers\Frontend\InquiryController;
+use App\Http\Controllers\Frontend\PageController;
 
 
 
-use Illuminate\Support\Facades\Route;
+
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
 //Route::inertia('/', 'welcome')->name('home');
 
@@ -55,7 +59,7 @@ Route::post('/contact-us/verify-otp-slider', [VisaBulletin::class, 'verifyOtpSli
 
 Route::get('/cspa-age-calculator', [VisaBulletin::class, 'cspaAgeCalculator'])->name('cspaAgeCalculator');
 
-Route::get('/about', [VisaBulletin::class, 'about'])->name('about');
+//Route::get('/about', [VisaBulletin::class, 'about'])->name('about');
 
 Route::get('/blog', [VisaBulletin::class, 'blog'])->name('blog');
 

@@ -6,31 +6,54 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-interface InstagramVideo {
-    id: string;
-    caption?: string;
-    media_type: string;
-    media_product_type?: string;
-    media_url: string;
-    thumbnail_url?: string;
-    permalink: string;
-    timestamp: string;
-    username?: string;
+interface FacebookImage {
+    height?: number;
+    width?: number;
+    src: string;
 }
 
-interface InstagramSliderProps {
-    instagramVideos?: {
+interface FacebookMedia {
+    image?: FacebookImage;
+    source?: string;
+}
+
+interface FacebookSubAttachment {
+    description?: string;
+    media?: FacebookMedia;
+    type?: string;
+    url?: string;
+}
+
+interface FacebookAttachment {
+    media_type?: string;   // video | photo | link | album
+    type?: string;         // video_inline | share | photo | album
+    url?: string;
+    media?: FacebookMedia;
+    subattachments?: { data: FacebookSubAttachment[] };
+}
+
+interface FacebookVideo {
+    id: string;
+    message?: string;
+    created_time: string;
+    full_picture?: string;
+    permalink_url?: string;
+    attachments?: { data: FacebookAttachment[] };
+}
+
+interface FacebookSliderProps {
+    facebookVideos?: {
         success: boolean;
         count: number;
-        data: InstagramVideo[];
+        data: FacebookVideo[];
     };
-    /** Number of posts to display (default: 5) */
+    /** Number of posts to display (default: 10) */
     limit?: number;
 }
 
-export default function InstagramSlider({ instagramVideos, limit = 10 }: InstagramSliderProps) {
+export default function FacebookSlider({ facebookVideos, limit = 10 }: FacebookSliderProps) {
     // Only take the first `limit` posts (1, 2, 3, 4, 5, etc.)
-    const videos = (instagramVideos?.data ?? []).slice(0, limit);
+    const videos = (facebookVideos?.data ?? []).slice(0, limit);
 
     if (!videos.length) {
         return null; // Or return a custom empty state / skeleton loader
@@ -50,7 +73,7 @@ export default function InstagramSlider({ instagramVideos, limit = 10 }: Instagr
                             height="20"
                             loading="lazy"
                         />
-                        <span>INSTAGRAM VIDEOS</span>
+                        <span>FACEBOOK VIDEOS</span>
                     </div>
 
                     <div className="insta-heading common-heading">
@@ -64,7 +87,7 @@ export default function InstagramSlider({ instagramVideos, limit = 10 }: Instagr
                     <div className="insta-underline"></div>
 
                     <p className="insta-subtext">
-                        Watch short videos, tips, and success stories straight from our Instagram.
+                        Watch short videos, tips, and success stories straight from our Facebook.
                     </p>
                 </div>
 
@@ -79,44 +102,44 @@ export default function InstagramSlider({ instagramVideos, limit = 10 }: Instagr
                     </button>
 
                     <Swiper
-    modules={[Navigation, Pagination]}
-    className="insta-swiper"
-    initialSlide={0}
-    centeredSlides={false}
-    slidesPerView={1}
-    spaceBetween={14}
-    loop={false}
-    rewind={true}
-    watchOverflow={true}
-    observer={true}
-    observeParents={true}
-    navigation={{
-        nextEl: '.insta-next',
-        prevEl: '.insta-prev',
-    }}
-    pagination={{
-        el: '.insta-pagination',
-        clickable: true,
-    }}
-    breakpoints={{
-        0: { slidesPerView: 1, spaceBetween: 14 },
-        576: { slidesPerView: 2, spaceBetween: 16 },
-        992: { slidesPerView: 3, spaceBetween: 20 },
-        1200: { slidesPerView: 4, spaceBetween: 25 },
-    }}
->
+                        modules={[Navigation, Pagination]}
+                        className="insta-swiper"
+                        initialSlide={0}
+                        centeredSlides={false}
+                        slidesPerView={1}
+                        spaceBetween={14}
+                        loop={false}
+                        rewind={true}
+                        watchOverflow={true}
+                        observer={true}
+                        observeParents={true}
+                        navigation={{
+                            nextEl: '.insta-next',
+                            prevEl: '.insta-prev',
+                        }}
+                        pagination={{
+                            el: '.insta-pagination',
+                            clickable: true,
+                        }}
+                        breakpoints={{
+                            0: { slidesPerView: 1, spaceBetween: 14 },
+                            576: { slidesPerView: 2, spaceBetween: 16 },
+                            992: { slidesPerView: 3, spaceBetween: 20 },
+                            1200: { slidesPerView: 4, spaceBetween: 25 },
+                        }}
+                    >
                         {videos.map((video) => (
                             <SwiperSlide key={video.id}>
                                 <a
-                                    href={video.permalink}
+                                    href={video.source}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="insta-card"
-                                    aria-label={video.caption || 'Watch video on Instagram'}
+                                    aria-label={video.message || 'Watch video on Instagram'}
                                 >
                                     <img
-                                        src={video.thumbnail_url || video.media_url}
-                                        alt={video.caption || 'Instagram video thumbnail'}
+                                        src={video.full_picture || video.full_picture}
+                                        alt={video.message || 'Facebook video thumbnail'}
                                         loading="lazy"
                                     />
                                     <div className="insta-play">
@@ -144,7 +167,7 @@ export default function InstagramSlider({ instagramVideos, limit = 10 }: Instagr
                     <div className="insta-follow-icon">
                         <img
                             src="/storage/images/insta-logo.svg"
-                            alt="Instagram Logo"
+                            alt="Facebook Logo"
                             width="20"
                             height="20"
                             loading="lazy"
@@ -152,11 +175,11 @@ export default function InstagramSlider({ instagramVideos, limit = 10 }: Instagr
                     </div>
 
                     <div className="insta-follow-text">
-                        Follow us on <b>Instagram</b> for more immigration insights!
+                        Follow us on <b>Facebook</b> for more immigration insights!
                     </div>
 
                     <a
-                        href="https://www.instagram.com/f4india/"
+                        href="https://www.facebook.com/f4indiaconsultants/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="insta-follow-btn common-btn"

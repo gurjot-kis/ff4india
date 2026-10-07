@@ -840,87 +840,6 @@ cspaAgeCalculatorForm.head = (options?: RouteQueryOptions): RouteFormDefinition<
 cspaAgeCalculator.form = cspaAgeCalculatorForm
 
 /**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: about.url(options),
-    method: 'get',
-})
-
-about.definition = {
-    methods: ["get","head"],
-    url: '/about',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.url = (options?: RouteQueryOptions) => {
-    return about.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: about.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\Frontend\VisaBulletin::about
-* @see app/Http/Controllers/Frontend/VisaBulletin.php:86
-* @route '/about'
-*/
-aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: about.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-about.form = aboutForm
-
-/**
 * @see \App\Http\Controllers\Frontend\VisaBulletin::blog
 * @see app/Http/Controllers/Frontend/VisaBulletin.php:72
 * @route '/blog'
@@ -1262,6 +1181,6 @@ servicesDetailForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 
 servicesDetail.form = servicesDetailForm
 
-const VisaBulletin = { index, VisaBulletinDetail, RecentApprovals, contactus, askNvc, sendNVC, contactStore, sendOtp, verifyOtp, sendOtpSlider, verifyOtpSlider, cspaAgeCalculator, about, blog, blogDetail, services, servicesDetail }
+const VisaBulletin = { index, VisaBulletinDetail, RecentApprovals, contactus, askNvc, sendNVC, contactStore, sendOtp, verifyOtp, sendOtpSlider, verifyOtpSlider, cspaAgeCalculator, blog, blogDetail, services, servicesDetail }
 
 export default VisaBulletin

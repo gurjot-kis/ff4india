@@ -1,4 +1,28 @@
 @import './frontend/style.css';
+
+ /* Swiper slider in 1st post */
+.insta-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.insta-swiper {
+    flex: 1 1 0;
+    min-width: 0;     
+    width: 100%;
+    overflow: hidden;
+}
+
+.insta-swiper .swiper-wrapper {
+    justify-content: flex-start; 
+}
+
+.insta-swiper .swiper-slide {
+    height: auto;
+}
+ /* Swiper slider in 1st post */
+
 @import './frontend/developer.css';
 
 @import 'tailwindcss';

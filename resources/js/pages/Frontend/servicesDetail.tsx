@@ -28,7 +28,7 @@ export default function ServicesDetail() {
                 <div className="container">
                     <div className="row">
 
-                        {/* ================================
+                        {/* ================================ 
                                 LEFT CONTENT
                             ================================= */}
                         <div className="col-lg-8">
@@ -262,7 +262,7 @@ export default function ServicesDetail() {
                                 <div className="updates-card">
 
                                     <div className="updates-header">
-                                        <i class="fa-brands fa-intercom"></i>
+                                        <i className="fa-brands fa-intercom"></i>
                                         <span>
                                             All Services</span>
                                     </div>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
@@ -20,6 +21,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+
         $youtubeList = YoutubeVideo::orderBy('id', 'asc')->paginate(6);
         $recentApprovals = RecentApproval::orderBy('id', 'desc')->paginate(6);
         $familyimage = FamilyImage::where(['status' => '1', 'set_homepage' => '1'])->orderBy('id', 'desc')->first();
@@ -28,18 +30,74 @@ class HomeController extends Controller
         $instagramResponse = $this->get_instagram_video();
         $instagramData = $instagramResponse->getData(true);
 
-
         $latestReview = GoogleReview::query()->orderByDesc('review_time')->get();
 
-        //echo "<pre>"; print_r($latestReview); echo "</pre>"; die;
+
+        $facebookResponse = $this->get_facebook_video();
+        $facebookData = $facebookResponse->getData(true);
+
+        // echo "<pre>"; print_r($facebookData); echo "</pre>"; die;
+
 
         return Inertia::render('Frontend/Home', [
             'videos' => $youtubeList,
             'recentApprovals' => $recentApprovals,
             'instagramVideos' => $instagramData,
+            'facebookVideos' => $facebookData,
             'familyimage' => $familyimage,
             'homeEdit' => $homeEdit,
             'latestReview' => $latestReview,
+        ]);
+    }
+
+
+    public function get_facebook_video(): JsonResponse
+    {
+        $userId = env('FACEBOOK_PAGE_ID');
+        $accessToken = env('INSTAGRAM_ACCESS_TOKEN');
+
+        if (!$userId || !$accessToken) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Facebook credentials are not configured.',
+            ], 500);
+        }
+
+
+
+        $response = Http::get(
+            "https://graph.facebook.com/v20.0/{$userId}/posts",
+            [
+                'fields' => implode(',', [
+                    'id',
+                    'message',
+                    'created_time',
+                    'full_picture',
+                    'attachments{media_type,media,url,type,subattachments}',
+                ]),
+                'access_token' => $accessToken,
+                'limit' => 25,
+            ]
+        );
+
+        if ($response->failed()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Facebook API request failed.',
+                'error' => $response->json(),
+            ], $response->status());
+        }
+
+        $data = $response->json();
+
+        $video_post = collect($data['data'] ?? [])
+            ->filter(fn($item) => ($item['attachments']['data'][0]['type'] ?? null) === 'video_inline')
+            ->values();
+
+        return response()->json([
+            'success' => true,
+            'count' => collect($data['data'])->count(),
+            'data' => $video_post,
         ]);
     }
 
@@ -57,21 +115,20 @@ class HomeController extends Controller
         }
 
         $response = Http::get(
-            "https://graph.instagram.com/{$userId}/media",
+            "https://graph.facebook.com/v26.0/{$userId}/media",
             [
                 'fields' => implode(',', [
                     'id',
                     'caption',
                     'media_type',
-                    'media_product_type',
                     'media_url',
                     'thumbnail_url',
                     'permalink',
                     'timestamp',
-                    'username',
+                    'children{media_url,media_type}',
                 ]),
                 'access_token' => $accessToken,
-                'limit' => 25,
+                'limit' => 10,
             ]
         );
 
@@ -85,23 +142,72 @@ class HomeController extends Controller
 
         $data = $response->json();
 
-        // Only return Reels
-        $reels = collect($data['data'] ?? [])
-            ->filter(function ($item) {
-                return ($item['media_product_type'] ?? null) === 'REELS';
-            })
-            ->values();
-
         return response()->json([
             'success' => true,
-            'count' => $reels->count(),
-            'data' => $reels,
+            'count' => collect($data['data'])->count(),
+            'data' => collect($data['data']),
         ]);
-    
-    
     }
 
 
-    
+    // public function get_instagram_video(): JsonResponse
+    // {
+    //     $userId = env('INSTAGRAM_USER_ID');
+    //     $accessToken = env('INSTAGRAM_ACCESS_TOKEN');
+
+    //     if (!$userId || !$accessToken) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Instagram credentials are not configured.',
+    //         ], 500);
+    //     }
+
+    //     $response = Http::get(
+    //         "https://graph.instagram.com/{$userId}/media",
+    //         [
+    //             'fields' => implode(',', [
+    //                 'id',
+    //                 'caption',
+    //                 'media_type',
+    //                 'media_product_type',
+    //                 'media_url',
+    //                 'thumbnail_url',
+    //                 'permalink',
+    //                 'timestamp',
+    //                 'username',
+    //             ]),
+    //             'access_token' => $accessToken,
+    //             'limit' => 25,
+    //         ]
+    //     );
+
+    //     if ($response->failed()) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Instagram API request failed.',
+    //             'error' => $response->json(),
+    //         ], $response->status());
+    //     }
+
+    //     $data = $response->json();
+
+    //     // Only return Reels
+    //     $reels = collect($data['data'] ?? [])
+    //         ->filter(function ($item) {
+    //             return ($item['media_product_type'] ?? null) === 'REELS';
+    //         })
+    //         ->values();
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'count' => $reels->count(),
+    //         'data' => $reels,
+    //     ]);
+
+
+    // }
+
+
+
 
 }

@@ -98,14 +98,14 @@
 
             <tr>
                 <th class="text-center" width="3%">#</th>
-                <th width="8%">Email</th>
+                <th width="9%">Email</th>
                 <th width="6%">Filing Status</th>
-                <th width="6%">Case Number</th>
+                <th width="7%">Case Number</th>
                 <th width="7%">Principal Name</th>
                 <th width="6%">DOB</th>
-                <th width="7%">Petitioner Name</th>
+                <th width="8%">Petitioner Name</th>
                 <th width="7%">Who Are You?</th>
-                <th width="9%">Visa Category</th>
+                <th width="6%">Visa Category</th>
                 <th width="15%">Comments</th>
                 <th width="20%">Attachments</th>
                 <th width="6%">Created At</th>
@@ -166,7 +166,7 @@
 
                     <td>
                         @forelse($item->attachments as $attachment)
-                            <img style="max-width: 100px; max-height: 100px;" src="{{ asset('storage/' . $attachment->file_path) }}" alt="{{ $attachment->original_name }}" /><br>
+                            <img style="max-width: 100px; max-height: 100px;" src="{{ public_path('storage/' . $attachment->file_path) }}" alt="{{ $attachment->original_name }}" /><br>
                         @empty
                             -
                         @endforelse
