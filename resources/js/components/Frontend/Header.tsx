@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import config from '@/config';
 import { useMobileNav } from '@/hooks/useMobileNav';
 import { useStickyHeader } from '@/hooks/useStickyHeader';
 import NoticeModal from '@/components/NoticeModal';
+import HeaderSearch from '@/components/Frontend/Home/HeaderSearch';
 
 interface EmergencyBroadcast {
     id: number;
@@ -49,13 +50,12 @@ export default function Header() {
                             )
                         )}
 
-
                     </div>
                 </div>
             </div>
 
             {/* Notice Modal (uses the same emergencyBroadcasts data as the marquee) */}
-      
+
             {emergencyBroadcasts && emergencyBroadcasts.length > 0 && (
                 <NoticeModal
                     notices={emergencyBroadcasts.map((emergencyBroadcast) => ({
@@ -65,7 +65,6 @@ export default function Header() {
                     storageKey={`ff4india-notice-${emergencyBroadcasts.map(item => item.id).join('-')}`}
                 />
             )}
-
 
             {/* Main Header */}
             <header className={`site-header${isSticky ? ' navbar-sticky' : ''}`}>
@@ -78,13 +77,12 @@ export default function Header() {
                                 <span className="logo-text">We Understand Immigration Better</span>
                             </a>
 
+                            {/* Desktop search */}
                             <div className="d-none d-lg-flex align-items-center">
-                                <div className="header-search-box">
-                                    <input type="text" placeholder="Search..." />
-                                    <button className="search-btn" aria-label="Search">
-                                        <i className="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </div>
+                                <HeaderSearch
+                                    className="header-search-box"
+                                    buttonClassName="search-btn"
+                                />
                             </div>
 
                             <div className="mobile-header-actions d-lg-none">
@@ -111,16 +109,15 @@ export default function Header() {
                     </div>
                 </div>
 
+                {/* Mobile search */}
                 <div
                     id="mobileSearchDropdown"
                     className={`mobile-search-dropdown d-lg-none${nav.isSearchOpen ? ' active' : ''}`}
                 >
-                    <div className="mobile-search-input-group">
-                        <input type="text" placeholder="Search..." />
-                        <button type="submit" aria-label="Execute Search">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
+                    <HeaderSearch
+                        className="mobile-search-input-group"
+                        onSearch={nav.toggleSearch}
+                    />
                 </div>
 
                 <nav id="unifiedNavbar" className={`navbar-main${nav.isNavOpen ? ' active' : ''}`}>
@@ -246,7 +243,5 @@ export default function Header() {
 
             </header>
         </>
-
-
     );
 }

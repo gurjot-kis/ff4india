@@ -26,6 +26,9 @@ use App\Http\Controllers\Frontend\PageController;
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
+
+Route::get('/search', [PageController::class, 'search'])->name('search');
+
 //Route::inertia('/', 'welcome')->name('home');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

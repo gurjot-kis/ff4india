@@ -9,6 +9,7 @@ use App\Models\Admin\VisaBulletinApplications;
 use App\Models\Admin\VisaBulletinPreferences;
 use App\Models\Admin\RecentApproval;
 use App\Models\Admin\ContactForm;
+use App\Models\Service;
 
 use App\Models\Admin\Blog;
 
@@ -29,9 +30,13 @@ class VisaBulletin extends Controller
 
     public function servicesDetail()
     {
+        $services = Service::query()->orderBy('id', 'asc')->get();
+
         return Inertia::render(
             'Frontend/servicesDetail',
-            []
+            [
+                "services" => $services
+            ]
         );
     }
 

@@ -39,6 +39,7 @@ interface FacebookVideo {
     full_picture?: string;
     permalink_url?: string;
     attachments?: { data: FacebookAttachment[] };
+    source?: string; 
 }
 
 interface FacebookSliderProps {

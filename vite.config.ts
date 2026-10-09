@@ -29,17 +29,17 @@ export default defineConfig({
         }),
     ],
 
-    // server: {
-    //     host: '0.0.0.0',
-    //     port: 5173,
+    server: {
+        host: '0.0.0.0',
+        port: 5173,
 
-    //     cors: {
-    //         origin: 'http://103.164.67.226:8135',
-    //     },
+        cors: {
+            origin: 'http://103.164.67.226:8135',
+        },
 
-    //     hmr: {
-    //         host: '103.164.67.226',
-    //         port: 5173,
-    //     },
-    // },
+        hmr: {
+            host: '103.164.67.226',
+            port: 5173,
+        },
+    },
 });

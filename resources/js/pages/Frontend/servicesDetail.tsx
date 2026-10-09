@@ -3,8 +3,19 @@ import config from '@/config';
 import ContactUs from '@/components/Frontend/Home/ContactUs';
 import ConsultationCTA from '@/components/Frontend/Home/ConsultationCTA';
 
+interface Service {
+    id: number;
+    title: string;
+    slug: string;
+    short_description?: string;
+}
 
-export default function ServicesDetail() {
+interface Props {
+    services: Service[];
+}
+
+
+export default function ServicesDetail({ services }: Props) {
     return (
 
         <>
@@ -35,8 +46,26 @@ export default function ServicesDetail() {
 
                             <article className="services-detail-content">
 
-                                {/* FAMILY BASED SERVICES */}
-                                <div id="familybased-services" className="scroll-margin-top">
+
+                              
+                                {services.length > 0 ? (
+                                    services.map((service) => (
+                                            <div id={service.slug} className="scroll-margin-top"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: service.short_description ?? "",
+                                                }}
+                                            />
+                                
+                                    ))
+                                ) : (
+                                    <div className="col-12">
+                                        <p>No services available.</p>
+                                    </div>
+                                )}
+
+ 
+ 
+                                {/* <div id="familybased-services" className="scroll-margin-top">
                                     <h3 className="mt-0">Family Immigration & Green Cards</h3>
                                     <p>
                                         Family is at the heart of many immigration cases. We assist U.S.
@@ -76,7 +105,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* PETITIONS & APPLICATIONS */}
                                 <div id="petitions-applications-services" className="scroll-margin-top">
                                     <h3>USCIS Petitions & Applications</h3>
                                     <p>
@@ -107,7 +135,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* CONSULAR PROCESSING */}
                                 <div id="consular-processing-services" className="scroll-margin-top">
                                     <h3>NVC & Consular Processing</h3>
                                     <p>
@@ -133,7 +160,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* WAIVERS */}
                                 <div id="waivers-services" className="scroll-margin-top">
                                     <h3>Humanitarian Reinstatement & Waivers</h3>
                                     <p>
@@ -163,7 +189,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* VISA REFUSALS */}
                                 <div id="visa-refusals-services" className="scroll-margin-top">
                                     <h3>Visa Refusals, 221(g) & Administrative Processing</h3>
                                     <p>
@@ -201,7 +226,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* CITIZENSHIP */}
                                 <div id="citizenship-services" className="scroll-margin-top">
                                     <h3>Citizenship & Naturalization</h3>
                                     <p>
@@ -225,7 +249,6 @@ export default function ServicesDetail() {
                                     </p>
                                 </div>
 
-                                {/* OUR APPROACH */}
                                 <div id="approach-services" className="scroll-margin-top">
                                     <h3>Our Approach</h3>
                                     <p>
@@ -248,7 +271,7 @@ export default function ServicesDetail() {
                                             will help you understand the process and the next steps.
                                         </strong>
                                     </p>
-                                </div>
+                                </div>  */}
 
                             </article>
                         </div>

@@ -9,6 +9,10 @@ interface PageData {
     content: string | null;
     meta_title: string | null;
     meta_description: string | null;
+    overview_content: string | null;
+    main_content: string | null;
+    image: string | null;
+    experience_years: number | null;
 }
 
 interface Props {
