@@ -60,7 +60,7 @@ export default function HeroSection() {
                                             rel="noopener noreferrer"
                                         >
                                             727, 7th Floor, CP67, Unity Mall, Sector 67,
-                                            Imperial Tower, Mohali, PB 160062
+                                            Imperial Tower, Airport Road, Mohali, PB 160062
                                         </a>
                                     </div>
                                 </div>

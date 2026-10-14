@@ -111,7 +111,7 @@ export default function Footer() {
                                             <li>
                                                 <img src={`${config.storageUrl}/images/address.svg`} alt="address" />
                                                 <a href="https://www.google.com/maps/search/?api=1&amp;query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062"
-                                                    target="_blank" rel="noopener noreferrer">727, 7th Floor, CP67, Unity Mall, Sector 67, Imperial Tower, Mohali, PB 160062</a>
+                                                    target="_blank" rel="noopener noreferrer">727, 7th Floor, CP67, Unity Mall, Sector 67, Imperial Tower, Airport Road, Mohali, PB 160062</a>
                                             </li>
                                             <li>
                                                 <img src={`${config.storageUrl}/images/info.svg`} alt="alert" />

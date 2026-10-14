@@ -1685,7 +1685,7 @@ export default function AskNvc() {
                                                     <p>
                                                         727, 7th Floor, CP67,
                                                         Unity Mall, Sector 67,
-                                                        Imperial Tower, Mohali,
+                                                        Imperial Tower, Airport Road, Mohali,
                                                         PB 160062
                                                     </p>
 

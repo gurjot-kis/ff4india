@@ -409,7 +409,7 @@ export default function ContactUs() {
                                     href="https://www.google.com/maps/search/?api=1&query=F4+India+Immigration+Law+Firm,+727,+7th+Floor,+Imperial+Tower,+CP.67,+Sector+67,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160062">
                                     <h3>Our Office</h3>
 
-                                    <p>727, 7th Floor, CP67, Unity Mall, Sector 67, Imperial Tower, Moahli, PB 160062</p>
+                                    <p>727, 7th Floor, CP67, Unity Mall, Sector 67, Imperial Tower, Airport Road, Mohali, PB 160062</p>
                                 </a>
                             </div>
                             <div className="info-card">
